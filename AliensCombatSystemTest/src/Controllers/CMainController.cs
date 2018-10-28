@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AliensCombatSystemTest.src.Models.Characters.Aliens;
+using AliensCombatSystemTest.src.Models.Characters.Marines;
+using AliensCombatSystemTest.src.Models.Hits;
+using AliensCombatSystemTest.src.Models.Weapons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +12,14 @@ namespace AliensCombatSystemTest.src.Controllers
 {
     class CMainController:IMainController
     {
+        string[] m_astrAliensClasses, m_astrMarineClasses, m_astrAliensWeapons;
+        string m_strCurrentAlien, m_strCurrentWeaponName;
+        IAlienCharacter m_pAlienChar;
+        IMarineCharacter m_pMarineChar;
+        IAlienWeapon m_pCurrentAlienWeapon;
+        IHitBox[] m_apHits;
+        
+
         public CMainController(mainForm form)
         {
             

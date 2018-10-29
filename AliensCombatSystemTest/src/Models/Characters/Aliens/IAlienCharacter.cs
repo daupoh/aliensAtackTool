@@ -9,11 +9,17 @@ namespace AliensCombatSystemTest.src.Models.Characters.Aliens
 {
     interface IAlienCharacter:ICharacter
     {
-        void setBiteWeapon(IWeapon weapon);
-        void setHoldBiteWeapon(IWeapon weapon);
-        void setStrikeWeapon(IWeapon weapon);
-        void setHoldStrikeWeapon(IWeapon weapon);
-        void setTailWeapon(IWeapon weapon);
+        IAlienWeapon getBiteWeapon();
+        IAlienWeapon getHoldBiteWeapon();
+        IAlienWeapon getStrikeWeapon();
+        IAlienWeapon getHoldStrikeWeapon();
+        IAlienWeapon getTailWeapon();
+
+        void setBiteWeapon(IAlienWeapon weapon);
+        void setHoldBiteWeapon(IAlienWeapon weapon);
+        void setStrikeWeapon(IAlienWeapon weapon);
+        void setHoldStrikeWeapon(IAlienWeapon weapon);
+        void setTailWeapon(IAlienWeapon weapon);
 
         void atackByBite(ICharacter character);
         void atackByHoldBite(ICharacter character);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.Controllers
 {
-    interface IMainController
+    interface IFormController
     {
         string[] getAliensClasses();
         string[] getAliensWeapons();

@@ -15,6 +15,7 @@ namespace AliensCombatSystemTest.src.Models.Weapons
         byte getMaxHits();
         int getStrikeTime();
         IDamageType getDamageType();
+        string getName();
 
     }
 }

@@ -27,6 +27,10 @@ namespace AliensCombatSystemTest.src.Models.Characters.Marines
             m_uiHealthCurrentPoints = maxHP;
             m_strStatus = SCMarineStatus.standStatus;
         }
+        public string getName()
+        {
+            return m_strName;
+        }
         public void restoreArmorhPoints(byte restorePoints)
         {
             m_pArmor.restoreArmorPoints(restorePoints);

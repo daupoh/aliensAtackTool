@@ -45,8 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\Controllers\CMainController.cs" />
-    <Compile Include="src\Controllers\IMainController.cs" />
+    <Compile Include="src\Controllers\CFormController.cs" />
+    <Compile Include="src\Controllers\IFormController.cs" />
     <Compile Include="src\Forms\mainForm.cs">
       <SubType>Form</SubType>
     </Compile>

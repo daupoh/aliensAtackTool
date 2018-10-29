@@ -10,7 +10,7 @@ namespace AliensCombatSystemTest.src.Models.Characters.Aliens
 {
     class CAlienCharacter:IAlienCharacter
     {
-        IWeapon m_pWeaponBite, m_pWeaponHoldBite, m_pWeaponStrike, 
+        IAlienWeapon m_pWeaponBite, m_pWeaponHoldBite, m_pWeaponStrike, 
             m_pWeaponHoldStrike, m_pWeaponTail;
         string m_strName;
 
@@ -19,27 +19,39 @@ namespace AliensCombatSystemTest.src.Models.Characters.Aliens
             SCChecker.checkStringIsNotEmpty(name);
             m_strName = name;
         }
+        public string getName()
+        {
+            return m_strName;
+        }
+        public IAlienWeapon getBiteWeapon()
+        {
+            return m_pWeaponBite;
+        }
+        public IAlienWeapon getHoldBiteWeapon() { return m_pWeaponHoldBite; }
+        public IAlienWeapon getStrikeWeapon() { return m_pWeaponStrike; }
+        public IAlienWeapon getHoldStrikeWeapon() { return m_pWeaponHoldStrike; }
+        public IAlienWeapon getTailWeapon() { return m_pWeaponTail; }
 
         public void getsDamage(IWeapon weapon) { }
 
-        public void setBiteWeapon(IWeapon weapon) {
+        public void setBiteWeapon(IAlienWeapon weapon) {
             SCChecker.checkObjectIsNotNull(weapon);
             m_pWeaponBite = weapon;
         }
-        public void setHoldBiteWeapon(IWeapon weapon)
+        public void setHoldBiteWeapon(IAlienWeapon weapon)
         {
             SCChecker.checkObjectIsNotNull(weapon);
             m_pWeaponHoldBite = weapon;
         }
-        public void setStrikeWeapon(IWeapon weapon) {
+        public void setStrikeWeapon(IAlienWeapon weapon) {
             SCChecker.checkObjectIsNotNull(weapon);
             m_pWeaponStrike = weapon;
         }
-        public void setHoldStrikeWeapon(IWeapon weapon) {
+        public void setHoldStrikeWeapon(IAlienWeapon weapon) {
             SCChecker.checkObjectIsNotNull(weapon);
             m_pWeaponHoldStrike = weapon;
         }
-        public void setTailWeapon(IWeapon weapon) {
+        public void setTailWeapon(IAlienWeapon weapon) {
             SCChecker.checkObjectIsNotNull(weapon);
             m_pWeaponTail = weapon;
         }

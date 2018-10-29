@@ -22,6 +22,10 @@ namespace AliensCombatSystemTest.src.Models.Weapons
             SCChecker.checkObjectIsNotNull(dmgType);
             m_pDamageType = dmgType;
         }
+        public string getName()
+        {
+            return m_strName;
+        }
         public IDamageType getDamageType()
         {
             return m_pDamageType;

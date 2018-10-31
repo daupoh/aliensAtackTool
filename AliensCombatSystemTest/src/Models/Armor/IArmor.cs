@@ -11,7 +11,7 @@ namespace AliensCombatSystemTest.src.Models.Armor
     {        
         double getsHealthDamage (double allDmg, IDamageType dmgType);
         double getsArmorPoints();
-        void setArmorType(SCDamageTypeDescriptor.marinesArmorTypes typeOfArmor);
+        void setArmorType(SCDescriptors.marinesArmorTypes typeOfArmor);
         void setArmorMaxPoints(byte maxPoints);
         void restoreArmorPoints(byte restorePoints);
     }

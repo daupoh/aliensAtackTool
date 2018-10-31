@@ -30,11 +30,11 @@ namespace AliensCombatSystemTest.src.Models
                 throw new FormatException();
             }
         }
-        public static void checkObjectIsNotNull(Object sender)
+        public static void checkObjectIsNotNull(Object sender,string message)
         {
             if (sender==null)
             {
-                throw new FormatException();
+                throw new FormatException(message);
             }
 
         }

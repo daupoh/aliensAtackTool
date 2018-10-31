@@ -9,5 +9,7 @@ namespace AliensCombatSystemTest.src.Models.Hits
     public interface IHitBox
     {
         double getModDmg(double dmgOfVector);
+        string getName();
+        void setModDmg(double mode);
     }
 }

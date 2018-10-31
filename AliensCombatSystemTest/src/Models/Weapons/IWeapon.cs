@@ -10,10 +10,16 @@ namespace AliensCombatSystemTest.src.Models.Weapons
 {
     public interface IWeapon
     {
-        IHit[] strikeHits();
+        IList<IHit> strikeHits();
         void addHit(IHit hit);
         byte getMaxHits();
-        int getStrikeTime();
+
+        void setDamage(double dmg);
+        void setMaxHits(byte count);
+        void setAutoDmgMod(double mod);       
+
+        
+
         IDamageType getDamageType();
         string getName();
 

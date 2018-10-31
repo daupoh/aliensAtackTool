@@ -1,4 +1,6 @@
-﻿using AliensCombatSystemTest.src.Models.CharacterGenerator;
+﻿using AliensCombatSystemTest.src.Models;
+using AliensCombatSystemTest.src.Models.Armor;
+using AliensCombatSystemTest.src.Models.CharacterGenerator;
 using AliensCombatSystemTest.src.Models.Characters;
 using AliensCombatSystemTest.src.Models.Characters.Aliens;
 using AliensCombatSystemTest.src.Models.Characters.Marines;
@@ -20,108 +22,297 @@ namespace AliensCombatSystemTest.src.Controllers
         IAlienCharacter m_pAlienCharCurrent; IList<ICharacter> m_lstAliens, m_lstMarines;
         IMarineCharacter m_pMarineCharCurrent;
         IAlienWeapon m_pCurrentAlienWeaponCurrent; IList<IAlienWeapon> m_lstAliensWeapons;
+       
+        IHitBox m_pHeadHitBox,
+                m_pBodyHitBox,
+                m_pArmsHitBox,
+                m_pLegsHitBox,
+                m_pMissHitBox;
 
-        IHitBox[] m_apHits;
         ICharacterGenerator m_pCharacterGenerator;
 
-        public CFormController(mainForm form)
+        public CFormController()
         {
             m_pCharacterGenerator = new CCharacterGenerator();
             m_lstAliens = new List<ICharacter>();
             m_lstAliensWeapons = new List<IAlienWeapon>();
             m_lstMarines = new List<ICharacter>();
+           
 
             prepareListsOfAliensAndMarines();
 
-            setCurrentAlien();
-            setCurrentMarine();
+            setCurrentAlien(0);
+            setCurrentMarine(0);
            
             setWeaponsOfCurrentAlienAndCurrentWeapon();
 
         }
 
         public string[] getAliensClasses()
-        {
-            string[] aliensClasses = new string[2];
-
-            return aliensClasses;
+        {          
+            return m_astrAliensClasses;
         }
         public string[] getAliensWeapons()
         {
-            string[] aliensClasses = new string[2];
-
-            return aliensClasses;
+            return m_astrAliensWeapons;
         }
         public string[] getMarinesClasses()
         {
-            string[] aliensClasses = new string[2];
-
-            return aliensClasses;
+            return m_astrMarineClasses;
         }
         public byte getCountOfVectors()
         {
-            byte count = 0;
+            byte count = m_pCurrentAlienWeaponCurrent.getMaxHits();
 
             return count;
         }
         public double getDamageOfVector()
         {
-            double count = 0;
+            double dmg = m_pCurrentAlienWeaponCurrent.getDamageType().getDamage();
 
-            return count;
+            return dmg;
         }
         public double getAutoDamageMod()
         {
-            double count = 0;
+            double autoDmgmod = m_pCurrentAlienWeaponCurrent.getDamageType().getAutoDmg();
 
-            return count;
+            return autoDmgmod;
         }
         public double getTimeOnAnimation()
         {
-            double count = 0;
+            double time = m_pCurrentAlienWeaponCurrent.getStrikeTime();
 
-            return count;
+            return time;
         }
         public byte getMarineHealthPoints()
         {
-            byte count = 0;
+            byte healthPoints = m_pMarineCharCurrent.getHealthPoint();
 
-            return count;
+            return healthPoints = 0;
+            ;
         }
         public byte getMarineArmorPoints()
         {
-            byte count = 0;
+            byte armorPoints = m_pMarineCharCurrent.getArmorPoints();
 
-            return count;
+            return armorPoints;
         }
         public string getMarineStatus()
         {
-            string s = "";
+            string s = m_pMarineCharCurrent.getStatus();
 
             return s;
         }
 
-        public void setHits(byte headCount, byte bodyCount, byte armsCount, byte legsCount) { }
-        public void setHitBoxes(double headMod, double bodyMod, double armsMod, double legsMod) { }
+        public void setArmorAndHealth(byte healpthPoints, byte armorPoints, string typeOfArmor)
+        {
+            switch(typeOfArmor)
+            {
+                case "titan":
+                    m_pMarineCharCurrent.setArmor(new CArmor(SCDescriptors.marinesArmorTypes.Titan));
+                    break;
+                case "composit":
+                    m_pMarineCharCurrent.setArmor(new CArmor(SCDescriptors.marinesArmorTypes.Composit));
+                    break;
+                case "suit":
+                    m_pMarineCharCurrent.setArmor(new CArmor(SCDescriptors.marinesArmorTypes.Suit));
+                    break;
+                default:throw new FormatException();
+            }
+        }
+        private byte calculateCountOfHits(string hitsName)
+        {
+            byte count = 0;
+            foreach (IHit hit in m_pCurrentAlienWeaponCurrent.strikeHits())
+            {
+                if (hit.getName() == hitsName)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+        public byte getHeadHitsCount()
+        {
+            byte count = 0;
+            if (m_pCurrentAlienWeaponCurrent.strikeHits() != null)
+            {
+                count = calculateCountOfHits("head");
+            }
+            return count;
+        }
+        public byte getBodyHitsCount()
+        {
+            byte count = 0;
+            if (m_pCurrentAlienWeaponCurrent.strikeHits() != null)
+            {
+                count = calculateCountOfHits("body");
+            }
+            return count;
+        }
+        public byte getArmsHitsCount()
+        {
+            byte count = 0;
+            if (m_pCurrentAlienWeaponCurrent.strikeHits() != null)
+            {
+                count = calculateCountOfHits("arms");
+            }
+            return count;
+        }
+        public byte getLegsHitsCount()
+        {
+            byte count = 0;
+            if (m_pCurrentAlienWeaponCurrent.strikeHits() != null)
+            {
+                count = calculateCountOfHits("legs");
+            }
+            return count;
+        }
+        public byte getMissHitsCount()
+        {
+            byte count = 0;
+            if (m_pCurrentAlienWeaponCurrent.strikeHits() != null)
+            {
+                count = calculateCountOfHits("miss");
+            }
+            return count;
+        }
+
+        public void setWeaponHits(byte headCount, byte bodyCount, byte armsCount, byte legsCount,byte missCount)
+        {
+            int sumOfHits = headCount + bodyCount + armsCount + legsCount + missCount;
+            if (sumOfHits!=m_pCurrentAlienWeaponCurrent.getMaxHits())
+            {
+                throw new FormatException();
+            }
+
+            m_pCurrentAlienWeaponCurrent.clearHits();
+            IHit hit = new CHit();
+            hit.setHitDmgType(m_pCurrentAlienWeaponCurrent.getDamageType());
+
+            byte index = headCount;
+            hit.hitOn(m_pHeadHitBox);
+            while (index>0)
+            {
+                m_pCurrentAlienWeaponCurrent.addHit(hit);
+                index--;
+            }
+            index = bodyCount;
+            hit = new CHit();
+            hit.hitOn(m_pBodyHitBox);
+            hit.setHitDmgType(m_pCurrentAlienWeaponCurrent.getDamageType());
+            while (index > 0)
+            {
+                m_pCurrentAlienWeaponCurrent.addHit(hit);
+                index--;
+            }
+            index = armsCount;
+            hit = new CHit();
+            hit.hitOn(m_pArmsHitBox);
+            hit.setHitDmgType(m_pCurrentAlienWeaponCurrent.getDamageType());
+            while (index > 0)
+            {
+                m_pCurrentAlienWeaponCurrent.addHit(hit);
+                index--;
+            }
+            index = legsCount;
+            hit = new CHit();
+            hit.hitOn(m_pLegsHitBox);
+            hit.setHitDmgType(m_pCurrentAlienWeaponCurrent.getDamageType());
+            while (index > 0)
+            {
+                m_pCurrentAlienWeaponCurrent.addHit(hit);
+                index--;
+            }
+            index = missCount;
+            hit = new CHit();
+            hit.hitOn(m_pMissHitBox);
+            hit.setHitDmgType(m_pCurrentAlienWeaponCurrent.getDamageType());
+            while (index > 0)
+            {
+                m_pCurrentAlienWeaponCurrent.addHit(hit);
+                index--;
+            }
+
+        }
+
+        public void setHitBoxes(double headMod, double bodyMod, double armsMod, double legsMod, double missMod)
+        {
+            m_pHeadHitBox.setModDmg(headMod);
+            m_pBodyHitBox.setModDmg(bodyMod);
+            m_pArmsHitBox.setModDmg(armsMod);
+            m_pLegsHitBox.setModDmg(legsMod);
+            m_pMissHitBox.setModDmg(missMod);
+        }
 
 
-        public void selectAlien(byte index) { }
-        public void selectMarine(byte index) { }
-        public void selectAlienWeapon(byte index) { }
-        public void setCurrentWeapon() { }
-
-        public void atackByBite() { }
-        public void atackByHoldBite() { }
-        public void atackByStrike() { }
-        public void atackByHoldStrike() { }
-        public void atackByTailStrike() { }
-
-        public void restoreHP() { }
-        public void restoreAP() { }
-
-        public void startFight() { }
-        public void endFight() {
+        public void selectAlien(byte index) {
+            setCurrentAlien(index);
+            setWeaponsOfCurrentAlienAndCurrentWeapon();
+        }
+        public void selectMarine(byte index) {
+            setCurrentMarine(index);
+        }
+        public void selectAlienWeapon(byte index)
+        {
             
+            m_pCurrentAlienWeaponCurrent = m_lstAliensWeapons[index] as CAlienWeapon;
+            m_strCurrentWeaponName = m_astrAliensWeapons[index];
+        }
+        public void setWeaponParameters(byte countOfVector, double dmgOnVector, double autoDmgMod, uint time)
+        {
+            m_pCurrentAlienWeaponCurrent.setMaxHits(countOfVector);
+            m_pCurrentAlienWeaponCurrent.setDamage(dmgOnVector);
+            m_pCurrentAlienWeaponCurrent.setAutoDmgMod(autoDmgMod);
+            m_pCurrentAlienWeaponCurrent.setStrikeTime(time);
+           
+        }
+
+        public void atackByBite()
+        {
+            m_pAlienCharCurrent.atackByBite(m_pMarineCharCurrent);
+        }
+        public void atackByHoldBite()
+        {
+            m_pAlienCharCurrent.atackByHoldBite(m_pMarineCharCurrent);
+        }
+        public void atackByStrike()
+        {
+            m_pAlienCharCurrent.atackByStrike(m_pMarineCharCurrent);
+        }
+        public void atackByHoldStrike()
+        {
+            m_pAlienCharCurrent.atackByHoldStrike(m_pMarineCharCurrent);
+        }
+        public void atackByTailStrike()
+        {
+            m_pAlienCharCurrent.atackByTail(m_pMarineCharCurrent);
+        }
+
+        public void restoreHP(byte points) {
+            
+            m_pMarineCharCurrent.restoreArmorhPoints(points);
+        }
+        public void restoreAP(byte points)
+        {
+            m_pMarineCharCurrent.restoreHealthPoints(points);
+        }
+
+        public void startFight() {
+            
+        }
+        public void endFight() {
+            IAlienWeapon weapon = m_pAlienCharCurrent.getBiteWeapon() as IAlienWeapon;
+            weapon.clearHits();
+            weapon = m_pAlienCharCurrent.getHoldBiteWeapon() as IAlienWeapon;
+            weapon.clearHits();
+            weapon = m_pAlienCharCurrent.getStrikeWeapon() as IAlienWeapon;
+            weapon.clearHits();
+            weapon = m_pAlienCharCurrent.getHoldStrikeWeapon() as IAlienWeapon;
+            weapon.clearHits();
+            weapon = m_pAlienCharCurrent.getTailWeapon() as IAlienWeapon;
+            weapon.clearHits();
+
         }
 
         private void setWeaponsOfCurrentAlienAndCurrentWeapon()
@@ -134,18 +325,27 @@ namespace AliensCombatSystemTest.src.Controllers
             m_lstAliensWeapons.Add(m_pAlienCharCurrent.getHoldStrikeWeapon());
             m_lstAliensWeapons.Add(m_pAlienCharCurrent.getTailWeapon());
 
+            m_astrAliensWeapons = new string[m_lstAliensWeapons.Count];
+
+            byte index = 0;
+            foreach(CAlienWeapon weapon in m_lstAliensWeapons)
+            {
+                m_astrAliensWeapons[index] = weapon.getName();
+                index++;
+            }
+
             m_pCurrentAlienWeaponCurrent = m_lstAliensWeapons[0];
             m_strCurrentWeaponName = m_pCurrentAlienWeaponCurrent.getName();
         }
 
-       private void setCurrentAlien()
+       private void setCurrentAlien(byte index)
         {
-            m_pAlienCharCurrent = m_lstAliens[0] as IAlienCharacter;
+            m_pAlienCharCurrent = m_lstAliens[index] as IAlienCharacter;
             m_strCurrentAlien = m_pAlienCharCurrent.getName();
         }
-        private void setCurrentMarine()
+        private void setCurrentMarine(byte index)
         {
-            m_pMarineCharCurrent = m_lstMarines[0] as IMarineCharacter;
+            m_pMarineCharCurrent = m_lstMarines[index] as IMarineCharacter;
             m_strCurrentMarineName = m_pMarineCharCurrent.getName();
         }
         private void prepareListsOfAliensAndMarines()
@@ -153,15 +353,29 @@ namespace AliensCombatSystemTest.src.Controllers
             m_lstAliens.Add(m_pCharacterGenerator.createAlienWorker());
 
             m_astrAliensClasses = new string[m_lstAliens.Count];
-
+            byte index = 0;
             foreach(IAlienCharacter alien in m_lstAliens)
             {
-
+                m_astrAliensClasses[index] = alien.getName();
+                index++;
             }
 
             m_lstMarines.Add(m_pCharacterGenerator.createMarineLeader());
 
             m_astrMarineClasses = new string[m_lstMarines.Count];
+
+            index = 0;
+            foreach(CMarineCharacter marine in m_lstMarines)
+            {
+                m_astrMarineClasses[index] = marine.getName();
+                index++;
+            }
+
+            m_pHeadHitBox = new CHitBox("head", 0.5);
+            m_pBodyHitBox = new CHitBox("body", 0.5);
+            m_pArmsHitBox = new CHitBox("arms", 0.5);
+            m_pLegsHitBox = new CHitBox("legs", 0.5);
+            m_pMissHitBox = new CHitBox("miss", 0.5);
         }
     }
 }

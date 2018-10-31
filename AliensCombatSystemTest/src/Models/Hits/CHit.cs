@@ -16,25 +16,22 @@ namespace AliensCombatSystemTest.src.Models.Hits
         public double getDamage()
         {
             double dmg = 0;
-            if (m_pHitBox is CHitBoxMiss)
-            {
-                dmg = m_pHitBox.getModDmg(m_pDamageType.getAutoDmg());
-            }
-            else
-            {
-                dmg = m_pHitBox.getModDmg(m_pDamageType.getDamage());
-            }
+            dmg = m_pHitBox.getModDmg(m_pDamageType.getDamage());            
             return dmg;
+        }
+        public string getName()
+        {
+            return m_pHitBox.getName();
         }
         public void hitOn(IHitBox atackedHitBox)
         {
-            SCChecker.checkObjectIsNotNull(atackedHitBox);
+            SCChecker.checkObjectIsNotNull(atackedHitBox,"Невозможно атаковать пустой хит-бокс.");
             m_pHitBox = atackedHitBox;
         }
 
         public void setHitDmgType(IDamageType dmgType)
         {
-            SCChecker.checkObjectIsNotNull(dmgType);
+            SCChecker.checkObjectIsNotNull(dmgType,"Невозможно установить пустой тип урона");
             m_pDamageType = dmgType;
         }
 

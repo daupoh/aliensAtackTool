@@ -19,72 +19,72 @@ namespace AliensCombatSystemTest.src.Models.CharacterGenerator
        
         IAlienWeaponBuilder m_pAlienWeaponBuilder;
 
-        IDamageType m_pBiteDmgType, m_pHoldBiteDmgType, m_pStrikeDmgType,
-            m_pHoldStrikeDmgType, m_pTailDmgType;
+        
         IAlienWeapon m_pBiteWeap, m_pHoldBiteWeap, m_pStrikeWeap,
             m_pHoldStrikeWeap, m_pTailWeap;
-        SCDamageTypeDescriptor.aliensMetaClasses alienMetaClass;
+        SCDescriptors.aliensMetaClasses alienMetaClass;
 
         IMarineCharacter m_pMarineChar;
         IArmor m_pArmorMarine;
         public CCharacterGenerator()
         {
             m_pAlienWeaponBuilder = new CAlienWeaponBuilder();
+            
         }
 
         public ICharacter createAlienWorker()
         {
-            alienMetaClass = SCDamageTypeDescriptor.aliensMetaClasses.Slave;
+            alienMetaClass = SCDescriptors.aliensMetaClasses.Slave;
             m_pAlienChar = new CAlienCharacter("Alien Worker");
 
             m_pBiteWeap = m_pAlienWeaponBuilder
-                .withAutoDmgMod(0)
-                .withDamageOnHit(30)
+                .withAutoDmgMod(0.1)
+                .withDamageOnHit(19)
                 .withMaxHits(1)
-                .withName(SCDamageTypeDescriptor.bite)
-                .withStrikeTime(250)
+                .withName(SCDescriptors.bite)
+                .withStrikeTime(500)
                 .withMetaClass(alienMetaClass)
-                .withWeaponKey(SCDamageTypeDescriptor.bite)
+                .withWeaponKey(SCDescriptors.bite)
                 .build();
             m_pAlienWeaponBuilder.restore();
             m_pHoldBiteWeap = m_pAlienWeaponBuilder
-                .withAutoDmgMod(0)
-                .withDamageOnHit(70)
+                .withAutoDmgMod(0.1)
+                .withDamageOnHit(59)
                 .withMaxHits(1)
-                .withName(SCDamageTypeDescriptor.holdBite)
-                .withStrikeTime(750)
+                .withName(SCDescriptors.holdBite)
+                .withStrikeTime(1350)
                 .withMetaClass(alienMetaClass)
-                .withWeaponKey(SCDamageTypeDescriptor.holdBite)
+                .withWeaponKey(SCDescriptors.holdBite)
                 .build();
             m_pAlienWeaponBuilder.restore();
             m_pStrikeWeap = m_pAlienWeaponBuilder
                 .withAutoDmgMod(0.5)
-                .withDamageOnHit(12)
+                .withDamageOnHit(8)
                 .withMaxHits(5)
-                .withName(SCDamageTypeDescriptor.strike)
-                .withStrikeTime(60)
+                .withName(SCDescriptors.strike)
+                .withStrikeTime(500)
                 .withMetaClass(alienMetaClass)
-                .withWeaponKey(SCDamageTypeDescriptor.strike)
+                .withWeaponKey(SCDescriptors.strike)
                 .build();
             m_pAlienWeaponBuilder.restore();
             m_pHoldStrikeWeap = m_pAlienWeaponBuilder
-                .withAutoDmgMod(0)
-                .withDamageOnHit(20)
+                .withAutoDmgMod(0.1)
+                .withDamageOnHit(10)
                 .withMaxHits(5)
-                .withName(SCDamageTypeDescriptor.holdStrike)
-                .withStrikeTime(1000)
+                .withName(SCDescriptors.holdStrike)
+                .withStrikeTime(500)
                 .withMetaClass(alienMetaClass)
-                .withWeaponKey(SCDamageTypeDescriptor.holdStrike)
+                .withWeaponKey(SCDescriptors.holdStrike)
                 .build();
             m_pAlienWeaponBuilder.restore();
             m_pTailWeap = m_pAlienWeaponBuilder
                 .withAutoDmgMod(0.8)
-                .withDamageOnHit(5)
+                .withDamageOnHit(6)
                 .withMaxHits(10)
-                .withName(SCDamageTypeDescriptor.tail)
-                .withStrikeTime(50)
+                .withName(SCDescriptors.tail)
+                .withStrikeTime(1000)
                 .withMetaClass(alienMetaClass)
-                .withWeaponKey(SCDamageTypeDescriptor.tail)
+                .withWeaponKey(SCDescriptors.tail)
                 .build();
             m_pAlienWeaponBuilder.restore();
             //назначение
@@ -101,7 +101,7 @@ namespace AliensCombatSystemTest.src.Models.CharacterGenerator
             m_pMarineChar = new CMarineCharacter("Marine Leader",100);
             m_pArmorMarine = new CArmor();
             m_pArmorMarine.setArmorMaxPoints(100);
-            m_pArmorMarine.setArmorType(SCDamageTypeDescriptor.marinesArmorTypes.Composit);
+            m_pArmorMarine.setArmorType(SCDescriptors.marinesArmorTypes.Composit);
             m_pMarineChar.setArmor(m_pArmorMarine);
             
             return m_pMarineChar;

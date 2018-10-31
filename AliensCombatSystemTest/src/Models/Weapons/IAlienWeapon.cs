@@ -12,8 +12,9 @@ namespace AliensCombatSystemTest.src.Models.Weapons
     {
         
         void addHit(IHit hit);
-        void setStrikeTime(int time);
-        IHit[] strikeHits();
-        int getStrikeTime();
+        void setStrikeTime(uint time);
+        IList<IHit> strikeHits();
+        void clearHits();
+        uint getStrikeTime();
     }
 }

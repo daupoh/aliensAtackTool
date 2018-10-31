@@ -12,10 +12,14 @@ namespace AliensCombatSystemTest.src.Models.Armor
         byte m_uiArmorCurrentPoints, m_uiArmorMaxPoints;
         double m_dbArmorDmgMod;
         
-        SCDamageTypeDescriptor.marinesArmorTypes m_eArmorType;
+        SCDescriptors.marinesArmorTypes m_eArmorType;
 
         public CArmor()
         {
+        }
+        public CArmor(SCDescriptors.marinesArmorTypes armorType)
+        {
+            setArmorType(armorType);
         }
 
         public double getsHealthDamage(double allDmg, IDamageType dmgType)
@@ -35,7 +39,7 @@ namespace AliensCombatSystemTest.src.Models.Armor
             return points;
 
         }
-        public void setArmorType(SCDamageTypeDescriptor.marinesArmorTypes typeOfArmor)
+        public void setArmorType(SCDescriptors.marinesArmorTypes typeOfArmor)
         {
             m_eArmorType = typeOfArmor;
         }
@@ -72,18 +76,18 @@ namespace AliensCombatSystemTest.src.Models.Armor
             bool canGetValue = true;
             switch (m_eArmorType)
             {
-                case SCDamageTypeDescriptor.marinesArmorTypes.Composit:
-                    canGetValue = SCDamageTypeDescriptor.marinesArmorCompositDmgTypes
+                case SCDescriptors.marinesArmorTypes.Composit:
+                    canGetValue = SCDescriptors.marinesArmorCompositDmgTypes
                         .TryGetValue(dmgType.getName(),out dmgArmomMod);
                     SCChecker.checkBooleanVarIsTrue(canGetValue);
                     break;
-                case SCDamageTypeDescriptor.marinesArmorTypes.Titan:
-                    canGetValue = SCDamageTypeDescriptor.marinesArmorTitanDmgTypes
+                case SCDescriptors.marinesArmorTypes.Titan:
+                    canGetValue = SCDescriptors.marinesArmorTitanDmgTypes
                         .TryGetValue(dmgType.getName(), out dmgArmomMod);
                     SCChecker.checkBooleanVarIsTrue(canGetValue);
                     break;
-                case SCDamageTypeDescriptor.marinesArmorTypes.Suit:
-                    canGetValue = SCDamageTypeDescriptor.marinesArmorSuitDmgTypes
+                case SCDescriptors.marinesArmorTypes.Suit:
+                    canGetValue = SCDescriptors.marinesArmorSuitDmgTypes
                         .TryGetValue(dmgType.getName(), out dmgArmomMod);
                     SCChecker.checkBooleanVarIsTrue(canGetValue);
                     break;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src
 {
-    public static class SCDamageTypeDescriptor
+    public static class SCDescriptors
     {
         //aliens metaclasses
         public  enum aliensMetaClasses:byte {Slave, Hunter, Soldier,Royal};
@@ -34,6 +34,14 @@ namespace AliensCombatSystemTest.src
             armorEffectiveHigh = 0.6,
             armorEffectiveVeryHigh = 0.85;
 
+        public static Dictionary<string, double> marinesHitBoxes = new Dictionary<string, double>
+        {
+            { "head", 1.7 },
+            { "body", 1},
+            { "arms", 0.65},
+            { "legs", 0.8},
+            { "miss", 0.5}            
+        };
         public static Dictionary<string, string> aliensSlavesWeaponsDmgTypes = new Dictionary<string, string>
         {
             { bite,biteDT},

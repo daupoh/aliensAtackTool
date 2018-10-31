@@ -73,7 +73,6 @@
     <Compile Include="src\Models\DamageTypes\IDamageType.cs" />
     <Compile Include="src\Models\Hits\CHit.cs" />
     <Compile Include="src\Models\Hits\CHitBox.cs" />
-    <Compile Include="src\Models\Hits\CHitBoxMiss.cs" />
     <Compile Include="src\Models\Hits\IHit.cs" />
     <Compile Include="src\Models\Hits\IHitBox.cs" />
     <Compile Include="src\Models\Weapons\CAlienWeapon.cs" />

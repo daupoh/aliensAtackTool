@@ -27,6 +27,14 @@ namespace AliensCombatSystemTest.src.Models.Characters.Marines
             m_uiHealthCurrentPoints = maxHP;
             m_strStatus = SCMarineStatus.standStatus;
         }
+        public void setHealthPoint(byte hp)
+        {
+            m_uiHealthCurrentPoints = hp;
+        }
+        public void setArmorPoints(byte ap)
+        {
+            m_pArmor.setArmorMaxPoints(ap);
+        }
         public string getName()
         {
             return m_strName;
@@ -37,7 +45,7 @@ namespace AliensCombatSystemTest.src.Models.Characters.Marines
         }
         public void getsDamage(IWeapon weapon)
         {
-            IHit[] hits = weapon.strikeHits();           
+            IList<IHit> hits = weapon.strikeHits();           
             double allDmg = 0;
             IDamageType dmgType = weapon.getDamageType();
             foreach (IHit hit in hits)
@@ -62,7 +70,7 @@ namespace AliensCombatSystemTest.src.Models.Characters.Marines
 
         public void setArmor(IArmor armor)
         {
-            SCChecker.checkObjectIsNotNull(armor);
+            SCChecker.checkObjectIsNotNull(armor,"Невозможно в качестве брони использовать Null");
             m_pArmor = armor;
         }
         public string getStatus()

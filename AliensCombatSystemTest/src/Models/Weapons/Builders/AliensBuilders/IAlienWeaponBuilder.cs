@@ -13,7 +13,7 @@ namespace AliensCombatSystemTest.src.Models.Weapons
         IAlienWeaponBuilder withDamageOnHit(double dmg);
         IAlienWeaponBuilder withAutoDmgMod(double autoDmgMod);
         IAlienWeaponBuilder withName(string name);
-        IAlienWeaponBuilder withMetaClass(SCDamageTypeDescriptor.aliensMetaClasses metaClass);
+        IAlienWeaponBuilder withMetaClass(SCDescriptors.aliensMetaClasses metaClass);
         IAlienWeaponBuilder withWeaponKey(string key);
 
         void restore();

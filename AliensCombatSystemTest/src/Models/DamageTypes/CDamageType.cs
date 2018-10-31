@@ -51,7 +51,7 @@ namespace AliensCombatSystemTest.src.Models.DamageTypes
 
         public double getAutoDmg()
         {
-            return m_dbAutoDmgMod*m_dbDmg;
+            return m_dbAutoDmgMod;
         }
 
         public void setAutoDmgMod(double mod)

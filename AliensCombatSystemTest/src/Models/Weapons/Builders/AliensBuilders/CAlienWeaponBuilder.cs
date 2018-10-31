@@ -17,7 +17,7 @@ namespace AliensCombatSystemTest.src.Models.Weapons.Builders.AliensBuilders
         protected uint m_uiMiliseconds;
         protected double m_dbDmg, m_dbAutoDmgMod;
         protected string m_strName;
-        protected SCDamageTypeDescriptor.aliensMetaClasses m_eAlienMetaClass;
+        protected SCDescriptors.aliensMetaClasses m_eAlienMetaClass;
         protected string m_strAlienWeapType;
         protected string m_strAlienDamageType;
 
@@ -37,15 +37,16 @@ namespace AliensCombatSystemTest.src.Models.Weapons.Builders.AliensBuilders
             m_pDmgType = m_pDamageTypeBuilder
              .withAutoDamageMod(m_dbAutoDmgMod)
              .withDamage(m_dbDmg)
-             .withMaxHits(m_uiMaxHits)
+             .withMaxHits(m_uiMaxHits)             
              .withName(damageTypeName())
              .build();
             m_pDamageTypeBuilder.restore();
 
             m_pAlienWeapon = new CAlienWeapon(m_strName, m_pDmgType);
+            m_pAlienWeapon.setStrikeTime(m_uiMiliseconds);
             return m_pAlienWeapon;
         }
-        public IAlienWeaponBuilder withMetaClass(SCDamageTypeDescriptor.aliensMetaClasses metaClass)
+        public IAlienWeaponBuilder withMetaClass(SCDescriptors.aliensMetaClasses metaClass)
         {
             m_eAlienMetaClass = metaClass;
             return this;
@@ -94,26 +95,26 @@ namespace AliensCombatSystemTest.src.Models.Weapons.Builders.AliensBuilders
             bool canFindValue = true;
            switch (m_eAlienMetaClass)
             {
-                case SCDamageTypeDescriptor.aliensMetaClasses.Slave:
-                    canFindValue = SCDamageTypeDescriptor
+                case SCDescriptors.aliensMetaClasses.Slave:
+                    canFindValue = SCDescriptors
                         .aliensSlavesWeaponsDmgTypes.TryGetValue(m_strAlienWeapType, out dmgTypeName);
                     SCChecker.checkBooleanVarIsTrue(canFindValue);
 
                     break;
-                case SCDamageTypeDescriptor.aliensMetaClasses.Hunter:
-                    canFindValue = SCDamageTypeDescriptor
+                case SCDescriptors.aliensMetaClasses.Hunter:
+                    canFindValue = SCDescriptors
                         .aliensHuntersWeaponsDmgTypes.TryGetValue(m_strAlienWeapType, out dmgTypeName);
                     SCChecker.checkBooleanVarIsTrue(canFindValue);
 
                     break;
-                case SCDamageTypeDescriptor.aliensMetaClasses.Soldier:
-                    canFindValue = SCDamageTypeDescriptor
+                case SCDescriptors.aliensMetaClasses.Soldier:
+                    canFindValue = SCDescriptors
                         .aliensSoldiersWeaponsDmgTypes.TryGetValue(m_strAlienWeapType, out dmgTypeName);
                     SCChecker.checkBooleanVarIsTrue(canFindValue);
 
                     break;
-                case SCDamageTypeDescriptor.aliensMetaClasses.Royal:
-                    canFindValue = SCDamageTypeDescriptor
+                case SCDescriptors.aliensMetaClasses.Royal:
+                    canFindValue = SCDescriptors
                         .aliensRoyalWeaponsDmgTypes.TryGetValue(m_strAlienWeapType, out dmgTypeName);
                     SCChecker.checkBooleanVarIsTrue(canFindValue);
 

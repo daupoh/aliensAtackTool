@@ -18,7 +18,14 @@ namespace AliensCombatSystemTest.src.Models.Hits
             m_strName = name;
             m_dbModDmg = mod;
         }
-
+        public string getName()
+        {
+            return m_strName;
+        }
+        public void setModDmg(double mode)
+        {
+            m_dbModDmg = mode;
+        }
         public double getModDmg(double dmgOfVector)
         {
             double dmg = 0;

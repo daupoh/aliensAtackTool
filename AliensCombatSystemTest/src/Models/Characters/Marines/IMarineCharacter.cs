@@ -10,7 +10,9 @@ namespace AliensCombatSystemTest.src.Models.Characters.Marines
     interface IMarineCharacter:ICharacter
     {
         byte getHealthPoint();
-        byte getArmorPoints();      
+        byte getArmorPoints();
+        void setHealthPoint(byte hp);
+        void setArmorPoints(byte ap);
 
         void setArmor(IArmor armor);
         string getStatus();

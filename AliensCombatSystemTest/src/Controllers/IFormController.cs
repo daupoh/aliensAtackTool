@@ -11,20 +11,31 @@ namespace AliensCombatSystemTest.src.Controllers
         string[] getAliensClasses();
         string[] getAliensWeapons();
         string[] getMarinesClasses();
+
         byte getCountOfVectors();
         double getDamageOfVector();
         double getAutoDamageMod();
         double getTimeOnAnimation();
+
+        byte getHeadHitsCount();
+        byte getBodyHitsCount();
+        byte getArmsHitsCount();
+        byte getLegsHitsCount();
+        byte getMissHitsCount();
+
         byte getMarineHealthPoints();
         byte getMarineArmorPoints();
         string getMarineStatus();
 
-        void setHits(byte headCount, byte bodyCount, byte armsCount, byte legsCount);
-        void setHitBoxes(double headMod, double bodyMod, double armsMod, double legsMod);
+        void setArmorAndHealth(byte healpthPoints, byte armorPoints, string typeOfArmor);
+
+        void setWeaponHits(byte headCount, byte bodyCount, byte armsCount, byte legsCount, byte missCount);
+        void setHitBoxes(double headMod, double bodyMod, double armsMod, double legsMod, double missMod);
         void selectAlien(byte index);
         void selectMarine(byte index);
         void selectAlienWeapon(byte index);
-        void setCurrentWeapon();
+
+        void setWeaponParameters(byte countOfVector,double dmgOnVector,double autoDmgMod, uint time);
         
         void atackByBite();
         void atackByHoldBite();
@@ -32,8 +43,8 @@ namespace AliensCombatSystemTest.src.Controllers
         void atackByHoldStrike();
         void atackByTailStrike();
 
-        void restoreHP();
-        void restoreAP();
+        void restoreHP(byte points);
+        void restoreAP(byte points);
 
         void startFight();
         void endFight();

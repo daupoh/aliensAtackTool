@@ -212,16 +212,54 @@ namespace AliensCombatSystemTest
             numHitsToZero();
             try
             {
-                numHeadHitsCount.Value = equivalHits;
+                numHeadHitsCount.Value = equivalHits + restOfHits;
                 numBodyHitsCount.Value = equivalHits;
                 numArmsHitsCount.Value = equivalHits;
                 numLegsHitsCount.Value = equivalHits;                
-                numMissHitsCount.Value = equivalHits + restOfHits;
+                numMissHitsCount.Value = equivalHits;
             }
             catch (FormatException exc)
             {
                 MessageBox.Show(exc.Message);
             }
+        }
+
+        private void btnAccuracyHits_Click(object sender, EventArgs e)
+        {
+            int lesserHits = m_pFormController.getCountOfVectors() / 10,
+                biggerHits = (m_pFormController.getCountOfVectors() - lesserHits * 2)/2,
+                restOfHits = (m_pFormController.getCountOfVectors() - lesserHits * 2) % 2;  
+            numHitsToZero();
+            try
+            {
+                numHeadHitsCount.Value = biggerHits+ restOfHits;
+                numBodyHitsCount.Value = biggerHits;
+                numArmsHitsCount.Value = lesserHits;
+                numLegsHitsCount.Value = lesserHits;
+                numMissHitsCount.Value = 0;
+            }
+            catch (FormatException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void btnSaveHitBoxMods_Click(object sender, EventArgs e)
+        {
+            decimal headMod = numHeadHitBox.Value,
+                armsMod = numArmsHitBox.Value,
+                legsMod = numLegsHitBox.Value,
+                bodyMod = numBodyHitBox.Value;
+            try
+            {
+                double missMod=m_pFormController.getAutoDamageMod();            
+                m_pFormController.setHitBoxes((double)headMod, (double)bodyMod, (double)armsMod, (double)legsMod, missMod);
+            }
+            catch (FormatException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
         }
     }
 }

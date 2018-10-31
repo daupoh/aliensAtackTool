@@ -89,7 +89,6 @@
             this.numsetAP = new System.Windows.Forms.NumericUpDown();
             this.numSetHP = new System.Windows.Forms.NumericUpDown();
             this.pnlHitBoxes = new System.Windows.Forms.Panel();
-            this.btnSaveHitBoxMods = new System.Windows.Forms.Button();
             this.numLegsHitBox = new System.Windows.Forms.NumericUpDown();
             this.lblLegsHitBox = new System.Windows.Forms.Label();
             this.lblArmsHitBox = new System.Windows.Forms.Label();
@@ -102,6 +101,7 @@
             this.pnlFightControl = new System.Windows.Forms.Panel();
             this.btnEndFight = new System.Windows.Forms.Button();
             this.btnStartFight = new System.Windows.Forms.Button();
+            this.btnSaveHitBoxMods = new System.Windows.Forms.Button();
             this.gbxAliensArea.SuspendLayout();
             this.pnlHits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMissHitsCount)).BeginInit();
@@ -194,6 +194,7 @@
             this.btnAccuracyHits.TabIndex = 31;
             this.btnAccuracyHits.Text = "Меткий удар";
             this.btnAccuracyHits.UseVisualStyleBackColor = true;
+            this.btnAccuracyHits.Click += new System.EventHandler(this.btnAccuracyHits_Click);
             // 
             // btnRandomHits
             // 
@@ -868,15 +869,6 @@
             this.pnlHitBoxes.Size = new System.Drawing.Size(238, 155);
             this.pnlHitBoxes.TabIndex = 9;
             // 
-            // btnSaveHitBoxMods
-            // 
-            this.btnSaveHitBoxMods.Location = new System.Drawing.Point(135, 107);
-            this.btnSaveHitBoxMods.Name = "btnSaveHitBoxMods";
-            this.btnSaveHitBoxMods.Size = new System.Drawing.Size(100, 44);
-            this.btnSaveHitBoxMods.TabIndex = 23;
-            this.btnSaveHitBoxMods.Text = "Сохранить модификаторы";
-            this.btnSaveHitBoxMods.UseVisualStyleBackColor = true;
-            // 
             // numLegsHitBox
             // 
             this.numLegsHitBox.DecimalPlaces = 2;
@@ -1062,6 +1054,16 @@
             this.btnStartFight.Text = "Начать бой";
             this.btnStartFight.UseVisualStyleBackColor = true;
             // 
+            // btnSaveHitBoxMods
+            // 
+            this.btnSaveHitBoxMods.Location = new System.Drawing.Point(135, 107);
+            this.btnSaveHitBoxMods.Name = "btnSaveHitBoxMods";
+            this.btnSaveHitBoxMods.Size = new System.Drawing.Size(100, 44);
+            this.btnSaveHitBoxMods.TabIndex = 23;
+            this.btnSaveHitBoxMods.Text = "Сохранить модификаторы";
+            this.btnSaveHitBoxMods.UseVisualStyleBackColor = true;
+            this.btnSaveHitBoxMods.Click += new System.EventHandler(this.btnSaveHitBoxMods_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1154,7 +1156,6 @@
         private System.Windows.Forms.NumericUpDown numsetAP;
         private System.Windows.Forms.NumericUpDown numSetHP;
         private System.Windows.Forms.Panel pnlHitBoxes;
-        private System.Windows.Forms.Button btnSaveHitBoxMods;
         private System.Windows.Forms.NumericUpDown numLegsHitBox;
         private System.Windows.Forms.Label lblLegsHitBox;
         private System.Windows.Forms.Label lblArmsHitBox;
@@ -1185,6 +1186,7 @@
         private System.Windows.Forms.Label lblHealth;
         private System.Windows.Forms.TextBox tbxArmor;
         private System.Windows.Forms.TextBox tbxHealth;
+        private System.Windows.Forms.Button btnSaveHitBoxMods;
     }
 }
 

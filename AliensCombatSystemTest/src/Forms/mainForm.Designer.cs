@@ -184,6 +184,7 @@
             this.btnAllHeadHits.TabIndex = 32;
             this.btnAllHeadHits.Text = "В голову";
             this.btnAllHeadHits.UseVisualStyleBackColor = true;
+            this.btnAllHeadHits.Click += new System.EventHandler(this.btnAllHeadHits_Click);
             // 
             // btnAccuracyHits
             // 
@@ -202,6 +203,7 @@
             this.btnRandomHits.TabIndex = 30;
             this.btnRandomHits.Text = "В разнобой";
             this.btnRandomHits.UseVisualStyleBackColor = true;
+            this.btnRandomHits.Click += new System.EventHandler(this.btnRandomHits_Click);
             // 
             // btnAlmostMissHits
             // 
@@ -211,6 +213,7 @@
             this.btnAlmostMissHits.TabIndex = 29;
             this.btnAlmostMissHits.Text = "Почти мимо";
             this.btnAlmostMissHits.UseVisualStyleBackColor = true;
+            this.btnAlmostMissHits.Click += new System.EventHandler(this.btnAlmostMissHits_Click);
             // 
             // lblMissHitsCount
             // 
@@ -741,6 +744,7 @@
             this.btnSetArmorAndHealth.TabIndex = 10;
             this.btnSetArmorAndHealth.Text = "Установить значения здоровья и брони";
             this.btnSetArmorAndHealth.UseVisualStyleBackColor = true;
+            this.btnSetArmorAndHealth.Click += new System.EventHandler(this.btnSetArmorAndHealth_Click);
             // 
             // pnlSetArmorAndHealth
             // 
@@ -767,6 +771,7 @@
             this.rbtntypeOfArmorSuit.TabStop = true;
             this.rbtntypeOfArmorSuit.Text = "Костюм";
             this.rbtntypeOfArmorSuit.UseVisualStyleBackColor = true;
+            this.rbtntypeOfArmorSuit.Visible = false;
             // 
             // rbtntypeOfArmorComposit
             // 
@@ -779,6 +784,7 @@
             this.rbtntypeOfArmorComposit.TabStop = true;
             this.rbtntypeOfArmorComposit.Text = "Композит";
             this.rbtntypeOfArmorComposit.UseVisualStyleBackColor = true;
+            this.rbtntypeOfArmorComposit.Visible = false;
             // 
             // rbtntypeOfArmorTitan
             // 
@@ -790,6 +796,7 @@
             this.rbtntypeOfArmorTitan.TabStop = true;
             this.rbtntypeOfArmorTitan.Text = "Титан";
             this.rbtntypeOfArmorTitan.UseVisualStyleBackColor = true;
+            this.rbtntypeOfArmorTitan.Visible = false;
             // 
             // lblsetAP
             // 

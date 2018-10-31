@@ -150,5 +150,78 @@ namespace AliensCombatSystemTest
                 MessageBox.Show(exc.Message);
             }
         }
+        private void getArmorAndHealth()
+        {
+            tbxHealth.Text = Convert.ToString(m_pFormController.getMarineHealthPoints());
+            tbxArmor.Text = Convert.ToString(m_pFormController.getMarineArmorPoints());
+        }
+        private void btnSetArmorAndHealth_Click(object sender, EventArgs e)
+        {
+            decimal healthPoints = numSetHP.Value,armorPoints=numsetAP.Value;
+            try
+            {
+                m_pFormController.setArmorAndHealth((byte)healthPoints, (byte)armorPoints, "composit");
+                
+                getArmorAndHealth();
+            }
+            catch (FormatException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void btnAllHeadHits_Click(object sender, EventArgs e)
+        {
+            numHitsToZero();
+            try
+            {
+                numHeadHitsCount.Value = m_pFormController.getCountOfVectors();
+            }
+            catch (FormatException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void btnAlmostMissHits_Click(object sender, EventArgs e)
+        {
+            int restOfHits = m_pFormController.getCountOfVectors() - 1;
+            numHitsToZero();
+            try
+            {
+                numArmsHitsCount.Value = 1;
+                numMissHitsCount.Value = restOfHits;
+            }
+            catch (FormatException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+        private void numHitsToZero()
+        {
+            numHeadHitsCount.Value = 0;
+            numBodyHitsCount.Value = 0;
+            numArmsHitsCount.Value = 0;
+            numLegsHitsCount.Value = 0;
+            numMissHitsCount.Value = 0;
+        }
+        private void btnRandomHits_Click(object sender, EventArgs e)
+        {
+            int equivalHits = m_pFormController.getCountOfVectors() / 5,
+                restOfHits = m_pFormController.getCountOfVectors() % 5;
+            numHitsToZero();
+            try
+            {
+                numHeadHitsCount.Value = equivalHits;
+                numBodyHitsCount.Value = equivalHits;
+                numArmsHitsCount.Value = equivalHits;
+                numLegsHitsCount.Value = equivalHits;                
+                numMissHitsCount.Value = equivalHits + restOfHits;
+            }
+            catch (FormatException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
     }
 }

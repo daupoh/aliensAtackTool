@@ -46,6 +46,7 @@ namespace AliensCombatSystemTest.src.Models.Armor
         public void setArmorMaxPoints(byte maxPoints) {
             SCChecker.checkNumberMoreThenZero(maxPoints);
             m_uiArmorMaxPoints = maxPoints;
+            m_uiArmorCurrentPoints = m_uiArmorMaxPoints;
         }
         public void restoreArmorPoints(byte restorePoints) {
             SCChecker.checkNumberMoreThenZero(restorePoints);

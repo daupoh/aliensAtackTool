@@ -88,8 +88,8 @@ namespace AliensCombatSystemTest.src.Controllers
         {
             byte healthPoints = m_pMarineCharCurrent.getHealthPoint();
 
-            return healthPoints = 0;
-            ;
+            return healthPoints;
+            
         }
         public byte getMarineArmorPoints()
         {
@@ -119,6 +119,9 @@ namespace AliensCombatSystemTest.src.Controllers
                     break;
                 default:throw new FormatException();
             }
+            m_pMarineCharCurrent.setHealthPoint(healpthPoints);
+            m_pMarineCharCurrent.setArmorPoints(armorPoints);
+
         }
         private byte calculateCountOfHits(string hitsName)
         {

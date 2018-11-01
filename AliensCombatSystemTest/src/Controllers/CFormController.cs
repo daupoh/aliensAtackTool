@@ -299,25 +299,25 @@ namespace AliensCombatSystemTest.src.Controllers
            
         }
 
-        public void atackByBite()
+        public double atackByBite()
         {
-            m_pAlienCharCurrent.atackByBite(m_pMarineCharCurrent);
+            return m_pAlienCharCurrent.atackByBite(m_pMarineCharCurrent);
         }
-        public void atackByHoldBite()
+        public double atackByHoldBite()
         {
-            m_pAlienCharCurrent.atackByHoldBite(m_pMarineCharCurrent);
+            return m_pAlienCharCurrent.atackByHoldBite(m_pMarineCharCurrent);
         }
-        public void atackByStrike()
+        public double atackByStrike()
         {
-            m_pAlienCharCurrent.atackByStrike(m_pMarineCharCurrent);
+            return m_pAlienCharCurrent.atackByStrike(m_pMarineCharCurrent);
         }
-        public void atackByHoldStrike()
+        public double atackByHoldStrike()
         {
-            m_pAlienCharCurrent.atackByHoldStrike(m_pMarineCharCurrent);
+            return m_pAlienCharCurrent.atackByHoldStrike(m_pMarineCharCurrent);
         }
-        public void atackByTailStrike()
+        public double atackByTailStrike()
         {
-            m_pAlienCharCurrent.atackByTail(m_pMarineCharCurrent);
+            return m_pAlienCharCurrent.atackByTail(m_pMarineCharCurrent);
         }
 
         public void restoreHP(byte points) {

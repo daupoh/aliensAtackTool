@@ -44,7 +44,7 @@ namespace AliensCombatSystemTest.src.Models.Characters.Marines
         {
             m_pArmor.restoreArmorPoints(restorePoints);
         }
-        public void getsDamage(IWeapon weapon)
+        public double getsDamage(IWeapon weapon)
         {
             IList<IHit> hits = weapon.strikeHits();           
             double allDmg = 0;
@@ -55,6 +55,7 @@ namespace AliensCombatSystemTest.src.Models.Characters.Marines
 
             }
             getsDamaged(allDmg, dmgType);
+            return allDmg;
         }
 
         public byte getHealthPoint() {

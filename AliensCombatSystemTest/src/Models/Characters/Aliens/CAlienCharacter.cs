@@ -32,7 +32,7 @@ namespace AliensCombatSystemTest.src.Models.Characters.Aliens
         public IAlienWeapon getHoldStrikeWeapon() { return m_pWeaponHoldStrike; }
         public IAlienWeapon getTailWeapon() { return m_pWeaponTail; }
 
-        public void getsDamage(IWeapon weapon) { }
+        public double getsDamage(IWeapon weapon) { return 0; }
 
         public void setBiteWeapon(IAlienWeapon weapon) {
             SCChecker.checkObjectIsNotNull(weapon,"Невозможно в оружие Bite добавить Null");
@@ -56,29 +56,29 @@ namespace AliensCombatSystemTest.src.Models.Characters.Aliens
             m_pWeaponTail = weapon;
         }
 
-        public void atackByBite(ICharacter character) {
+        public double atackByBite(ICharacter character) {
             SCChecker.checkObjectIsNotNull(character,"Невозможно атаковать невыбранного персонажа");
-            character.getsDamage(m_pWeaponBite);
+            return character.getsDamage(m_pWeaponBite);
         }
-        public void atackByHoldBite(ICharacter character) {
+        public double atackByHoldBite(ICharacter character) {
             SCChecker.checkObjectIsNotNull(character, "Невозможно атаковать невыбранного персонажа");
-            character.getsDamage(m_pWeaponHoldBite);
+            return character.getsDamage(m_pWeaponHoldBite);
         }
-        public void atackByStrike(ICharacter character) {
+        public double atackByStrike(ICharacter character) {
             SCChecker.checkObjectIsNotNull(character, "Невозможно атаковать невыбранного персонажа");
-            character.getsDamage(m_pWeaponStrike);
+            return character.getsDamage(m_pWeaponStrike);
         }
-        public void atackByDoubleStrike(ICharacter character) {
+        public double atackByDoubleStrike(ICharacter character) {
             SCChecker.checkObjectIsNotNull(character, "Невозможно атаковать невыбранного персонажа");
-            character.getsDamage(m_pWeaponStrike);
+            return character.getsDamage(m_pWeaponStrike);
         }
-        public void atackByHoldStrike(ICharacter character) {
+        public double atackByHoldStrike(ICharacter character) {
             SCChecker.checkObjectIsNotNull(character, "Невозможно атаковать невыбранного персонажа");
-            character.getsDamage(m_pWeaponHoldStrike);
+            return character.getsDamage(m_pWeaponHoldStrike);
         }
-        public void atackByTail(ICharacter character) {
+        public double atackByTail(ICharacter character) {
             SCChecker.checkObjectIsNotNull(character, "Невозможно атаковать невыбранного персонажа");
-            character.getsDamage(m_pWeaponTail);
+            return character.getsDamage(m_pWeaponTail);
         }
     }
 }

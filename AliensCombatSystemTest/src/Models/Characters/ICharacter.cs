@@ -11,7 +11,7 @@ namespace AliensCombatSystemTest.src.Models.Characters
 {
     interface ICharacter
     {
-        void getsDamage(IWeapon weapon);
+        double getsDamage(IWeapon weapon);
         string getName();
     }
 }

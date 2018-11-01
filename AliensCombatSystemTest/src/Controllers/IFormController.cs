@@ -43,12 +43,12 @@ namespace AliensCombatSystemTest.src.Controllers
         void selectAlienWeapon(byte index);
 
         void setWeaponParameters(byte countOfVector,double dmgOnVector,double autoDmgMod, uint time);
-        
-        void atackByBite();
-        void atackByHoldBite();
-        void atackByStrike();
-        void atackByHoldStrike();
-        void atackByTailStrike();
+
+        double atackByBite();
+        double atackByHoldBite();
+        double atackByStrike();
+        double atackByHoldStrike();
+        double atackByTailStrike();
 
         void restoreHP(byte points);
         void restoreAP(byte points);

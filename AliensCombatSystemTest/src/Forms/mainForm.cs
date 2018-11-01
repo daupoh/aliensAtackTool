@@ -339,6 +339,7 @@ namespace AliensCombatSystemTest
                 armsHits = argsToLog[9],
                 legsHits = argsToLog[10],
                 missHits = argsToLog[11],
+                allDmg = argsToLog[12],
                 headHitBoxMod = Convert.ToString(m_pFormController.getHeadHitBoxMod()),
                 bodyHitBoxMod = Convert.ToString(m_pFormController.getBodyHitBoxMod()),
             armsHitBoxMod = Convert.ToString(m_pFormController.getArmsHitBoxMod()),
@@ -346,6 +347,7 @@ namespace AliensCombatSystemTest
 
             string weaponText =
                 "\nЧужой атакует оружием " + weapon + ".\r\n" +
+                "Всего урона: "+ allDmg + ".\r\n" +
                 "Количество векторов: " + countOfVectors + ".\r\n" +
                 "Урон за вектор: " + dmg + ".\r\n" +
                 "Коэффициент автоурона: " + autoDmgMod + ".\r\n" +
@@ -377,18 +379,19 @@ namespace AliensCombatSystemTest
 
              
 
-                m_pFormController.atackByBite();
+                double allDmg = m_pFormController.atackByBite();
 
                 hpAfter = m_pFormController.getMarineHealthPoints();
                 apAfter = m_pFormController.getMarineArmorPoints();
 
-                string[] argsForLog = new string[12];
+                string[] argsForLog = new string[13];
                 argsForLog[0] = Convert.ToString(hpAfter-hpPrev); argsForLog[1] = Convert.ToString(apAfter - apPrev);
                 argsForLog[2] = m_pFormController.getMarineStatus(); argsForLog[3] = "Bite";
                 argsForLog[4] = Convert.ToString(m_pFormController.getCountOfVectors()); argsForLog[5] = Convert.ToString(m_pFormController.getDamageOfVector());
                 argsForLog[6] = Convert.ToString(m_pFormController.getAutoDamageMod()); argsForLog[7] = Convert.ToString(m_pFormController.getHeadHitsCount());
                 argsForLog[8] = Convert.ToString(m_pFormController.getBodyHitsCount()); argsForLog[9] = Convert.ToString(m_pFormController.getArmsHitsCount());
                 argsForLog[10] = Convert.ToString(m_pFormController.getLegsHitsCount()); argsForLog[11] = Convert.ToString(m_pFormController.getMissHitsCount());
+                argsForLog[12] = Convert.ToString(allDmg);
 
                 writeToLog(argsForLog);
 
@@ -417,19 +420,19 @@ namespace AliensCombatSystemTest
 
                
 
-                m_pFormController.atackByHoldBite();
+                double allDmg = m_pFormController.atackByHoldBite();
 
                 hpAfter = m_pFormController.getMarineHealthPoints();
                 apAfter = m_pFormController.getMarineArmorPoints();
 
-                string[] argsForLog = new string[12];
+                string[] argsForLog = new string[13];
                 argsForLog[0] = Convert.ToString(hpAfter - hpPrev); argsForLog[1] = Convert.ToString(apAfter - apPrev);
                 argsForLog[2] = m_pFormController.getMarineStatus(); argsForLog[3] = "HoldBite";
                 argsForLog[4] = Convert.ToString(m_pFormController.getCountOfVectors()); argsForLog[5] = Convert.ToString(m_pFormController.getDamageOfVector());
                 argsForLog[6] = Convert.ToString(m_pFormController.getAutoDamageMod()); argsForLog[7] = Convert.ToString(m_pFormController.getHeadHitsCount());
                 argsForLog[8] = Convert.ToString(m_pFormController.getBodyHitsCount()); argsForLog[9] = Convert.ToString(m_pFormController.getArmsHitsCount());
                 argsForLog[10] = Convert.ToString(m_pFormController.getLegsHitsCount()); argsForLog[11] = Convert.ToString(m_pFormController.getMissHitsCount());
-
+                argsForLog[12] = Convert.ToString(allDmg);
                 writeToLog(argsForLog);
 
                 tbxArmor.Text = Convert.ToString(apAfter);
@@ -456,19 +459,19 @@ namespace AliensCombatSystemTest
 
                 
 
-                m_pFormController.atackByStrike();
+                double allDmg = m_pFormController.atackByStrike();
 
                 hpAfter = m_pFormController.getMarineHealthPoints();
                 apAfter = m_pFormController.getMarineArmorPoints();
 
-                string[] argsForLog = new string[12];
+                string[] argsForLog = new string[13];
                 argsForLog[0] = Convert.ToString(hpAfter - hpPrev); argsForLog[1] = Convert.ToString(apAfter - apPrev);
                 argsForLog[2] = m_pFormController.getMarineStatus(); argsForLog[3] = "Strike";
                 argsForLog[4] = Convert.ToString(m_pFormController.getCountOfVectors()); argsForLog[5] = Convert.ToString(m_pFormController.getDamageOfVector());
                 argsForLog[6] = Convert.ToString(m_pFormController.getAutoDamageMod()); argsForLog[7] = Convert.ToString(m_pFormController.getHeadHitsCount());
                 argsForLog[8] = Convert.ToString(m_pFormController.getBodyHitsCount()); argsForLog[9] = Convert.ToString(m_pFormController.getArmsHitsCount());
                 argsForLog[10] = Convert.ToString(m_pFormController.getLegsHitsCount()); argsForLog[11] = Convert.ToString(m_pFormController.getMissHitsCount());
-
+                argsForLog[12] = Convert.ToString(allDmg);
                 writeToLog(argsForLog);
 
                 tbxArmor.Text = Convert.ToString(apAfter);
@@ -495,20 +498,20 @@ namespace AliensCombatSystemTest
 
               
 
-                m_pFormController.atackByStrike();
-                m_pFormController.atackByStrike();
+                double allDmg = m_pFormController.atackByStrike();
+                allDmg+=m_pFormController.atackByStrike();
 
                 hpAfter = m_pFormController.getMarineHealthPoints();
                 apAfter = m_pFormController.getMarineArmorPoints();
 
-                string[] argsForLog = new string[12];
+                string[] argsForLog = new string[13];
                 argsForLog[0] = Convert.ToString(hpAfter - hpPrev); argsForLog[1] = Convert.ToString(apAfter - apPrev);
                 argsForLog[2] = m_pFormController.getMarineStatus(); argsForLog[3] = "Two Strike";
                 argsForLog[4] = Convert.ToString(m_pFormController.getCountOfVectors()); argsForLog[5] = Convert.ToString(m_pFormController.getDamageOfVector());
                 argsForLog[6] = Convert.ToString(m_pFormController.getAutoDamageMod()); argsForLog[7] = Convert.ToString(m_pFormController.getHeadHitsCount());
                 argsForLog[8] = Convert.ToString(m_pFormController.getBodyHitsCount()); argsForLog[9] = Convert.ToString(m_pFormController.getArmsHitsCount());
                 argsForLog[10] = Convert.ToString(m_pFormController.getLegsHitsCount()); argsForLog[11] = Convert.ToString(m_pFormController.getMissHitsCount());
-
+                argsForLog[12] = Convert.ToString(allDmg);
                 writeToLog(argsForLog);
 
                 tbxArmor.Text = Convert.ToString(apAfter);
@@ -535,21 +538,21 @@ namespace AliensCombatSystemTest
 
               
 
-                m_pFormController.atackByHoldStrike();
-                m_pFormController.atackByHoldStrike();
-                m_pFormController.atackByHoldStrike();
+                double allDmg = m_pFormController.atackByHoldStrike();
+                allDmg+=m_pFormController.atackByHoldStrike();
+                allDmg += m_pFormController.atackByHoldStrike();
 
                 hpAfter = m_pFormController.getMarineHealthPoints();
                 apAfter = m_pFormController.getMarineArmorPoints();
 
-                string[] argsForLog = new string[12];
+                string[] argsForLog = new string[13];
                 argsForLog[0] = Convert.ToString(hpAfter - hpPrev); argsForLog[1] = Convert.ToString(apAfter - apPrev);
                 argsForLog[2] = m_pFormController.getMarineStatus(); argsForLog[3] = "HoldStrike";
                 argsForLog[4] = Convert.ToString(m_pFormController.getCountOfVectors()); argsForLog[5] = Convert.ToString(m_pFormController.getDamageOfVector());
                 argsForLog[6] = Convert.ToString(m_pFormController.getAutoDamageMod()); argsForLog[7] = Convert.ToString(m_pFormController.getHeadHitsCount());
                 argsForLog[8] = Convert.ToString(m_pFormController.getBodyHitsCount()); argsForLog[9] = Convert.ToString(m_pFormController.getArmsHitsCount());
                 argsForLog[10] = Convert.ToString(m_pFormController.getLegsHitsCount()); argsForLog[11] = Convert.ToString(m_pFormController.getMissHitsCount());
-
+                argsForLog[12] = Convert.ToString(allDmg);
                 writeToLog(argsForLog);
 
                 tbxArmor.Text = Convert.ToString(apAfter);
@@ -577,20 +580,20 @@ namespace AliensCombatSystemTest
 
                 
 
-                m_pFormController.atackByTailStrike();
+                double allDmg = m_pFormController.atackByTailStrike();
 
 
                 hpAfter = m_pFormController.getMarineHealthPoints();
                 apAfter = m_pFormController.getMarineArmorPoints();
 
-                string[] argsForLog = new string[12];
+                string[] argsForLog = new string[13];
                 argsForLog[0] = Convert.ToString(hpAfter - hpPrev); argsForLog[1] = Convert.ToString(apAfter - apPrev);
                 argsForLog[2] = m_pFormController.getMarineStatus(); argsForLog[3] = "Tail";
                 argsForLog[4] = Convert.ToString(m_pFormController.getCountOfVectors()); argsForLog[5] = Convert.ToString(m_pFormController.getDamageOfVector());
                 argsForLog[6] = Convert.ToString(m_pFormController.getAutoDamageMod()); argsForLog[7] = Convert.ToString(m_pFormController.getHeadHitsCount());
                 argsForLog[8] = Convert.ToString(m_pFormController.getBodyHitsCount()); argsForLog[9] = Convert.ToString(m_pFormController.getArmsHitsCount());
                 argsForLog[10] = Convert.ToString(m_pFormController.getLegsHitsCount()); argsForLog[11] = Convert.ToString(m_pFormController.getMissHitsCount());
-
+                argsForLog[12] = Convert.ToString(allDmg);
                 writeToLog(argsForLog);
 
                 tbxArmor.Text = Convert.ToString(apAfter);

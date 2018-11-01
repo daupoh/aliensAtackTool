@@ -12,7 +12,7 @@ namespace AliensCombatSystemTest.src.Models.Characters.Marines
 {
     class CMarineCharacter:IMarineCharacter
     {
-        byte m_uiHealthCurrentPoints, m_uiHealthMaxPoints;
+        int m_uiHealthCurrentPoints, m_uiHealthMaxPoints;
         IArmor m_pArmor;
         string m_strName;
         string m_strStatus;
@@ -30,6 +30,7 @@ namespace AliensCombatSystemTest.src.Models.Characters.Marines
         public void setHealthPoint(byte hp)
         {
             m_uiHealthCurrentPoints = hp;
+            m_uiHealthMaxPoints = hp;
         }
         public void setArmorPoints(byte ap)
         {
@@ -57,7 +58,7 @@ namespace AliensCombatSystemTest.src.Models.Characters.Marines
         }
 
         public byte getHealthPoint() {
-            return m_uiHealthCurrentPoints;
+            return (byte)m_uiHealthCurrentPoints;
         }
         public byte getArmorPoints() {
             return (byte)m_pArmor.getsArmorPoints();
@@ -77,7 +78,10 @@ namespace AliensCombatSystemTest.src.Models.Characters.Marines
         {
             return m_strStatus;
         }
-
+        private void updateStatus()
+        {
+            m_strStatus = "Стоит";
+        }
         public void restoreHealthPoints(byte restorePoints)
         {
             SCChecker.checkNumberMoreThenZero(restorePoints);
@@ -85,16 +89,26 @@ namespace AliensCombatSystemTest.src.Models.Characters.Marines
             if (m_uiHealthCurrentPoints>m_uiHealthMaxPoints)
             {
                 m_uiHealthCurrentPoints = m_uiHealthMaxPoints;
+                
             }
+            updateStatus();
         }
-
+        public void setStatus(string status)
+        {
+            SCChecker.checkStringIsNotEmpty(status);
+            m_strStatus = status;
+        }
         private void healthGetsDamage(byte dmg)
         {
-            m_uiHealthCurrentPoints = (byte)(m_uiHealthCurrentPoints - dmg);
-            if (m_uiHealthCurrentPoints <= 0)
+            int curPoints = m_uiHealthCurrentPoints - dmg;
+            if (curPoints <= 0)
             {
                 m_uiHealthCurrentPoints = 0;
                 m_strStatus = SCMarineStatus.deadStatus;
+            }
+            else
+            {
+                m_uiHealthCurrentPoints = curPoints;
             }
         }
     }

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.gbxAliensArea = new System.Windows.Forms.GroupBox();
             this.pnlHits = new System.Windows.Forms.Panel();
             this.btnSaveHits = new System.Windows.Forms.Button();
@@ -89,6 +91,7 @@
             this.numsetAP = new System.Windows.Forms.NumericUpDown();
             this.numSetHP = new System.Windows.Forms.NumericUpDown();
             this.pnlHitBoxes = new System.Windows.Forms.Panel();
+            this.btnSaveHitBoxMods = new System.Windows.Forms.Button();
             this.numLegsHitBox = new System.Windows.Forms.NumericUpDown();
             this.lblLegsHitBox = new System.Windows.Forms.Label();
             this.lblArmsHitBox = new System.Windows.Forms.Label();
@@ -101,7 +104,10 @@
             this.pnlFightControl = new System.Windows.Forms.Panel();
             this.btnEndFight = new System.Windows.Forms.Button();
             this.btnStartFight = new System.Windows.Forms.Button();
-            this.btnSaveHitBoxMods = new System.Windows.Forms.Button();
+            this.nfiSaveMessage = new System.Windows.Forms.NotifyIcon(this.components);
+            this.gbxLogFight = new System.Windows.Forms.GroupBox();
+            this.tbxLog = new System.Windows.Forms.TextBox();
+            this.btnClearLog = new System.Windows.Forms.Button();
             this.gbxAliensArea.SuspendLayout();
             this.pnlHits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMissHitsCount)).BeginInit();
@@ -129,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numBodyHitBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHeadHitBox)).BeginInit();
             this.pnlFightControl.SuspendLayout();
+            this.gbxLogFight.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxAliensArea
@@ -553,6 +560,7 @@
             this.btnTwoStrike.TabIndex = 7;
             this.btnTwoStrike.Text = "Атака лапами";
             this.btnTwoStrike.UseVisualStyleBackColor = true;
+            this.btnTwoStrike.Click += new System.EventHandler(this.btnTwoStrike_Click);
             // 
             // btnTail
             // 
@@ -562,6 +570,7 @@
             this.btnTail.TabIndex = 6;
             this.btnTail.Text = "Атака хвостом";
             this.btnTail.UseVisualStyleBackColor = true;
+            this.btnTail.Click += new System.EventHandler(this.btnTail_Click);
             // 
             // btnHoldStrike
             // 
@@ -571,6 +580,7 @@
             this.btnHoldStrike.TabIndex = 5;
             this.btnHoldStrike.Text = "Атака зажатой лапой";
             this.btnHoldStrike.UseVisualStyleBackColor = true;
+            this.btnHoldStrike.Click += new System.EventHandler(this.btnHoldStrike_Click);
             // 
             // btnStrike
             // 
@@ -580,6 +590,7 @@
             this.btnStrike.TabIndex = 4;
             this.btnStrike.Text = "Атака лапой";
             this.btnStrike.UseVisualStyleBackColor = true;
+            this.btnStrike.Click += new System.EventHandler(this.btnStrike_Click);
             // 
             // btnHoldBite
             // 
@@ -589,6 +600,7 @@
             this.btnHoldBite.TabIndex = 3;
             this.btnHoldBite.Text = "Зажатый укус";
             this.btnHoldBite.UseVisualStyleBackColor = true;
+            this.btnHoldBite.Click += new System.EventHandler(this.btnHoldBite_Click);
             // 
             // btnBite
             // 
@@ -598,6 +610,7 @@
             this.btnBite.TabIndex = 2;
             this.btnBite.Text = "Укус";
             this.btnBite.UseVisualStyleBackColor = true;
+            this.btnBite.Click += new System.EventHandler(this.btnBite_Click);
             // 
             // gbxMarineArea
             // 
@@ -607,10 +620,10 @@
             this.gbxMarineArea.Controls.Add(this.pnlSetArmorAndHealth);
             this.gbxMarineArea.Controls.Add(this.pnlHitBoxes);
             this.gbxMarineArea.Controls.Add(this.cmbxMarinesList);
-            this.gbxMarineArea.Location = new System.Drawing.Point(483, 12);
+            this.gbxMarineArea.Location = new System.Drawing.Point(709, 12);
             this.gbxMarineArea.Name = "gbxMarineArea";
             this.gbxMarineArea.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gbxMarineArea.Size = new System.Drawing.Size(321, 477);
+            this.gbxMarineArea.Size = new System.Drawing.Size(321, 491);
             this.gbxMarineArea.TabIndex = 3;
             this.gbxMarineArea.TabStop = false;
             this.gbxMarineArea.Text = "Поле показателей Морпеха";
@@ -630,7 +643,7 @@
             this.pnlRestHealthAndArmor.Enabled = false;
             this.pnlRestHealthAndArmor.Location = new System.Drawing.Point(35, 257);
             this.pnlRestHealthAndArmor.Name = "pnlRestHealthAndArmor";
-            this.pnlRestHealthAndArmor.Size = new System.Drawing.Size(238, 199);
+            this.pnlRestHealthAndArmor.Size = new System.Drawing.Size(238, 218);
             this.pnlRestHealthAndArmor.TabIndex = 11;
             // 
             // lblMarineStatus
@@ -644,7 +657,7 @@
             // 
             // tbxMarineStatus
             // 
-            this.tbxMarineStatus.Location = new System.Drawing.Point(138, 172);
+            this.tbxMarineStatus.Location = new System.Drawing.Point(6, 191);
             this.tbxMarineStatus.Name = "tbxMarineStatus";
             this.tbxMarineStatus.ReadOnly = true;
             this.tbxMarineStatus.Size = new System.Drawing.Size(100, 20);
@@ -652,14 +665,14 @@
             // 
             // numRestoreArmor
             // 
-            this.numRestoreArmor.Location = new System.Drawing.Point(6, 146);
+            this.numRestoreArmor.Location = new System.Drawing.Point(135, 89);
             this.numRestoreArmor.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numRestoreArmor.Name = "numRestoreArmor";
-            this.numRestoreArmor.Size = new System.Drawing.Size(104, 20);
+            this.numRestoreArmor.Size = new System.Drawing.Size(100, 20);
             this.numRestoreArmor.TabIndex = 7;
             this.numRestoreArmor.Value = new decimal(new int[] {
             1,
@@ -669,14 +682,14 @@
             // 
             // numRestoreHealth
             // 
-            this.numRestoreHealth.Location = new System.Drawing.Point(6, 63);
+            this.numRestoreHealth.Location = new System.Drawing.Point(135, 3);
             this.numRestoreHealth.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numRestoreHealth.Name = "numRestoreHealth";
-            this.numRestoreHealth.Size = new System.Drawing.Size(104, 20);
+            this.numRestoreHealth.Size = new System.Drawing.Size(100, 20);
             this.numRestoreHealth.TabIndex = 6;
             this.numRestoreHealth.Value = new decimal(new int[] {
             1,
@@ -692,20 +705,22 @@
             this.btnRestoreAP.TabIndex = 5;
             this.btnRestoreAP.Text = "Восстановить очки брони";
             this.btnRestoreAP.UseVisualStyleBackColor = true;
+            this.btnRestoreAP.Click += new System.EventHandler(this.btnRestoreAP_Click);
             // 
             // btnRestoreHP
             // 
-            this.btnRestoreHP.Location = new System.Drawing.Point(135, 32);
+            this.btnRestoreHP.Location = new System.Drawing.Point(135, 29);
             this.btnRestoreHP.Name = "btnRestoreHP";
             this.btnRestoreHP.Size = new System.Drawing.Size(100, 51);
             this.btnRestoreHP.TabIndex = 4;
             this.btnRestoreHP.Text = "Восстановить очки здоровья";
             this.btnRestoreHP.UseVisualStyleBackColor = true;
+            this.btnRestoreHP.Click += new System.EventHandler(this.btnRestoreHP_Click);
             // 
             // lblArmor
             // 
             this.lblArmor.AutoSize = true;
-            this.lblArmor.Location = new System.Drawing.Point(3, 92);
+            this.lblArmor.Location = new System.Drawing.Point(3, 89);
             this.lblArmor.Name = "lblArmor";
             this.lblArmor.Size = new System.Drawing.Size(89, 13);
             this.lblArmor.TabIndex = 3;
@@ -714,7 +729,7 @@
             // lblHealth
             // 
             this.lblHealth.AutoSize = true;
-            this.lblHealth.Location = new System.Drawing.Point(3, 9);
+            this.lblHealth.Location = new System.Drawing.Point(3, 1);
             this.lblHealth.Name = "lblHealth";
             this.lblHealth.Size = new System.Drawing.Size(107, 13);
             this.lblHealth.TabIndex = 2;
@@ -722,7 +737,7 @@
             // 
             // tbxArmor
             // 
-            this.tbxArmor.Location = new System.Drawing.Point(135, 89);
+            this.tbxArmor.Location = new System.Drawing.Point(6, 105);
             this.tbxArmor.Name = "tbxArmor";
             this.tbxArmor.ReadOnly = true;
             this.tbxArmor.Size = new System.Drawing.Size(100, 20);
@@ -730,7 +745,7 @@
             // 
             // tbxHealth
             // 
-            this.tbxHealth.Location = new System.Drawing.Point(135, 6);
+            this.tbxHealth.Location = new System.Drawing.Point(6, 17);
             this.tbxHealth.Name = "tbxHealth";
             this.tbxHealth.ReadOnly = true;
             this.tbxHealth.Size = new System.Drawing.Size(100, 20);
@@ -869,6 +884,16 @@
             this.pnlHitBoxes.Size = new System.Drawing.Size(238, 155);
             this.pnlHitBoxes.TabIndex = 9;
             // 
+            // btnSaveHitBoxMods
+            // 
+            this.btnSaveHitBoxMods.Location = new System.Drawing.Point(135, 107);
+            this.btnSaveHitBoxMods.Name = "btnSaveHitBoxMods";
+            this.btnSaveHitBoxMods.Size = new System.Drawing.Size(100, 44);
+            this.btnSaveHitBoxMods.TabIndex = 23;
+            this.btnSaveHitBoxMods.Text = "Сохранить модификаторы";
+            this.btnSaveHitBoxMods.UseVisualStyleBackColor = true;
+            this.btnSaveHitBoxMods.Click += new System.EventHandler(this.btnSaveHitBoxMods_Click);
+            // 
             // numLegsHitBox
             // 
             this.numLegsHitBox.DecimalPlaces = 2;
@@ -892,7 +917,7 @@
             this.numLegsHitBox.Size = new System.Drawing.Size(100, 20);
             this.numLegsHitBox.TabIndex = 22;
             this.numLegsHitBox.Value = new decimal(new int[] {
-            5,
+            8,
             0,
             0,
             65536});
@@ -956,10 +981,10 @@
             this.numArmsHitBox.Size = new System.Drawing.Size(100, 20);
             this.numArmsHitBox.TabIndex = 18;
             this.numArmsHitBox.Value = new decimal(new int[] {
-            5,
+            65,
             0,
             0,
-            65536});
+            131072});
             // 
             // numBodyHitBox
             // 
@@ -984,10 +1009,10 @@
             this.numBodyHitBox.Size = new System.Drawing.Size(100, 20);
             this.numBodyHitBox.TabIndex = 17;
             this.numBodyHitBox.Value = new decimal(new int[] {
-            5,
+            1,
             0,
             0,
-            65536});
+            0});
             // 
             // numHeadHitBox
             // 
@@ -1012,7 +1037,7 @@
             this.numHeadHitBox.Size = new System.Drawing.Size(100, 20);
             this.numHeadHitBox.TabIndex = 16;
             this.numHeadHitBox.Value = new decimal(new int[] {
-            5,
+            17,
             0,
             0,
             65536});
@@ -1044,6 +1069,7 @@
             this.btnEndFight.TabIndex = 3;
             this.btnEndFight.Text = "Закончить бой";
             this.btnEndFight.UseVisualStyleBackColor = true;
+            this.btnEndFight.Click += new System.EventHandler(this.btnEndFight_Click);
             // 
             // btnStartFight
             // 
@@ -1053,22 +1079,54 @@
             this.btnStartFight.TabIndex = 2;
             this.btnStartFight.Text = "Начать бой";
             this.btnStartFight.UseVisualStyleBackColor = true;
+            this.btnStartFight.Click += new System.EventHandler(this.btnStartFight_Click);
             // 
-            // btnSaveHitBoxMods
+            // nfiSaveMessage
             // 
-            this.btnSaveHitBoxMods.Location = new System.Drawing.Point(135, 107);
-            this.btnSaveHitBoxMods.Name = "btnSaveHitBoxMods";
-            this.btnSaveHitBoxMods.Size = new System.Drawing.Size(100, 44);
-            this.btnSaveHitBoxMods.TabIndex = 23;
-            this.btnSaveHitBoxMods.Text = "Сохранить модификаторы";
-            this.btnSaveHitBoxMods.UseVisualStyleBackColor = true;
-            this.btnSaveHitBoxMods.Click += new System.EventHandler(this.btnSaveHitBoxMods_Click);
+            this.nfiSaveMessage.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.nfiSaveMessage.BalloonTipText = "Значения сохранены";
+            this.nfiSaveMessage.BalloonTipTitle = "Успешно";
+            this.nfiSaveMessage.Icon = ((System.Drawing.Icon)(resources.GetObject("nfiSaveMessage.Icon")));
+            this.nfiSaveMessage.Text = "Бей морпеха";
+            this.nfiSaveMessage.Visible = true;
+            // 
+            // gbxLogFight
+            // 
+            this.gbxLogFight.Controls.Add(this.btnClearLog);
+            this.gbxLogFight.Controls.Add(this.tbxLog);
+            this.gbxLogFight.Location = new System.Drawing.Point(485, 12);
+            this.gbxLogFight.Name = "gbxLogFight";
+            this.gbxLogFight.Size = new System.Drawing.Size(218, 502);
+            this.gbxLogFight.TabIndex = 11;
+            this.gbxLogFight.TabStop = false;
+            this.gbxLogFight.Text = "Лог боя";
+            // 
+            // tbxLog
+            // 
+            this.tbxLog.Location = new System.Drawing.Point(12, 19);
+            this.tbxLog.Multiline = true;
+            this.tbxLog.Name = "tbxLog";
+            this.tbxLog.ReadOnly = true;
+            this.tbxLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbxLog.Size = new System.Drawing.Size(206, 439);
+            this.tbxLog.TabIndex = 0;
+            // 
+            // btnClearLog
+            // 
+            this.btnClearLog.Location = new System.Drawing.Point(48, 464);
+            this.btnClearLog.Name = "btnClearLog";
+            this.btnClearLog.Size = new System.Drawing.Size(129, 23);
+            this.btnClearLog.TabIndex = 4;
+            this.btnClearLog.Text = "Очистить лог";
+            this.btnClearLog.UseVisualStyleBackColor = true;
+            this.btnClearLog.Click += new System.EventHandler(this.btnClearLog_Click);
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 526);
+            this.ClientSize = new System.Drawing.Size(1042, 526);
+            this.Controls.Add(this.gbxLogFight);
             this.Controls.Add(this.pnlFightControl);
             this.Controls.Add(this.gbxMarineArea);
             this.Controls.Add(this.gbxAliensAtacks);
@@ -1108,6 +1166,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numBodyHitBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHeadHitBox)).EndInit();
             this.pnlFightControl.ResumeLayout(false);
+            this.gbxLogFight.ResumeLayout(false);
+            this.gbxLogFight.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1187,6 +1247,10 @@
         private System.Windows.Forms.TextBox tbxArmor;
         private System.Windows.Forms.TextBox tbxHealth;
         private System.Windows.Forms.Button btnSaveHitBoxMods;
+        private System.Windows.Forms.NotifyIcon nfiSaveMessage;
+        private System.Windows.Forms.GroupBox gbxLogFight;
+        private System.Windows.Forms.TextBox tbxLog;
+        private System.Windows.Forms.Button btnClearLog;
     }
 }
 

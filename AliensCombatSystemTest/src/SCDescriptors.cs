@@ -28,10 +28,12 @@ namespace AliensCombatSystemTest.src
             tailStrikeDT = "TailStrike",
             tailNockdownDT = "TailNockDown",
             tailSpearDT = "TailSpear";
-        static double armorEffectiveVeryLow = 0.15,
-            armorEffectiveLow = 0.3,
-            armorEffectiveMiddle = 0.45,
-            armorEffectiveHigh = 0.6,
+        static double 
+            armorEffectiveZero = 0.0,
+            armorEffectiveVeryLow = 0.15,
+            armorEffectiveLow = 0.35,
+            armorEffectiveMiddle = 0.5,
+            armorEffectiveHigh = 0.65,
             armorEffectiveVeryHigh = 0.85;
 
         public static Dictionary<string, double> marinesHitBoxes = new Dictionary<string, double>
@@ -76,42 +78,42 @@ namespace AliensCombatSystemTest.src
         };
         public static Dictionary<string, double> marinesArmorTitanDmgTypes = new Dictionary<string, double>
         {
-            { biteDT, armorEffectiveMiddle},
-            { holdBiteDT,armorEffectiveMiddle},
-            { pawStrikeDT,armorEffectiveMiddle},
-            { clawStrikeDT,armorEffectiveMiddle},
-            { pawComboDT,armorEffectiveMiddle},
-            { clawBlowDT,armorEffectiveMiddle},
-            { clawBleedingDT,armorEffectiveMiddle},
-            { tailNockdownDT,armorEffectiveMiddle},
+            { biteDT, armorEffectiveZero},
+            { holdBiteDT,armorEffectiveZero},
+            { pawStrikeDT,armorEffectiveLow},
+            { clawStrikeDT,armorEffectiveHigh},
+            { pawComboDT,armorEffectiveLow},
+            { clawBlowDT,armorEffectiveHigh},
+            { clawBleedingDT,armorEffectiveHigh},
+            { tailNockdownDT,armorEffectiveLow},
             { tailSpearDT,armorEffectiveMiddle},
-            { tailStrikeDT,armorEffectiveMiddle},
+            { tailStrikeDT,armorEffectiveHigh}
         };
         public static Dictionary<string, double> marinesArmorCompositDmgTypes = new Dictionary<string, double>
         {
-            { biteDT, armorEffectiveMiddle},
-            { holdBiteDT,armorEffectiveMiddle},
-            { pawStrikeDT,armorEffectiveMiddle},
-            { clawStrikeDT,armorEffectiveMiddle},
-            { pawComboDT,armorEffectiveMiddle},
-            { clawBlowDT,armorEffectiveMiddle},
-            { clawBleedingDT,armorEffectiveMiddle},
-            { tailNockdownDT,armorEffectiveMiddle},
+              { biteDT, armorEffectiveZero},
+            { holdBiteDT,armorEffectiveZero},
+            { pawStrikeDT,armorEffectiveLow},
+            { clawStrikeDT,armorEffectiveHigh},
+            { pawComboDT,armorEffectiveLow},
+            { clawBlowDT,armorEffectiveHigh},
+            { clawBleedingDT,armorEffectiveHigh},
+            { tailNockdownDT,armorEffectiveLow},
             { tailSpearDT,armorEffectiveMiddle},
-            { tailStrikeDT,armorEffectiveMiddle},
+            { tailStrikeDT,armorEffectiveHigh}
         };
         public static Dictionary<string, double> marinesArmorSuitDmgTypes = new Dictionary<string, double>
         {
-            { biteDT, armorEffectiveMiddle},
-            { holdBiteDT,armorEffectiveMiddle},
-            { pawStrikeDT,armorEffectiveMiddle},
-            { clawStrikeDT,armorEffectiveMiddle},
-            { pawComboDT,armorEffectiveMiddle},
-            { clawBlowDT,armorEffectiveMiddle},
-            { clawBleedingDT,armorEffectiveMiddle},
-            { tailNockdownDT,armorEffectiveMiddle},
+              { biteDT, armorEffectiveZero},
+            { holdBiteDT,armorEffectiveZero},
+            { pawStrikeDT,armorEffectiveLow},
+            { clawStrikeDT,armorEffectiveHigh},
+            { pawComboDT,armorEffectiveLow},
+            { clawBlowDT,armorEffectiveHigh},
+            { clawBleedingDT,armorEffectiveHigh},
+            { tailNockdownDT,armorEffectiveLow},
             { tailSpearDT,armorEffectiveMiddle},
-            { tailStrikeDT,armorEffectiveMiddle},
+            { tailStrikeDT,armorEffectiveHigh}
         };
     }
 }

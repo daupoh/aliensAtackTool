@@ -14,15 +14,15 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.Controllers
 {
-    class CFormController:IFormController
+    class CFormController : IFormController
     {
         string[] m_astrAliensClasses, m_astrMarineClasses, m_astrAliensWeapons;
-        string m_strCurrentAlien, m_strCurrentWeaponName,m_strCurrentMarineName;
+        string m_strCurrentAlien, m_strCurrentWeaponName, m_strCurrentMarineName;
 
         IAlienCharacter m_pAlienCharCurrent; IList<ICharacter> m_lstAliens, m_lstMarines;
         IMarineCharacter m_pMarineCharCurrent;
         IAlienWeapon m_pCurrentAlienWeaponCurrent; IList<IAlienWeapon> m_lstAliensWeapons;
-       
+
         IHitBox m_pHeadHitBox,
                 m_pBodyHitBox,
                 m_pArmsHitBox,
@@ -37,19 +37,19 @@ namespace AliensCombatSystemTest.src.Controllers
             m_lstAliens = new List<ICharacter>();
             m_lstAliensWeapons = new List<IAlienWeapon>();
             m_lstMarines = new List<ICharacter>();
-           
+
 
             prepareListsOfAliensAndMarines();
 
             setCurrentAlien(0);
             setCurrentMarine(0);
-           
+
             setWeaponsOfCurrentAlienAndCurrentWeapon();
 
         }
 
         public string[] getAliensClasses()
-        {          
+        {
             return m_astrAliensClasses;
         }
         public string[] getAliensWeapons()
@@ -89,7 +89,7 @@ namespace AliensCombatSystemTest.src.Controllers
             byte healthPoints = m_pMarineCharCurrent.getHealthPoint();
 
             return healthPoints;
-            
+
         }
         public byte getMarineArmorPoints()
         {
@@ -106,7 +106,7 @@ namespace AliensCombatSystemTest.src.Controllers
 
         public void setArmorAndHealth(byte healpthPoints, byte armorPoints, string typeOfArmor)
         {
-            switch(typeOfArmor)
+            switch (typeOfArmor)
             {
                 case "titan":
                     m_pMarineCharCurrent.setArmor(new CArmor(SCDescriptors.marinesArmorTypes.Titan));
@@ -117,7 +117,7 @@ namespace AliensCombatSystemTest.src.Controllers
                 case "suit":
                     m_pMarineCharCurrent.setArmor(new CArmor(SCDescriptors.marinesArmorTypes.Suit));
                     break;
-                default:throw new FormatException();
+                default: throw new FormatException();
             }
             m_pMarineCharCurrent.setHealthPoint(healpthPoints);
             m_pMarineCharCurrent.setArmorPoints(armorPoints);
@@ -180,13 +180,36 @@ namespace AliensCombatSystemTest.src.Controllers
             }
             return count;
         }
-
-        public void setWeaponHits(byte headCount, byte bodyCount, byte armsCount, byte legsCount,byte missCount)
+        private void updateHits()
         {
-            int sumOfHits = headCount + bodyCount + armsCount + legsCount + missCount;
-            if (sumOfHits!=m_pCurrentAlienWeaponCurrent.getMaxHits())
+            byte headCount, bodyCount, armsCount, legsCount, missCount;
+            headCount = getHeadHitsCount(); bodyCount = getBodyHitsCount(); armsCount = getArmsHitsCount();
+            legsCount = getLegsHitsCount(); missCount = getMissHitsCount();
+            setWeaponHits(headCount, bodyCount, armsCount, legsCount, missCount);
+        }
+        private void updateWeaponHits()
+        {
+            IAlienWeapon sveCurWeap = m_pCurrentAlienWeaponCurrent;
+            m_pCurrentAlienWeaponCurrent = m_pAlienCharCurrent.getBiteWeapon();
+            updateHits();
+            m_pCurrentAlienWeaponCurrent = m_pAlienCharCurrent.getHoldBiteWeapon();
+            updateHits();
+            m_pCurrentAlienWeaponCurrent = m_pAlienCharCurrent.getStrikeWeapon();
+            updateHits();
+            m_pCurrentAlienWeaponCurrent = m_pAlienCharCurrent.getHoldStrikeWeapon();
+            updateHits();
+            m_pCurrentAlienWeaponCurrent = m_pAlienCharCurrent.getTailWeapon();
+            updateHits();
+
+            m_pCurrentAlienWeaponCurrent = sveCurWeap;
+        }
+        public void setWeaponHits(byte headCount, byte bodyCount, byte armsCount, byte legsCount, byte missCount)
+        {
+            int sumOfHits = headCount + bodyCount + armsCount + legsCount + missCount,
+                sumWithOutMiss = sumOfHits-missCount;
+            if (sumOfHits != m_pCurrentAlienWeaponCurrent.getMaxHits() || sumWithOutMiss==0)
             {
-                throw new FormatException();
+                throw new FormatException("Количество попаданий не должно превышать количество векторов или быть равно 0");
             }
 
             m_pCurrentAlienWeaponCurrent.clearHits();
@@ -246,6 +269,8 @@ namespace AliensCombatSystemTest.src.Controllers
             m_pArmsHitBox.setModDmg(armsMod);
             m_pLegsHitBox.setModDmg(legsMod);
             m_pMissHitBox.setModDmg(missMod);
+
+            updateWeaponHits();
         }
 
 
@@ -294,29 +319,37 @@ namespace AliensCombatSystemTest.src.Controllers
 
         public void restoreHP(byte points) {
             
-            m_pMarineCharCurrent.restoreArmorhPoints(points);
+            m_pMarineCharCurrent.restoreHealthPoints(points);
         }
         public void restoreAP(byte points)
         {
-            m_pMarineCharCurrent.restoreHealthPoints(points);
+            m_pMarineCharCurrent.restoreArmorhPoints(points);
         }
 
         public void startFight() {
             
         }
         public void endFight() {
-            IAlienWeapon weapon = m_pAlienCharCurrent.getBiteWeapon() as IAlienWeapon;
-            weapon.clearHits();
-            weapon = m_pAlienCharCurrent.getHoldBiteWeapon() as IAlienWeapon;
-            weapon.clearHits();
-            weapon = m_pAlienCharCurrent.getStrikeWeapon() as IAlienWeapon;
-            weapon.clearHits();
-            weapon = m_pAlienCharCurrent.getHoldStrikeWeapon() as IAlienWeapon;
-            weapon.clearHits();
-            weapon = m_pAlienCharCurrent.getTailWeapon() as IAlienWeapon;
-            weapon.clearHits();
+            m_pMarineCharCurrent.setStatus("Стоит");
 
         }
+        public double getHeadHitBoxMod()
+        {
+            return m_pHeadHitBox.getDmgMod();
+        }
+        public double getBodyHitBoxMod()
+        {
+            return m_pBodyHitBox.getDmgMod();
+        }
+        public double getArmsHitBoxMod()
+        {
+            return m_pArmsHitBox.getDmgMod();
+        }
+        public double getLegsHitBoxMod()
+        {
+            return m_pLegsHitBox.getDmgMod();
+        }
+
 
         private void setWeaponsOfCurrentAlienAndCurrentWeapon()
         {
@@ -374,10 +407,10 @@ namespace AliensCombatSystemTest.src.Controllers
                 index++;
             }
 
-            m_pHeadHitBox = new CHitBox("head", 0.5);
-            m_pBodyHitBox = new CHitBox("body", 0.5);
-            m_pArmsHitBox = new CHitBox("arms", 0.5);
-            m_pLegsHitBox = new CHitBox("legs", 0.5);
+            m_pHeadHitBox = new CHitBox("head", 1.7);
+            m_pBodyHitBox = new CHitBox("body", 1.0);
+            m_pArmsHitBox = new CHitBox("arms", 0.65);
+            m_pLegsHitBox = new CHitBox("legs", 0.8);
             m_pMissHitBox = new CHitBox("miss", 0.5);
         }
     }

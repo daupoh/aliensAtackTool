@@ -16,6 +16,7 @@ namespace AliensCombatSystemTest.src.Models.Characters.Marines
 
         void setArmor(IArmor armor);
         string getStatus();
+        void setStatus(string status);
         void restoreHealthPoints(byte restorePoints);
         void restoreArmorhPoints(byte restorePoints);
     }

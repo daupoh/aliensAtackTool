@@ -22,11 +22,15 @@ namespace AliensCombatSystemTest.src.Models.Hits
         {
             return m_strName;
         }
+        public double getDmgMod()
+        {
+            return m_dbModDmg;
+        }
         public void setModDmg(double mode)
         {
             m_dbModDmg = mode;
         }
-        public double getModDmg(double dmgOfVector)
+        public double getModedDmg(double dmgOfVector)
         {
             double dmg = 0;
             dmg =dmgOfVector * m_dbModDmg;

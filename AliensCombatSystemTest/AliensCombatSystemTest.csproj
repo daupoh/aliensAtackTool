@@ -79,7 +79,7 @@
     <Compile Include="src\Models\Weapons\IAlienWeapon.cs" />
     <Compile Include="src\Models\Weapons\Builders\AliensBuilders\IAlienWeaponBuilder.cs" />
     <Compile Include="src\Models\Weapons\IWeapon.cs" />
-    <Compile Include="src\SCDamageTypeDescriptor.cs" />
+    <Compile Include="src\SCDescriptors.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

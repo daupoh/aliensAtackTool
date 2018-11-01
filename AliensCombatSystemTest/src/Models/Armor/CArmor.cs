@@ -9,7 +9,7 @@ namespace AliensCombatSystemTest.src.Models.Armor
 {
     class CArmor : IArmor
     {
-        byte m_uiArmorCurrentPoints, m_uiArmorMaxPoints;
+        int m_uiArmorCurrentPoints, m_uiArmorMaxPoints;
         double m_dbArmorDmgMod;
         
         SCDescriptors.marinesArmorTypes m_eArmorType;

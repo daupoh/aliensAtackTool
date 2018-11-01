@@ -11,6 +11,7 @@ namespace AliensCombatSystemTest.src.Models.Hits
     {
         double getDamage();
         void hitOn(IHitBox atackedHitBox);
+        
         void setHitDmgType(IDamageType dmgType);
         string getName();
     }

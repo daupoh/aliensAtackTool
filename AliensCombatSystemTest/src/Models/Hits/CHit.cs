@@ -16,7 +16,7 @@ namespace AliensCombatSystemTest.src.Models.Hits
         public double getDamage()
         {
             double dmg = 0;
-            dmg = m_pHitBox.getModDmg(m_pDamageType.getDamage());            
+            dmg = m_pHitBox.getModedDmg(m_pDamageType.getDamage());            
             return dmg;
         }
         public string getName()

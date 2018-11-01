@@ -369,13 +369,13 @@ namespace AliensCombatSystemTest
         private void btnBite_Click(object sender, EventArgs e)
         {
             try
-            {
-                byte selectWeaponNumber = (byte)cmbxAlienWeapons.SelectedIndex;
+            {                
+                cmbxAlienWeapons.SelectedIndex = 0;
 
                 int hpPrev = m_pFormController.getMarineHealthPoints(),hpAfter=0,
                     apPrev = m_pFormController.getMarineArmorPoints(), apAfter=0;
 
-                m_pFormController.selectAlienWeapon(0);
+             
 
                 m_pFormController.atackByBite();
 
@@ -397,7 +397,7 @@ namespace AliensCombatSystemTest
                 tbxMarineStatus.Text = m_pFormController.getMarineStatus();
                 checkMarineStatus();
 
-                m_pFormController.selectAlienWeapon(selectWeaponNumber);
+              
             }
             catch (FormatException exc)
             {
@@ -410,12 +410,12 @@ namespace AliensCombatSystemTest
         {
             try
             {
-                byte selectWeaponNumber = (byte)cmbxAlienWeapons.SelectedIndex;
+                cmbxAlienWeapons.SelectedIndex = 1;
 
                 int hpPrev = m_pFormController.getMarineHealthPoints(), hpAfter = 0,
                     apPrev = m_pFormController.getMarineArmorPoints(), apAfter = 0;
 
-                m_pFormController.selectAlienWeapon(1);
+               
 
                 m_pFormController.atackByHoldBite();
 
@@ -437,7 +437,7 @@ namespace AliensCombatSystemTest
                 tbxMarineStatus.Text = m_pFormController.getMarineStatus();
                 checkMarineStatus();
 
-                m_pFormController.selectAlienWeapon(selectWeaponNumber);
+             
             }
             catch (FormatException exc)
             {
@@ -449,12 +449,12 @@ namespace AliensCombatSystemTest
         {
             try
             {
-                byte selectWeaponNumber = (byte)cmbxAlienWeapons.SelectedIndex;
+                cmbxAlienWeapons.SelectedIndex = 3;
 
                 int hpPrev = m_pFormController.getMarineHealthPoints(), hpAfter = 0,
                     apPrev = m_pFormController.getMarineArmorPoints(), apAfter = 0;
 
-                m_pFormController.selectAlienWeapon(3);
+                
 
                 m_pFormController.atackByStrike();
 
@@ -476,7 +476,7 @@ namespace AliensCombatSystemTest
                 tbxMarineStatus.Text = m_pFormController.getMarineStatus();
                 checkMarineStatus();
 
-                m_pFormController.selectAlienWeapon(selectWeaponNumber);
+                
             }
             catch (FormatException exc)
             {
@@ -488,12 +488,12 @@ namespace AliensCombatSystemTest
         {
             try
             {
-                byte selectWeaponNumber = (byte)cmbxAlienWeapons.SelectedIndex;
+                cmbxAlienWeapons.SelectedIndex = 3;
 
                 int hpPrev = m_pFormController.getMarineHealthPoints(), hpAfter = 0,
                     apPrev = m_pFormController.getMarineArmorPoints(), apAfter = 0;
 
-                m_pFormController.selectAlienWeapon(3);
+              
 
                 m_pFormController.atackByStrike();
                 m_pFormController.atackByStrike();
@@ -516,7 +516,7 @@ namespace AliensCombatSystemTest
                 tbxMarineStatus.Text = m_pFormController.getMarineStatus();
                 checkMarineStatus();
 
-                m_pFormController.selectAlienWeapon(selectWeaponNumber);
+                
             }
             catch (FormatException exc)
             {
@@ -528,12 +528,12 @@ namespace AliensCombatSystemTest
         {
             try
             {
-                byte selectWeaponNumber = (byte)cmbxAlienWeapons.SelectedIndex;
+                cmbxAlienWeapons.SelectedIndex = 2;
 
                 int hpPrev = m_pFormController.getMarineHealthPoints(), hpAfter = 0,
                     apPrev = m_pFormController.getMarineArmorPoints(), apAfter = 0;
 
-                m_pFormController.selectAlienWeapon(2);
+              
 
                 m_pFormController.atackByHoldStrike();
                 m_pFormController.atackByHoldStrike();
@@ -557,7 +557,7 @@ namespace AliensCombatSystemTest
                 tbxMarineStatus.Text = m_pFormController.getMarineStatus();
                 checkMarineStatus();
 
-                m_pFormController.selectAlienWeapon(selectWeaponNumber);
+                
             }
             catch (FormatException exc)
             {
@@ -570,12 +570,12 @@ namespace AliensCombatSystemTest
         {
             try
             {
-                byte selectWeaponNumber = (byte)cmbxAlienWeapons.SelectedIndex;
+                cmbxAlienWeapons.SelectedIndex = 4;
 
                 int hpPrev = m_pFormController.getMarineHealthPoints(), hpAfter = 0,
                     apPrev = m_pFormController.getMarineArmorPoints(), apAfter = 0;
 
-                m_pFormController.selectAlienWeapon(4);
+                
 
                 m_pFormController.atackByTailStrike();
 
@@ -598,7 +598,7 @@ namespace AliensCombatSystemTest
                 tbxMarineStatus.Text = m_pFormController.getMarineStatus();
                 checkMarineStatus();
 
-                m_pFormController.selectAlienWeapon(selectWeaponNumber);
+              
             }
             catch (FormatException exc)
             {

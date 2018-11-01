@@ -131,8 +131,8 @@ namespace AliensCombatSystemTest.src.Models.CharacterGenerator
             //назначение
             m_pAlienChar.setBiteWeapon(m_pBiteWeap);
             m_pAlienChar.setHoldBiteWeapon(m_pHoldBiteWeap);
-            m_pAlienChar.setHoldStrikeWeapon(m_pStrikeWeap);
-            m_pAlienChar.setStrikeWeapon (m_pHoldStrikeWeap);
+            m_pAlienChar.setHoldStrikeWeapon(m_pHoldStrikeWeap);
+            m_pAlienChar.setStrikeWeapon (m_pStrikeWeap);
             m_pAlienChar.setTailWeapon(m_pTailWeap);            
 
             return m_pAlienChar;

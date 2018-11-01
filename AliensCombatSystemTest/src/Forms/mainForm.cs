@@ -317,7 +317,7 @@ namespace AliensCombatSystemTest
             
         }
 
-        private void writeBiteToLog(string[] argsToLog)
+        private void writeToLog(string[] argsToLog)
         {
             string
                 hpDmg = argsToLog[0],
@@ -383,7 +383,7 @@ namespace AliensCombatSystemTest
                 argsForLog[8] = Convert.ToString(m_pFormController.getBodyHitsCount()); argsForLog[9] = Convert.ToString(m_pFormController.getArmsHitsCount());
                 argsForLog[10] = Convert.ToString(m_pFormController.getLegsHitsCount()); argsForLog[11] = Convert.ToString(m_pFormController.getMissHitsCount());
 
-                writeBiteToLog(argsForLog);
+                writeToLog(argsForLog);
 
                 tbxArmor.Text = Convert.ToString(apAfter);
                 tbxHealth.Text = Convert.ToString(hpAfter);
@@ -423,7 +423,7 @@ namespace AliensCombatSystemTest
                 argsForLog[8] = Convert.ToString(m_pFormController.getBodyHitsCount()); argsForLog[9] = Convert.ToString(m_pFormController.getArmsHitsCount());
                 argsForLog[10] = Convert.ToString(m_pFormController.getLegsHitsCount()); argsForLog[11] = Convert.ToString(m_pFormController.getMissHitsCount());
 
-                writeBiteToLog(argsForLog);
+                writeToLog(argsForLog);
 
                 tbxArmor.Text = Convert.ToString(apAfter);
                 tbxHealth.Text = Convert.ToString(hpAfter);
@@ -462,7 +462,7 @@ namespace AliensCombatSystemTest
                 argsForLog[8] = Convert.ToString(m_pFormController.getBodyHitsCount()); argsForLog[9] = Convert.ToString(m_pFormController.getArmsHitsCount());
                 argsForLog[10] = Convert.ToString(m_pFormController.getLegsHitsCount()); argsForLog[11] = Convert.ToString(m_pFormController.getMissHitsCount());
 
-                writeBiteToLog(argsForLog);
+                writeToLog(argsForLog);
 
                 tbxArmor.Text = Convert.ToString(apAfter);
                 tbxHealth.Text = Convert.ToString(hpAfter);
@@ -502,7 +502,7 @@ namespace AliensCombatSystemTest
                 argsForLog[8] = Convert.ToString(m_pFormController.getBodyHitsCount()); argsForLog[9] = Convert.ToString(m_pFormController.getArmsHitsCount());
                 argsForLog[10] = Convert.ToString(m_pFormController.getLegsHitsCount()); argsForLog[11] = Convert.ToString(m_pFormController.getMissHitsCount());
 
-                writeBiteToLog(argsForLog);
+                writeToLog(argsForLog);
 
                 tbxArmor.Text = Convert.ToString(apAfter);
                 tbxHealth.Text = Convert.ToString(hpAfter);
@@ -543,7 +543,7 @@ namespace AliensCombatSystemTest
                 argsForLog[8] = Convert.ToString(m_pFormController.getBodyHitsCount()); argsForLog[9] = Convert.ToString(m_pFormController.getArmsHitsCount());
                 argsForLog[10] = Convert.ToString(m_pFormController.getLegsHitsCount()); argsForLog[11] = Convert.ToString(m_pFormController.getMissHitsCount());
 
-                writeBiteToLog(argsForLog);
+                writeToLog(argsForLog);
 
                 tbxArmor.Text = Convert.ToString(apAfter);
                 tbxHealth.Text = Convert.ToString(hpAfter);
@@ -584,7 +584,7 @@ namespace AliensCombatSystemTest
                 argsForLog[8] = Convert.ToString(m_pFormController.getBodyHitsCount()); argsForLog[9] = Convert.ToString(m_pFormController.getArmsHitsCount());
                 argsForLog[10] = Convert.ToString(m_pFormController.getLegsHitsCount()); argsForLog[11] = Convert.ToString(m_pFormController.getMissHitsCount());
 
-                writeBiteToLog(argsForLog);
+                writeToLog(argsForLog);
 
                 tbxArmor.Text = Convert.ToString(apAfter);
                 tbxHealth.Text = Convert.ToString(hpAfter);

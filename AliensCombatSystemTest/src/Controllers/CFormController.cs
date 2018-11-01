@@ -357,8 +357,8 @@ namespace AliensCombatSystemTest.src.Controllers
 
             m_lstAliensWeapons.Add(m_pAlienCharCurrent.getBiteWeapon());
             m_lstAliensWeapons.Add(m_pAlienCharCurrent.getHoldBiteWeapon());
-            m_lstAliensWeapons.Add(m_pAlienCharCurrent.getStrikeWeapon());
             m_lstAliensWeapons.Add(m_pAlienCharCurrent.getHoldStrikeWeapon());
+            m_lstAliensWeapons.Add(m_pAlienCharCurrent.getStrikeWeapon());            
             m_lstAliensWeapons.Add(m_pAlienCharCurrent.getTailWeapon());
 
             m_astrAliensWeapons = new string[m_lstAliensWeapons.Count];
@@ -389,6 +389,7 @@ namespace AliensCombatSystemTest.src.Controllers
             m_lstAliens.Add(m_pCharacterGenerator.createAlienWorker());
 
             m_astrAliensClasses = new string[m_lstAliens.Count];
+            
             byte index = 0;
             foreach(IAlienCharacter alien in m_lstAliens)
             {

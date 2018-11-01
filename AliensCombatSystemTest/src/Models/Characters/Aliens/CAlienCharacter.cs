@@ -70,7 +70,7 @@ namespace AliensCombatSystemTest.src.Models.Characters.Aliens
         }
         public void atackByDoubleStrike(ICharacter character) {
             SCChecker.checkObjectIsNotNull(character, "Невозможно атаковать невыбранного персонажа");
-            character.getsDamage(m_pWeaponBite);
+            character.getsDamage(m_pWeaponStrike);
         }
         public void atackByHoldStrike(ICharacter character) {
             SCChecker.checkObjectIsNotNull(character, "Невозможно атаковать невыбранного персонажа");

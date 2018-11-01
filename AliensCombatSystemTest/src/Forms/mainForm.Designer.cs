@@ -666,6 +666,11 @@
             // numRestoreArmor
             // 
             this.numRestoreArmor.Location = new System.Drawing.Point(135, 89);
+            this.numRestoreArmor.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.numRestoreArmor.Minimum = new decimal(new int[] {
             1,
             0,
@@ -675,7 +680,7 @@
             this.numRestoreArmor.Size = new System.Drawing.Size(100, 20);
             this.numRestoreArmor.TabIndex = 7;
             this.numRestoreArmor.Value = new decimal(new int[] {
-            1,
+            100,
             0,
             0,
             0});
@@ -683,6 +688,11 @@
             // numRestoreHealth
             // 
             this.numRestoreHealth.Location = new System.Drawing.Point(135, 3);
+            this.numRestoreHealth.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.numRestoreHealth.Minimum = new decimal(new int[] {
             1,
             0,
@@ -692,7 +702,7 @@
             this.numRestoreHealth.Size = new System.Drawing.Size(100, 20);
             this.numRestoreHealth.TabIndex = 6;
             this.numRestoreHealth.Value = new decimal(new int[] {
-            1,
+            100,
             0,
             0,
             0});
@@ -835,6 +845,11 @@
             // numsetAP
             // 
             this.numsetAP.Location = new System.Drawing.Point(30, 37);
+            this.numsetAP.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.numsetAP.Minimum = new decimal(new int[] {
             1,
             0,
@@ -844,7 +859,7 @@
             this.numsetAP.Size = new System.Drawing.Size(51, 20);
             this.numsetAP.TabIndex = 12;
             this.numsetAP.Value = new decimal(new int[] {
-            1,
+            50,
             0,
             0,
             0});
@@ -852,6 +867,11 @@
             // numSetHP
             // 
             this.numSetHP.Location = new System.Drawing.Point(31, 3);
+            this.numSetHP.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.numSetHP.Minimum = new decimal(new int[] {
             1,
             0,
@@ -861,7 +881,7 @@
             this.numSetHP.Size = new System.Drawing.Size(51, 20);
             this.numSetHP.TabIndex = 11;
             this.numSetHP.Value = new decimal(new int[] {
-            1,
+            100,
             0,
             0,
             0});

@@ -94,7 +94,7 @@ namespace AliensCombatSystemTest.src.Models.CharacterGenerator
             m_pAlienWeaponBuilder.restore();
             m_pHoldStrikeWeap = m_pAlienWeaponBuilder
                 .withAutoDmgMod(0.1)
-                .withDamageOnHit(10)
+                .withDamageOnHit(9)
                 .withMaxHits(5)
                 .withName(SCDescriptors.holdStrike)
                 .withStrikeTime(500)

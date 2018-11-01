@@ -124,14 +124,14 @@ namespace AliensCombatSystemTest
                 MessageBox.Show(formatExc.Message);
             }
         }
-        
+       
         private void btnSaveWeaponSettings_Click(object sender, EventArgs e)
         {
             decimal countOfVector = numCountOfVectors.Value,
                 dmgOfVector = numDmgOnVector.Value,
                 autoDmgMod = numAutoDmgMod.Value,
                 time = numTimeToAtack.Value;
-
+            numHitsToZero();
             try
             {
                 m_pFormController.setWeaponParameters((byte)countOfVector, (double)dmgOfVector, (double)autoDmgMod, (uint)time);                
@@ -149,11 +149,11 @@ namespace AliensCombatSystemTest
             decimal headHits = numHeadHitsCount.Value,
                 bodyHits = numBodyHitsCount.Value,
                 armsHits = numArmsHitsCount.Value,
-                legsHits = numLegsHitsCount.Value,
-                missHits = numMissHitsCount.Value;
+                legsHits = numLegsHitsCount.Value;
+                
             try
             {
-                m_pFormController.setWeaponHits((byte)headHits, (byte)bodyHits, (byte)armsHits, (byte)legsHits, (byte)missHits);
+                m_pFormController.setWeaponHits((byte)headHits, (byte)bodyHits, (byte)armsHits, (byte)legsHits);
                 nfiSaveMessage.ShowBalloonTip(500);
             }
             catch (FormatException exc)
@@ -225,7 +225,7 @@ namespace AliensCombatSystemTest
             numBodyHitsCount.Value = 0;
             numArmsHitsCount.Value = 0;
             numLegsHitsCount.Value = 0;
-            numMissHitsCount.Value = 0;
+            //numMissHitsCount.Value = 0;
         }
         private void btnRandomHits_Click(object sender, EventArgs e)
         {
@@ -613,7 +613,7 @@ namespace AliensCombatSystemTest
             try
             {
                 double missMod=m_pFormController.getAutoDamageMod();            
-                m_pFormController.setHitBoxes((double)headMod, (double)bodyMod, (double)armsMod, (double)legsMod, missMod);
+                m_pFormController.setHitBoxes((double)headMod, (double)bodyMod, (double)armsMod, (double)legsMod);
                 nfiSaveMessage.ShowBalloonTip(500);
             }
             catch (FormatException exc)

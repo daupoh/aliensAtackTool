@@ -185,7 +185,7 @@ namespace AliensCombatSystemTest.src.Controllers
             byte headCount, bodyCount, armsCount, legsCount, missCount;
             headCount = getHeadHitsCount(); bodyCount = getBodyHitsCount(); armsCount = getArmsHitsCount();
             legsCount = getLegsHitsCount(); missCount = getMissHitsCount();
-            setWeaponHits(headCount, bodyCount, armsCount, legsCount, missCount);
+            setWeaponHits(headCount, bodyCount, armsCount, legsCount);
         }
         private void updateWeaponHits()
         {
@@ -203,11 +203,12 @@ namespace AliensCombatSystemTest.src.Controllers
 
             m_pCurrentAlienWeaponCurrent = sveCurWeap;
         }
-        public void setWeaponHits(byte headCount, byte bodyCount, byte armsCount, byte legsCount, byte missCount)
+        public void setWeaponHits(byte headCount, byte bodyCount, byte armsCount, byte legsCount)
         {
-            int sumOfHits = headCount + bodyCount + armsCount + legsCount + missCount,
-                sumWithOutMiss = sumOfHits-missCount;
-            if (sumOfHits != m_pCurrentAlienWeaponCurrent.getMaxHits() || sumWithOutMiss==0)
+            int sumOfHits = headCount + bodyCount + armsCount + legsCount,
+                missCount= m_pCurrentAlienWeaponCurrent.getMaxHits()-sumOfHits;
+                
+            if (sumOfHits != m_pCurrentAlienWeaponCurrent.getMaxHits() || sumOfHits == 0)
             {
                 throw new FormatException("Количество попаданий не должно превышать количество векторов или быть равно 0");
             }
@@ -250,8 +251,9 @@ namespace AliensCombatSystemTest.src.Controllers
                 m_pCurrentAlienWeaponCurrent.addHit(hit);
                 index--;
             }
-            index = missCount;
+            index = (byte)missCount;
             hit = new CHit();
+            m_pMissHitBox.setModDmg(m_pCurrentAlienWeaponCurrent.getDamageType().getAutoDmg());
             hit.hitOn(m_pMissHitBox);
             hit.setHitDmgType(m_pCurrentAlienWeaponCurrent.getDamageType());
             while (index > 0)
@@ -262,13 +264,13 @@ namespace AliensCombatSystemTest.src.Controllers
 
         }
 
-        public void setHitBoxes(double headMod, double bodyMod, double armsMod, double legsMod, double missMod)
+        public void setHitBoxes(double headMod, double bodyMod, double armsMod, double legsMod)
         {
             m_pHeadHitBox.setModDmg(headMod);
             m_pBodyHitBox.setModDmg(bodyMod);
             m_pArmsHitBox.setModDmg(armsMod);
             m_pLegsHitBox.setModDmg(legsMod);
-            m_pMissHitBox.setModDmg(missMod);
+            m_pMissHitBox.setModDmg(m_pCurrentAlienWeaponCurrent.getDamageType().getAutoDmg());
 
             updateWeaponHits();
         }

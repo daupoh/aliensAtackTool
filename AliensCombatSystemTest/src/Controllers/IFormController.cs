@@ -35,8 +35,8 @@ namespace AliensCombatSystemTest.src.Controllers
 
         void setArmorAndHealth(byte healpthPoints, byte armorPoints, string typeOfArmor);
 
-        void setWeaponHits(byte headCount, byte bodyCount, byte armsCount, byte legsCount, byte missCount);
-        void setHitBoxes(double headMod, double bodyMod, double armsMod, double legsMod, double missMod);
+        void setWeaponHits(byte headCount, byte bodyCount, byte armsCount, byte legsCount);
+        void setHitBoxes(double headMod, double bodyMod, double armsMod, double legsMod);
 
         void selectAlien(byte index);
         void selectMarine(byte index);

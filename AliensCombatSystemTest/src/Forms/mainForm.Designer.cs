@@ -106,8 +106,8 @@
             this.btnStartFight = new System.Windows.Forms.Button();
             this.nfiSaveMessage = new System.Windows.Forms.NotifyIcon(this.components);
             this.gbxLogFight = new System.Windows.Forms.GroupBox();
-            this.tbxLog = new System.Windows.Forms.TextBox();
             this.btnClearLog = new System.Windows.Forms.Button();
+            this.tbxLog = new System.Windows.Forms.TextBox();
             this.gbxAliensArea.SuspendLayout();
             this.pnlHits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMissHitsCount)).BeginInit();
@@ -241,6 +241,7 @@
             0,
             0});
             this.numMissHitsCount.Name = "numMissHitsCount";
+            this.numMissHitsCount.ReadOnly = true;
             this.numMissHitsCount.Size = new System.Drawing.Size(100, 20);
             this.numMissHitsCount.TabIndex = 27;
             // 
@@ -1121,16 +1122,6 @@
             this.gbxLogFight.TabStop = false;
             this.gbxLogFight.Text = "Лог боя";
             // 
-            // tbxLog
-            // 
-            this.tbxLog.Location = new System.Drawing.Point(12, 19);
-            this.tbxLog.Multiline = true;
-            this.tbxLog.Name = "tbxLog";
-            this.tbxLog.ReadOnly = true;
-            this.tbxLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbxLog.Size = new System.Drawing.Size(206, 439);
-            this.tbxLog.TabIndex = 0;
-            // 
             // btnClearLog
             // 
             this.btnClearLog.Location = new System.Drawing.Point(48, 464);
@@ -1140,6 +1131,16 @@
             this.btnClearLog.Text = "Очистить лог";
             this.btnClearLog.UseVisualStyleBackColor = true;
             this.btnClearLog.Click += new System.EventHandler(this.btnClearLog_Click);
+            // 
+            // tbxLog
+            // 
+            this.tbxLog.Location = new System.Drawing.Point(12, 19);
+            this.tbxLog.Multiline = true;
+            this.tbxLog.Name = "tbxLog";
+            this.tbxLog.ReadOnly = true;
+            this.tbxLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbxLog.Size = new System.Drawing.Size(206, 439);
+            this.tbxLog.TabIndex = 0;
             // 
             // mainForm
             // 

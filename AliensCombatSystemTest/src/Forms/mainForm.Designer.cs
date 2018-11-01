@@ -833,7 +833,7 @@
             this.numsetAP.Size = new System.Drawing.Size(51, 20);
             this.numsetAP.TabIndex = 12;
             this.numsetAP.Value = new decimal(new int[] {
-            50,
+            100,
             0,
             0,
             0});

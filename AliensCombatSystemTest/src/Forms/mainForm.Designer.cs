@@ -37,8 +37,6 @@
             this.btnAccuracyHits = new System.Windows.Forms.Button();
             this.btnRandomHits = new System.Windows.Forms.Button();
             this.btnAlmostMissHits = new System.Windows.Forms.Button();
-            this.lblMissHitsCount = new System.Windows.Forms.Label();
-            this.numMissHitsCount = new System.Windows.Forms.NumericUpDown();
             this.lblLegsHitsCount = new System.Windows.Forms.Label();
             this.lblArmsHitsCount = new System.Windows.Forms.Label();
             this.lblBodyHitsCount = new System.Windows.Forms.Label();
@@ -110,7 +108,6 @@
             this.tbxLog = new System.Windows.Forms.TextBox();
             this.gbxAliensArea.SuspendLayout();
             this.pnlHits.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numMissHitsCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLegsHitsCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHeadHitsCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBodyHitsCount)).BeginInit();
@@ -157,8 +154,6 @@
             this.pnlHits.Controls.Add(this.btnAccuracyHits);
             this.pnlHits.Controls.Add(this.btnRandomHits);
             this.pnlHits.Controls.Add(this.btnAlmostMissHits);
-            this.pnlHits.Controls.Add(this.lblMissHitsCount);
-            this.pnlHits.Controls.Add(this.numMissHitsCount);
             this.pnlHits.Controls.Add(this.lblLegsHitsCount);
             this.pnlHits.Controls.Add(this.lblArmsHitsCount);
             this.pnlHits.Controls.Add(this.lblBodyHitsCount);
@@ -222,28 +217,6 @@
             this.btnAlmostMissHits.Text = "Почти мимо";
             this.btnAlmostMissHits.UseVisualStyleBackColor = true;
             this.btnAlmostMissHits.Click += new System.EventHandler(this.btnAlmostMissHits_Click);
-            // 
-            // lblMissHitsCount
-            // 
-            this.lblMissHitsCount.AutoSize = true;
-            this.lblMissHitsCount.Location = new System.Drawing.Point(5, 110);
-            this.lblMissHitsCount.Name = "lblMissHitsCount";
-            this.lblMissHitsCount.Size = new System.Drawing.Size(118, 13);
-            this.lblMissHitsCount.TabIndex = 28;
-            this.lblMissHitsCount.Text = "Количество промахов";
-            // 
-            // numMissHitsCount
-            // 
-            this.numMissHitsCount.Location = new System.Drawing.Point(195, 108);
-            this.numMissHitsCount.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.numMissHitsCount.Name = "numMissHitsCount";
-            this.numMissHitsCount.ReadOnly = true;
-            this.numMissHitsCount.Size = new System.Drawing.Size(100, 20);
-            this.numMissHitsCount.TabIndex = 27;
             // 
             // lblLegsHitsCount
             // 
@@ -668,7 +641,7 @@
             // 
             this.numRestoreArmor.Location = new System.Drawing.Point(135, 89);
             this.numRestoreArmor.Maximum = new decimal(new int[] {
-            300,
+            200,
             0,
             0,
             0});
@@ -690,7 +663,7 @@
             // 
             this.numRestoreHealth.Location = new System.Drawing.Point(135, 3);
             this.numRestoreHealth.Maximum = new decimal(new int[] {
-            300,
+            200,
             0,
             0,
             0});
@@ -847,7 +820,7 @@
             // 
             this.numsetAP.Location = new System.Drawing.Point(30, 37);
             this.numsetAP.Maximum = new decimal(new int[] {
-            300,
+            200,
             0,
             0,
             0});
@@ -869,7 +842,7 @@
             // 
             this.numSetHP.Location = new System.Drawing.Point(31, 3);
             this.numSetHP.Maximum = new decimal(new int[] {
-            300,
+            200,
             0,
             0,
             0});
@@ -1158,7 +1131,6 @@
             this.gbxAliensArea.ResumeLayout(false);
             this.pnlHits.ResumeLayout(false);
             this.pnlHits.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numMissHitsCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLegsHitsCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHeadHitsCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBodyHitsCount)).EndInit();
@@ -1246,8 +1218,6 @@
         private System.Windows.Forms.NumericUpDown numBodyHitBox;
         private System.Windows.Forms.NumericUpDown numHeadHitBox;
         private System.Windows.Forms.ComboBox cmbxMarinesList;
-        private System.Windows.Forms.Label lblMissHitsCount;
-        private System.Windows.Forms.NumericUpDown numMissHitsCount;
         private System.Windows.Forms.Panel pnlFightControl;
         private System.Windows.Forms.Button btnEndFight;
         private System.Windows.Forms.Button btnStartFight;

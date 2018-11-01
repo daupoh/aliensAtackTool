@@ -15,7 +15,7 @@ namespace AliensCombatSystemTest
     public partial class mainForm : Form
     {
         IFormController m_pFormController;
-        bool m_bMarinePrepare = false, m_bAlienPrepare = false;
+        bool m_bMarinePrepare = false, m_bAlienPrepare = false,m_bFightStarted=false;
 
         public mainForm()
         {
@@ -52,7 +52,7 @@ namespace AliensCombatSystemTest
             numBodyHitsCount.Value = m_pFormController.getBodyHitsCount();
             numArmsHitsCount.Value = m_pFormController.getArmsHitsCount();
             numLegsHitsCount.Value = m_pFormController.getLegsHitsCount();
-            numMissHitsCount.Value = m_pFormController.getMissHitsCount();   
+            //numMissHitsCount.Value = m_pFormController.getMissHitsCount();   
             
             
 
@@ -168,10 +168,12 @@ namespace AliensCombatSystemTest
         }
         private void checkForStartFight()
         {
+            if (!m_bFightStarted)
             if (m_bAlienPrepare && m_bMarinePrepare)
             {
                 pnlFightControl.Enabled = true;
                 btnEndFight.Enabled = false;
+                m_bFightStarted = true;
             }
         }
         private void btnSetArmorAndHealth_Click(object sender, EventArgs e)
@@ -212,7 +214,7 @@ namespace AliensCombatSystemTest
             try
             {
                 numArmsHitsCount.Value = 1;
-                numMissHitsCount.Value = restOfHits;
+                //numMissHitsCount.Value = restOfHits;
             }
             catch (FormatException exc)
             {
@@ -238,7 +240,7 @@ namespace AliensCombatSystemTest
                 numBodyHitsCount.Value = equivalHits;
                 numArmsHitsCount.Value = equivalHits;
                 numLegsHitsCount.Value = equivalHits;                
-                numMissHitsCount.Value = equivalHits;
+                //numMissHitsCount.Value = equivalHits;
             }
             catch (FormatException exc)
             {
@@ -258,7 +260,7 @@ namespace AliensCombatSystemTest
                 numBodyHitsCount.Value = biggerHits;
                 numArmsHitsCount.Value = lesserHits;
                 numLegsHitsCount.Value = lesserHits;
-                numMissHitsCount.Value = 0;
+                //numMissHitsCount.Value = 0;
             }
             catch (FormatException exc)
             {
@@ -280,6 +282,7 @@ namespace AliensCombatSystemTest
 
         private void btnEndFight_Click(object sender, EventArgs e)
         {
+            m_pFormController.endFight();
             btnEndFight.Enabled = false;
             btnStartFight.Enabled = true;
             pnlRestHealthAndArmor.Enabled = false;
@@ -287,7 +290,11 @@ namespace AliensCombatSystemTest
             cmbxMarinesList.Enabled = true;
             pnlSetArmorAndHealth.Enabled = true;
             btnSetArmorAndHealth.Enabled = true;
-            
+            tbxMarineStatus.Text = m_pFormController.getMarineStatus();
+            tbxMarineStatus.BackColor = DefaultBackColor;
+            tbxArmor.Text = Convert.ToString(m_pFormController.getMarineArmorPoints());
+            tbxHealth.Text = Convert.ToString(m_pFormController.getMarineHealthPoints());
+
         }
 
        

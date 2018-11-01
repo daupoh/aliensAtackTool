@@ -205,10 +205,11 @@ namespace AliensCombatSystemTest.src.Controllers
         }
         public void setWeaponHits(byte headCount, byte bodyCount, byte armsCount, byte legsCount)
         {
-            int sumOfHits = headCount + bodyCount + armsCount + legsCount,
-                missCount= m_pCurrentAlienWeaponCurrent.getMaxHits()-sumOfHits;
+            int sumOfHitsWithOutMiss = headCount + bodyCount + armsCount + legsCount,
+                missCount= m_pCurrentAlienWeaponCurrent.getMaxHits()- sumOfHitsWithOutMiss,
+                sumOfHits=sumOfHitsWithOutMiss+missCount;
                 
-            if (sumOfHits != m_pCurrentAlienWeaponCurrent.getMaxHits() || sumOfHits == 0)
+            if (sumOfHits != m_pCurrentAlienWeaponCurrent.getMaxHits() || sumOfHitsWithOutMiss == 0)
             {
                 throw new FormatException("Количество попаданий не должно превышать количество векторов или быть равно 0");
             }
@@ -333,6 +334,8 @@ namespace AliensCombatSystemTest.src.Controllers
         }
         public void endFight() {
             m_pMarineCharCurrent.setStatus("Стоит");
+            m_pMarineCharCurrent.restoreArmorhPoints(100);
+            m_pMarineCharCurrent.restoreHealthPoints(100);
 
         }
         public double getHeadHitBoxMod()

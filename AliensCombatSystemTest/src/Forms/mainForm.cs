@@ -38,6 +38,13 @@ namespace AliensCombatSystemTest
             btnSetArmorAndHealth.Enabled = true;
             pnlHitBoxes.Enabled = true;
         }
+        private void updateHitsNumeric()
+        {
+            numHeadHitsCount.Value = m_pFormController.getHeadHitsCount();
+            numBodyHitsCount.Value = m_pFormController.getBodyHitsCount();
+            numArmsHitsCount.Value = m_pFormController.getArmsHitsCount();
+            numLegsHitsCount.Value = m_pFormController.getLegsHitsCount();
+        }
         private void alienWeaponIsSelected()
         {
             pnlHits.Enabled = true;
@@ -48,10 +55,7 @@ namespace AliensCombatSystemTest
             numAutoDmgMod.Value = (decimal)m_pFormController.getAutoDamageMod();
             numTimeToAtack.Value = (decimal)m_pFormController.getTimeOnAnimation();
 
-            numHeadHitsCount.Value = m_pFormController.getHeadHitsCount();
-            numBodyHitsCount.Value = m_pFormController.getBodyHitsCount();
-            numArmsHitsCount.Value = m_pFormController.getArmsHitsCount();
-            numLegsHitsCount.Value = m_pFormController.getLegsHitsCount();
+            updateHitsNumeric();
             //numMissHitsCount.Value = m_pFormController.getMissHitsCount();   
             
             
@@ -79,6 +83,9 @@ namespace AliensCombatSystemTest
                 }
             }
             btnSaveHitBoxMods_Click(sender, e);
+            cmbxAliensList.SelectedIndex = 0;
+            cmbxAlienWeapons.SelectedIndex = 0;
+            cmbxMarinesList.SelectedIndex = 0;
         }
 
         private void cmbxAliensList_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,6 +143,7 @@ namespace AliensCombatSystemTest
             {
                 m_pFormController.setWeaponParameters((byte)countOfVector, (double)dmgOfVector, (double)autoDmgMod, (uint)time);                
                 nfiSaveMessage.ShowBalloonTip(500);
+             
             }
             catch (FormatException exc)
             {
@@ -200,6 +208,7 @@ namespace AliensCombatSystemTest
             try
             {
                 numHeadHitsCount.Value = m_pFormController.getCountOfVectors();
+                btnSaveHits_Click(sender, e);
             }
             catch (FormatException exc)
             {
@@ -214,6 +223,7 @@ namespace AliensCombatSystemTest
             try
             {
                 numArmsHitsCount.Value = 1;
+                btnSaveHits_Click(sender, e);
                 //numMissHitsCount.Value = restOfHits;
             }
             catch (FormatException exc)
@@ -239,7 +249,8 @@ namespace AliensCombatSystemTest
                 numHeadHitsCount.Value = equivalHits + restOfHits;
                 numBodyHitsCount.Value = equivalHits;
                 numArmsHitsCount.Value = equivalHits;
-                numLegsHitsCount.Value = equivalHits;                
+                numLegsHitsCount.Value = equivalHits;
+                btnSaveHits_Click(sender, e);
                 //numMissHitsCount.Value = equivalHits;
             }
             catch (FormatException exc)
@@ -260,6 +271,7 @@ namespace AliensCombatSystemTest
                 numBodyHitsCount.Value = biggerHits;
                 numArmsHitsCount.Value = lesserHits;
                 numLegsHitsCount.Value = lesserHits;
+                btnSaveHits_Click(sender, e);
                 //numMissHitsCount.Value = 0;
             }
             catch (FormatException exc)
@@ -373,6 +385,7 @@ namespace AliensCombatSystemTest
             try
             {                
                 cmbxAlienWeapons.SelectedIndex = 0;
+              
 
                 int hpPrev = m_pFormController.getMarineHealthPoints(),hpAfter=0,
                     apPrev = m_pFormController.getMarineArmorPoints(), apAfter=0;
@@ -414,7 +427,7 @@ namespace AliensCombatSystemTest
             try
             {
                 cmbxAlienWeapons.SelectedIndex = 1;
-
+              
                 int hpPrev = m_pFormController.getMarineHealthPoints(), hpAfter = 0,
                     apPrev = m_pFormController.getMarineArmorPoints(), apAfter = 0;
 
@@ -453,7 +466,7 @@ namespace AliensCombatSystemTest
             try
             {
                 cmbxAlienWeapons.SelectedIndex = 3;
-
+                
                 int hpPrev = m_pFormController.getMarineHealthPoints(), hpAfter = 0,
                     apPrev = m_pFormController.getMarineArmorPoints(), apAfter = 0;
 
@@ -492,7 +505,7 @@ namespace AliensCombatSystemTest
             try
             {
                 cmbxAlienWeapons.SelectedIndex = 3;
-
+               
                 int hpPrev = m_pFormController.getMarineHealthPoints(), hpAfter = 0,
                     apPrev = m_pFormController.getMarineArmorPoints(), apAfter = 0;
 
@@ -532,7 +545,7 @@ namespace AliensCombatSystemTest
             try
             {
                 cmbxAlienWeapons.SelectedIndex = 2;
-
+               
                 int hpPrev = m_pFormController.getMarineHealthPoints(), hpAfter = 0,
                     apPrev = m_pFormController.getMarineArmorPoints(), apAfter = 0;
 
@@ -574,7 +587,7 @@ namespace AliensCombatSystemTest
             try
             {
                 cmbxAlienWeapons.SelectedIndex = 4;
-
+              
                 int hpPrev = m_pFormController.getMarineHealthPoints(), hpAfter = 0,
                     apPrev = m_pFormController.getMarineArmorPoints(), apAfter = 0;
 

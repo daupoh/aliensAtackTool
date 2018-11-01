@@ -26,8 +26,8 @@ namespace AliensCombatSystemTest.src.Controllers
         IHitBox m_pHeadHitBox,
                 m_pBodyHitBox,
                 m_pArmsHitBox,
-                m_pLegsHitBox,
-                m_pMissHitBox;
+                m_pLegsHitBox
+                ;
 
         ICharacterGenerator m_pCharacterGenerator;
 
@@ -254,8 +254,9 @@ namespace AliensCombatSystemTest.src.Controllers
             }
             index = (byte)missCount;
             hit = new CHit();
-            m_pMissHitBox.setModDmg(m_pCurrentAlienWeaponCurrent.getDamageType().getAutoDmg());
-            hit.hitOn(m_pMissHitBox);
+            IHitBox missHitBox = new CHitBox("miss", m_pCurrentAlienWeaponCurrent.getDamageType().getAutoDmg());
+            
+            hit.hitOn(missHitBox);
             hit.setHitDmgType(m_pCurrentAlienWeaponCurrent.getDamageType());
             while (index > 0)
             {
@@ -270,8 +271,7 @@ namespace AliensCombatSystemTest.src.Controllers
             m_pHeadHitBox.setModDmg(headMod);
             m_pBodyHitBox.setModDmg(bodyMod);
             m_pArmsHitBox.setModDmg(armsMod);
-            m_pLegsHitBox.setModDmg(legsMod);
-            m_pMissHitBox.setModDmg(m_pCurrentAlienWeaponCurrent.getDamageType().getAutoDmg());
+            m_pLegsHitBox.setModDmg(legsMod);           
 
             updateWeaponHits();
         }
@@ -416,8 +416,7 @@ namespace AliensCombatSystemTest.src.Controllers
             m_pHeadHitBox = new CHitBox("head", 1.7);
             m_pBodyHitBox = new CHitBox("body", 1.0);
             m_pArmsHitBox = new CHitBox("arms", 0.65);
-            m_pLegsHitBox = new CHitBox("legs", 0.8);
-            m_pMissHitBox = new CHitBox("miss", 0.5);
+            m_pLegsHitBox = new CHitBox("legs", 0.8);            
         }
     }
 }

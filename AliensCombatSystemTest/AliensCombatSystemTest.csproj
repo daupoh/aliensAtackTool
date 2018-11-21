@@ -45,11 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src2\models\characters\ICharacter.cs" />
+    <Compile Include="src2\models\characters\IStatus.cs" />
     <Compile Include="src2\models\IEntity.cs" />
-    <Compile Include="src2\models\weapons\effects\CUpdateableEffect.cs" />
+    <Compile Include="src2\models\weapons\effects\DmgEffect\ACTypicalDmgEffect.cs" />
     <Compile Include="src2\models\weapons\effects\IEffect.cs" />
-    <Compile Include="src2\models\weapons\effects\ISingletonEffect.cs" />
-    <Compile Include="src2\models\weapons\effects\IUpdateableEffect.cs" />
+    <Compile Include="src2\models\weapons\effects\IInstantaneousEffect.cs" />
+    <Compile Include="src2\models\weapons\effects\IPeriodTimeEffect.cs" />
+    <Compile Include="src2\models\weapons\effects\IStickedEffect.cs" />
+    <Compile Include="src2\models\weapons\effects\ITimeEffect.cs" />
     <Compile Include="src\Controllers\CFormController.cs" />
     <Compile Include="src\Controllers\IFormController.cs" />
     <Compile Include="src\Forms\mainForm.cs">
@@ -112,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src2\helpers\" />
+    <Folder Include="src2\models\characters\humans\statuses\" />
     <Folder Include="src2\models\hits\" />
     <Folder Include="src2\models\weapons\damageTypes\" />
     <Folder Include="src2\models\weapons\projectiles\" />

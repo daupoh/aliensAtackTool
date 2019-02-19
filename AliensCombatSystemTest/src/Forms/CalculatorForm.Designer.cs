@@ -32,11 +32,20 @@
             this.m_rbtnHumanMode = new System.Windows.Forms.RadioButton();
             this.m_rbtnAlienMode = new System.Windows.Forms.RadioButton();
             this.gbxWeaponTable = new System.Windows.Forms.GroupBox();
+            this.m_btnCalculateResult = new System.Windows.Forms.Button();
             this.m_dgvWeapons = new System.Windows.Forms.DataGridView();
             this.gbxTargetTable = new System.Windows.Forms.GroupBox();
             this.m_dgvTargets = new System.Windows.Forms.DataGridView();
             this.gbxStrikeBlock = new System.Windows.Forms.GroupBox();
-            this.gbxCombatLog = new System.Windows.Forms.GroupBox();
+            this.m_numRestHP = new System.Windows.Forms.NumericUpDown();
+            this.m_btnAtackUntil = new System.Windows.Forms.Button();
+            this.m_btnAtack = new System.Windows.Forms.Button();
+            this.m_lblBPorAP = new System.Windows.Forms.Label();
+            this.m_numBPorAP = new System.Windows.Forms.NumericUpDown();
+            this.m_numHP = new System.Windows.Forms.NumericUpDown();
+            this.m_lblHP = new System.Windows.Forms.Label();
+            this.m_numTotalHits = new System.Windows.Forms.NumericUpDown();
+            this.m_lblTotalHits = new System.Windows.Forms.Label();
             this.m_lblMiss = new System.Windows.Forms.Label();
             this.m_numMissCount = new System.Windows.Forms.NumericUpDown();
             this.m_lblLegs = new System.Windows.Forms.Label();
@@ -47,37 +56,29 @@
             this.m_numArmsCount = new System.Windows.Forms.NumericUpDown();
             this.m_numBodyCount = new System.Windows.Forms.NumericUpDown();
             this.m_numHeadCount = new System.Windows.Forms.NumericUpDown();
-            this.m_lblTotalHits = new System.Windows.Forms.Label();
-            this.m_numTotalHits = new System.Windows.Forms.NumericUpDown();
+            this.gbxCombatLog = new System.Windows.Forms.GroupBox();
+            this.m_tbxCombatLog = new System.Windows.Forms.TextBox();
             this.gbxResultsTable = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.m_lblHP = new System.Windows.Forms.Label();
-            this.m_numHP = new System.Windows.Forms.NumericUpDown();
-            this.m_numBPorAP = new System.Windows.Forms.NumericUpDown();
-            this.m_lblBPorAP = new System.Windows.Forms.Label();
-            this.m_btnAtack = new System.Windows.Forms.Button();
-            this.m_btnAtackUntil = new System.Windows.Forms.Button();
-            this.m_numRestHP = new System.Windows.Forms.NumericUpDown();
-            this.m_btnCalculateResult = new System.Windows.Forms.Button();
-            this.m_tbxCombatLog = new System.Windows.Forms.TextBox();
+            this.m_btnCalculateTotalResult = new System.Windows.Forms.Button();
             this.gbxCalculatorMode.SuspendLayout();
             this.gbxWeaponTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvWeapons)).BeginInit();
             this.gbxTargetTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvTargets)).BeginInit();
             this.gbxStrikeBlock.SuspendLayout();
-            this.gbxCombatLog.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.m_numRestHP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_numBPorAP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_numHP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_numTotalHits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_numMissCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_numLegsCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_numArmsCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_numBodyCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_numHeadCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_numTotalHits)).BeginInit();
+            this.gbxCombatLog.SuspendLayout();
             this.gbxResultsTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_numHP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_numBPorAP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_numRestHP)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxCalculatorMode
@@ -115,6 +116,7 @@
             // 
             // gbxWeaponTable
             // 
+            this.gbxWeaponTable.Controls.Add(this.m_btnCalculateTotalResult);
             this.gbxWeaponTable.Controls.Add(this.m_btnCalculateResult);
             this.gbxWeaponTable.Controls.Add(this.m_dgvWeapons);
             this.gbxWeaponTable.Location = new System.Drawing.Point(12, 67);
@@ -123,6 +125,15 @@
             this.gbxWeaponTable.TabIndex = 1;
             this.gbxWeaponTable.TabStop = false;
             this.gbxWeaponTable.Text = "Таблица типов оружия";
+            // 
+            // m_btnCalculateResult
+            // 
+            this.m_btnCalculateResult.Location = new System.Drawing.Point(6, 288);
+            this.m_btnCalculateResult.Name = "m_btnCalculateResult";
+            this.m_btnCalculateResult.Size = new System.Drawing.Size(214, 38);
+            this.m_btnCalculateResult.TabIndex = 27;
+            this.m_btnCalculateResult.Text = "Рассчитать показатели выбранного оружия против выбранной цели";
+            this.m_btnCalculateResult.UseVisualStyleBackColor = true;
             // 
             // m_dgvWeapons
             // 
@@ -178,15 +189,75 @@
             this.gbxStrikeBlock.TabStop = false;
             this.gbxStrikeBlock.Text = "Параметры атаки";
             // 
-            // gbxCombatLog
+            // m_numRestHP
             // 
-            this.gbxCombatLog.Controls.Add(this.m_tbxCombatLog);
-            this.gbxCombatLog.Location = new System.Drawing.Point(418, 408);
-            this.gbxCombatLog.Name = "gbxCombatLog";
-            this.gbxCombatLog.Size = new System.Drawing.Size(461, 160);
-            this.gbxCombatLog.TabIndex = 4;
-            this.gbxCombatLog.TabStop = false;
-            this.gbxCombatLog.Text = "Лог боя";
+            this.m_numRestHP.Location = new System.Drawing.Point(396, 153);
+            this.m_numRestHP.Name = "m_numRestHP";
+            this.m_numRestHP.Size = new System.Drawing.Size(59, 20);
+            this.m_numRestHP.TabIndex = 28;
+            // 
+            // m_btnAtackUntil
+            // 
+            this.m_btnAtackUntil.Location = new System.Drawing.Point(303, 98);
+            this.m_btnAtackUntil.Name = "m_btnAtackUntil";
+            this.m_btnAtackUntil.Size = new System.Drawing.Size(87, 75);
+            this.m_btnAtackUntil.TabIndex = 27;
+            this.m_btnAtackUntil.Text = "Атаковать, пока HP не станет равным...";
+            this.m_btnAtackUntil.UseVisualStyleBackColor = true;
+            // 
+            // m_btnAtack
+            // 
+            this.m_btnAtack.Location = new System.Drawing.Point(303, 66);
+            this.m_btnAtack.Name = "m_btnAtack";
+            this.m_btnAtack.Size = new System.Drawing.Size(152, 23);
+            this.m_btnAtack.TabIndex = 26;
+            this.m_btnAtack.Text = "Атаковать один раз";
+            this.m_btnAtack.UseVisualStyleBackColor = true;
+            // 
+            // m_lblBPorAP
+            // 
+            this.m_lblBPorAP.Location = new System.Drawing.Point(300, 42);
+            this.m_lblBPorAP.Name = "m_lblBPorAP";
+            this.m_lblBPorAP.Size = new System.Drawing.Size(90, 18);
+            this.m_lblBPorAP.TabIndex = 25;
+            this.m_lblBPorAP.Text = "Количество AP";
+            // 
+            // m_numBPorAP
+            // 
+            this.m_numBPorAP.Location = new System.Drawing.Point(396, 40);
+            this.m_numBPorAP.Name = "m_numBPorAP";
+            this.m_numBPorAP.Size = new System.Drawing.Size(59, 20);
+            this.m_numBPorAP.TabIndex = 24;
+            // 
+            // m_numHP
+            // 
+            this.m_numHP.Location = new System.Drawing.Point(396, 14);
+            this.m_numHP.Name = "m_numHP";
+            this.m_numHP.Size = new System.Drawing.Size(59, 20);
+            this.m_numHP.TabIndex = 23;
+            // 
+            // m_lblHP
+            // 
+            this.m_lblHP.Location = new System.Drawing.Point(300, 16);
+            this.m_lblHP.Name = "m_lblHP";
+            this.m_lblHP.Size = new System.Drawing.Size(90, 18);
+            this.m_lblHP.TabIndex = 22;
+            this.m_lblHP.Text = "Количество HP";
+            // 
+            // m_numTotalHits
+            // 
+            this.m_numTotalHits.Location = new System.Drawing.Point(206, 14);
+            this.m_numTotalHits.Name = "m_numTotalHits";
+            this.m_numTotalHits.Size = new System.Drawing.Size(73, 20);
+            this.m_numTotalHits.TabIndex = 21;
+            // 
+            // m_lblTotalHits
+            // 
+            this.m_lblTotalHits.Location = new System.Drawing.Point(6, 16);
+            this.m_lblTotalHits.Name = "m_lblTotalHits";
+            this.m_lblTotalHits.Size = new System.Drawing.Size(194, 18);
+            this.m_lblTotalHits.TabIndex = 20;
+            this.m_lblTotalHits.Text = "Количество возможных попаданий";
             // 
             // m_lblMiss
             // 
@@ -263,20 +334,24 @@
             this.m_numHeadCount.Size = new System.Drawing.Size(73, 20);
             this.m_numHeadCount.TabIndex = 10;
             // 
-            // m_lblTotalHits
+            // gbxCombatLog
             // 
-            this.m_lblTotalHits.Location = new System.Drawing.Point(6, 16);
-            this.m_lblTotalHits.Name = "m_lblTotalHits";
-            this.m_lblTotalHits.Size = new System.Drawing.Size(194, 18);
-            this.m_lblTotalHits.TabIndex = 20;
-            this.m_lblTotalHits.Text = "Количество возможных попаданий";
+            this.gbxCombatLog.Controls.Add(this.m_tbxCombatLog);
+            this.gbxCombatLog.Location = new System.Drawing.Point(418, 408);
+            this.gbxCombatLog.Name = "gbxCombatLog";
+            this.gbxCombatLog.Size = new System.Drawing.Size(461, 160);
+            this.gbxCombatLog.TabIndex = 4;
+            this.gbxCombatLog.TabStop = false;
+            this.gbxCombatLog.Text = "Лог боя";
             // 
-            // m_numTotalHits
+            // m_tbxCombatLog
             // 
-            this.m_numTotalHits.Location = new System.Drawing.Point(206, 14);
-            this.m_numTotalHits.Name = "m_numTotalHits";
-            this.m_numTotalHits.Size = new System.Drawing.Size(73, 20);
-            this.m_numTotalHits.TabIndex = 21;
+            this.m_tbxCombatLog.Location = new System.Drawing.Point(6, 19);
+            this.m_tbxCombatLog.Multiline = true;
+            this.m_tbxCombatLog.Name = "m_tbxCombatLog";
+            this.m_tbxCombatLog.ReadOnly = true;
+            this.m_tbxCombatLog.Size = new System.Drawing.Size(449, 135);
+            this.m_tbxCombatLog.TabIndex = 0;
             // 
             // gbxResultsTable
             // 
@@ -296,78 +371,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(388, 135);
             this.dataGridView1.TabIndex = 1;
             // 
-            // m_lblHP
+            // m_btnCalculateTotalResult
             // 
-            this.m_lblHP.Location = new System.Drawing.Point(300, 16);
-            this.m_lblHP.Name = "m_lblHP";
-            this.m_lblHP.Size = new System.Drawing.Size(90, 18);
-            this.m_lblHP.TabIndex = 22;
-            this.m_lblHP.Text = "Количество HP";
-            // 
-            // m_numHP
-            // 
-            this.m_numHP.Location = new System.Drawing.Point(396, 14);
-            this.m_numHP.Name = "m_numHP";
-            this.m_numHP.Size = new System.Drawing.Size(59, 20);
-            this.m_numHP.TabIndex = 23;
-            // 
-            // m_numBPorAP
-            // 
-            this.m_numBPorAP.Location = new System.Drawing.Point(396, 40);
-            this.m_numBPorAP.Name = "m_numBPorAP";
-            this.m_numBPorAP.Size = new System.Drawing.Size(59, 20);
-            this.m_numBPorAP.TabIndex = 24;
-            // 
-            // m_lblBPorAP
-            // 
-            this.m_lblBPorAP.Location = new System.Drawing.Point(300, 42);
-            this.m_lblBPorAP.Name = "m_lblBPorAP";
-            this.m_lblBPorAP.Size = new System.Drawing.Size(90, 18);
-            this.m_lblBPorAP.TabIndex = 25;
-            this.m_lblBPorAP.Text = "Количество AP";
-            // 
-            // m_btnAtack
-            // 
-            this.m_btnAtack.Location = new System.Drawing.Point(303, 66);
-            this.m_btnAtack.Name = "m_btnAtack";
-            this.m_btnAtack.Size = new System.Drawing.Size(152, 23);
-            this.m_btnAtack.TabIndex = 26;
-            this.m_btnAtack.Text = "Атаковать один раз";
-            this.m_btnAtack.UseVisualStyleBackColor = true;
-            // 
-            // m_btnAtackUntil
-            // 
-            this.m_btnAtackUntil.Location = new System.Drawing.Point(303, 98);
-            this.m_btnAtackUntil.Name = "m_btnAtackUntil";
-            this.m_btnAtackUntil.Size = new System.Drawing.Size(87, 75);
-            this.m_btnAtackUntil.TabIndex = 27;
-            this.m_btnAtackUntil.Text = "Атаковать, пока HP не станет равным...";
-            this.m_btnAtackUntil.UseVisualStyleBackColor = true;
-            // 
-            // m_numRestHP
-            // 
-            this.m_numRestHP.Location = new System.Drawing.Point(396, 153);
-            this.m_numRestHP.Name = "m_numRestHP";
-            this.m_numRestHP.Size = new System.Drawing.Size(59, 20);
-            this.m_numRestHP.TabIndex = 28;
-            // 
-            // m_btnCalculateResult
-            // 
-            this.m_btnCalculateResult.Location = new System.Drawing.Point(6, 288);
-            this.m_btnCalculateResult.Name = "m_btnCalculateResult";
-            this.m_btnCalculateResult.Size = new System.Drawing.Size(152, 38);
-            this.m_btnCalculateResult.TabIndex = 27;
-            this.m_btnCalculateResult.Text = "Рассчитать показатели оружия";
-            this.m_btnCalculateResult.UseVisualStyleBackColor = true;
-            // 
-            // m_tbxCombatLog
-            // 
-            this.m_tbxCombatLog.Location = new System.Drawing.Point(6, 19);
-            this.m_tbxCombatLog.Multiline = true;
-            this.m_tbxCombatLog.Name = "m_tbxCombatLog";
-            this.m_tbxCombatLog.ReadOnly = true;
-            this.m_tbxCombatLog.Size = new System.Drawing.Size(449, 135);
-            this.m_tbxCombatLog.TabIndex = 0;
+            this.m_btnCalculateTotalResult.Location = new System.Drawing.Point(226, 288);
+            this.m_btnCalculateTotalResult.Name = "m_btnCalculateTotalResult";
+            this.m_btnCalculateTotalResult.Size = new System.Drawing.Size(168, 38);
+            this.m_btnCalculateTotalResult.TabIndex = 28;
+            this.m_btnCalculateTotalResult.Text = "Рассчитать показатели типов оружия против всех целей";
+            this.m_btnCalculateTotalResult.UseVisualStyleBackColor = true;
             // 
             // CalculatorForm
             // 
@@ -388,19 +399,19 @@
             this.gbxTargetTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvTargets)).EndInit();
             this.gbxStrikeBlock.ResumeLayout(false);
-            this.gbxCombatLog.ResumeLayout(false);
-            this.gbxCombatLog.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.m_numRestHP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_numBPorAP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_numHP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_numTotalHits)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_numMissCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_numLegsCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_numArmsCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_numBodyCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_numHeadCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_numTotalHits)).EndInit();
+            this.gbxCombatLog.ResumeLayout(false);
+            this.gbxCombatLog.PerformLayout();
             this.gbxResultsTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_numHP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_numBPorAP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.m_numRestHP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -439,6 +450,7 @@
         private System.Windows.Forms.GroupBox gbxResultsTable;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox m_tbxCombatLog;
+        private System.Windows.Forms.Button m_btnCalculateTotalResult;
     }
 }
 

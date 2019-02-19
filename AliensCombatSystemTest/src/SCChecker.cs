@@ -8,7 +8,7 @@ namespace AliensCombatSystemTest.src.Models
 {
     static class SCChecker
     {
-        public static void checkNumberMoreThenZero(double number)
+        public static void CheckNumberMoreThenZero(double number)
         {
             if (number<=0)
             {
@@ -16,21 +16,21 @@ namespace AliensCombatSystemTest.src.Models
             }
 
         }
-        public static void checkBooleanVarIsTrue(bool expression)
+        public static void CheckBooleanVarIsTrue(bool expression)
         {
             if (!expression)
             {
                 throw new FormatException();
             }
         }
-        public static void checkFirstNumberMoreOrEquivalThenSecond(double firstNumb, double secondNumb)
+        public static void CheckFirstNumberMoreOrEquivalThenSecond(double firstNumb, double secondNumb)
         {
             if (secondNumb>firstNumb)
             {
                 throw new FormatException();
             }
         }
-        public static void checkObjectIsNotNull(Object sender,string message)
+        public static void CheckObjectIsNotNull(Object sender,string message)
         {
             if (sender==null)
             {
@@ -38,7 +38,7 @@ namespace AliensCombatSystemTest.src.Models
             }
 
         }
-        public static void checkStringIsNotEmpty(string str)
+        public static void CheckStringIsNotEmpty(string str)
         {
             if (str==null || str=="")
             {

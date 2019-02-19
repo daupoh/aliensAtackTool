@@ -13,11 +13,22 @@ namespace AliensCombatSystemTest
 {
     public partial class CalculatorForm : Form
     {
-        
+        enum CalculatorMode
+        {
+            alienMode,humanMode
+        }
         public CalculatorForm()
         {
             InitializeComponent();
         }
 
+        private void SetElementsInAlienMode()
+        {
+
+        }
+        private void SetElementsInMarinesMode()
+        {
+            
+        }
     }   
 }

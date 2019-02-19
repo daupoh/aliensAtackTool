@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AliensCombatSystemTest.src2.models
+namespace AliensCombatSystemTest.src2.models.weapons.damageTypes
 {
-    public interface IEntity
+    interface IDamageType:IEntity
     {
-        string Name { get; }
-
     }
 }

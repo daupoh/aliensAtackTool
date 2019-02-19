@@ -10,7 +10,7 @@ namespace AliensCombatSystemTest.src2.models.weapons.effects
     interface IEffect:IEntity
     {
         bool canEffect();
-        void doEffect();
+        void doEffect(ICharacter enemyChar);
 
     }
 }

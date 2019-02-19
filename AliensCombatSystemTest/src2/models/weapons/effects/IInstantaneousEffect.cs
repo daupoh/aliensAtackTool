@@ -8,5 +8,6 @@ namespace AliensCombatSystemTest.src2.models.weapons.effects
 {
     interface IInstantaneousEffect:IEffect
     {
+        bool HasBonus { get; }
     }
 }

@@ -45,10 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src2\helpers\SCDataFormatChecker.cs" />
     <Compile Include="src2\models\characters\ICharacter.cs" />
     <Compile Include="src2\models\characters\IStatus.cs" />
     <Compile Include="src2\models\IEntity.cs" />
+    <Compile Include="src2\models\weapons\damageTypes\IDamageType.cs" />
     <Compile Include="src2\models\weapons\effects\DmgEffect\ACTypicalDmgEffect.cs" />
+    <Compile Include="src2\models\weapons\effects\DmgEffect\CDamageWithBonusDmgEffect.cs" />
     <Compile Include="src2\models\weapons\effects\IEffect.cs" />
     <Compile Include="src2\models\weapons\effects\IInstantaneousEffect.cs" />
     <Compile Include="src2\models\weapons\effects\IPeriodTimeEffect.cs" />
@@ -115,10 +118,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src2\helpers\" />
     <Folder Include="src2\models\characters\humans\statuses\" />
     <Folder Include="src2\models\hits\" />
-    <Folder Include="src2\models\weapons\damageTypes\" />
     <Folder Include="src2\models\weapons\projectiles\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

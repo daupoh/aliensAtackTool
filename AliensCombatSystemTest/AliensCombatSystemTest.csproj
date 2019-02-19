@@ -45,8 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\Controllers\CFormController.cs" />
-    <Compile Include="src\Controllers\IFormController.cs" />
     <Compile Include="src\Forms\mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,30 +53,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\Models\Armor\CArmor.cs" />
-    <Compile Include="src\Models\Armor\IArmor.cs" />
-    <Compile Include="src\Models\CharacterGenerator\CCharacterGenerator.cs" />
-    <Compile Include="src\Models\CharacterGenerator\ICharacterGenerator.cs" />
-    <Compile Include="src\Models\Characters\Aliens\CAlienCharacter.cs" />
-    <Compile Include="src\Models\Characters\Aliens\IAlienCharacter.cs" />
-    <Compile Include="src\Models\DamageTypes\CDamageTypeBuilder.cs" />
-    <Compile Include="src\Models\DamageTypes\IDamageTypeBuilder.cs" />
-    <Compile Include="src\Models\Weapons\Builders\AliensBuilders\CAlienWeaponBuilder.cs" />
     <Compile Include="src\SCChecker.cs" />
-    <Compile Include="src\Models\Characters\ICharacter.cs" />
-    <Compile Include="src\Models\Characters\Marines\CMarineCharacter.cs" />
-    <Compile Include="src\Models\Characters\Marines\IMarineCharacter.cs" />
-    <Compile Include="src\Models\Characters\SCMarineStatus.cs" />
-    <Compile Include="src\Models\DamageTypes\CDamageType.cs" />
-    <Compile Include="src\Models\DamageTypes\IDamageType.cs" />
-    <Compile Include="src\Models\Hits\CHit.cs" />
-    <Compile Include="src\Models\Hits\CHitBox.cs" />
-    <Compile Include="src\Models\Hits\IHit.cs" />
-    <Compile Include="src\Models\Hits\IHitBox.cs" />
-    <Compile Include="src\Models\Weapons\CAlienWeapon.cs" />
-    <Compile Include="src\Models\Weapons\IAlienWeapon.cs" />
-    <Compile Include="src\Models\Weapons\Builders\AliensBuilders\IAlienWeaponBuilder.cs" />
-    <Compile Include="src\Models\Weapons\IWeapon.cs" />
     <Compile Include="src\SCDamageTypeDescriptor.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

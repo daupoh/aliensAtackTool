@@ -32,6 +32,7 @@
             this.m_rbtnHumanMode = new System.Windows.Forms.RadioButton();
             this.m_rbtnAlienMode = new System.Windows.Forms.RadioButton();
             this.gbxWeaponTable = new System.Windows.Forms.GroupBox();
+            this.m_btnCalculateTotalResult = new System.Windows.Forms.Button();
             this.m_btnCalculateResult = new System.Windows.Forms.Button();
             this.m_dgvWeapons = new System.Windows.Forms.DataGridView();
             this.gbxTargetTable = new System.Windows.Forms.GroupBox();
@@ -60,7 +61,7 @@
             this.m_tbxCombatLog = new System.Windows.Forms.TextBox();
             this.gbxResultsTable = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.m_btnCalculateTotalResult = new System.Windows.Forms.Button();
+            this.m_btnClearLog = new System.Windows.Forms.Button();
             this.gbxCalculatorMode.SuspendLayout();
             this.gbxWeaponTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvWeapons)).BeginInit();
@@ -125,6 +126,15 @@
             this.gbxWeaponTable.TabIndex = 1;
             this.gbxWeaponTable.TabStop = false;
             this.gbxWeaponTable.Text = "Таблица типов оружия";
+            // 
+            // m_btnCalculateTotalResult
+            // 
+            this.m_btnCalculateTotalResult.Location = new System.Drawing.Point(226, 288);
+            this.m_btnCalculateTotalResult.Name = "m_btnCalculateTotalResult";
+            this.m_btnCalculateTotalResult.Size = new System.Drawing.Size(168, 38);
+            this.m_btnCalculateTotalResult.TabIndex = 28;
+            this.m_btnCalculateTotalResult.Text = "Рассчитать показатели типов оружия против всех целей";
+            this.m_btnCalculateTotalResult.UseVisualStyleBackColor = true;
             // 
             // m_btnCalculateResult
             // 
@@ -336,6 +346,7 @@
             // 
             // gbxCombatLog
             // 
+            this.gbxCombatLog.Controls.Add(this.m_btnClearLog);
             this.gbxCombatLog.Controls.Add(this.m_tbxCombatLog);
             this.gbxCombatLog.Location = new System.Drawing.Point(418, 408);
             this.gbxCombatLog.Name = "gbxCombatLog";
@@ -350,7 +361,7 @@
             this.m_tbxCombatLog.Multiline = true;
             this.m_tbxCombatLog.Name = "m_tbxCombatLog";
             this.m_tbxCombatLog.ReadOnly = true;
-            this.m_tbxCombatLog.Size = new System.Drawing.Size(449, 135);
+            this.m_tbxCombatLog.Size = new System.Drawing.Size(449, 102);
             this.m_tbxCombatLog.TabIndex = 0;
             // 
             // gbxResultsTable
@@ -371,14 +382,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(388, 135);
             this.dataGridView1.TabIndex = 1;
             // 
-            // m_btnCalculateTotalResult
+            // m_btnClearLog
             // 
-            this.m_btnCalculateTotalResult.Location = new System.Drawing.Point(226, 288);
-            this.m_btnCalculateTotalResult.Name = "m_btnCalculateTotalResult";
-            this.m_btnCalculateTotalResult.Size = new System.Drawing.Size(168, 38);
-            this.m_btnCalculateTotalResult.TabIndex = 28;
-            this.m_btnCalculateTotalResult.Text = "Рассчитать показатели типов оружия против всех целей";
-            this.m_btnCalculateTotalResult.UseVisualStyleBackColor = true;
+            this.m_btnClearLog.Location = new System.Drawing.Point(6, 127);
+            this.m_btnClearLog.Name = "m_btnClearLog";
+            this.m_btnClearLog.Size = new System.Drawing.Size(152, 23);
+            this.m_btnClearLog.TabIndex = 27;
+            this.m_btnClearLog.Text = "Очистить лог";
+            this.m_btnClearLog.UseVisualStyleBackColor = true;
             // 
             // CalculatorForm
             // 
@@ -451,6 +462,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox m_tbxCombatLog;
         private System.Windows.Forms.Button m_btnCalculateTotalResult;
+        private System.Windows.Forms.Button m_btnClearLog;
     }
 }
 

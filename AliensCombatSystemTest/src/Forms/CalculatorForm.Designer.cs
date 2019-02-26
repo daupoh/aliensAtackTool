@@ -58,10 +58,10 @@
             this.m_numBodyCount = new System.Windows.Forms.NumericUpDown();
             this.m_numHeadCount = new System.Windows.Forms.NumericUpDown();
             this.gbxCombatLog = new System.Windows.Forms.GroupBox();
+            this.m_btnClearLog = new System.Windows.Forms.Button();
             this.m_tbxCombatLog = new System.Windows.Forms.TextBox();
             this.gbxResultsTable = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.m_btnClearLog = new System.Windows.Forms.Button();
             this.gbxCalculatorMode.SuspendLayout();
             this.gbxWeaponTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvWeapons)).BeginInit();
@@ -88,7 +88,7 @@
             this.gbxCalculatorMode.Controls.Add(this.m_rbtnAlienMode);
             this.gbxCalculatorMode.Location = new System.Drawing.Point(12, 12);
             this.gbxCalculatorMode.Name = "gbxCalculatorMode";
-            this.gbxCalculatorMode.Size = new System.Drawing.Size(400, 49);
+            this.gbxCalculatorMode.Size = new System.Drawing.Size(543, 49);
             this.gbxCalculatorMode.TabIndex = 0;
             this.gbxCalculatorMode.TabStop = false;
             this.gbxCalculatorMode.Text = "Режим калькулятора";
@@ -102,6 +102,7 @@
             this.m_rbtnHumanMode.TabIndex = 1;
             this.m_rbtnHumanMode.Text = "Режим \"Морпех атакует\"";
             this.m_rbtnHumanMode.UseVisualStyleBackColor = true;
+            this.m_rbtnHumanMode.CheckedChanged += new System.EventHandler(this.m_rbtnHumanMode_CheckedChanged);
             // 
             // m_rbtnAlienMode
             // 
@@ -114,6 +115,7 @@
             this.m_rbtnAlienMode.TabStop = true;
             this.m_rbtnAlienMode.Text = "Режим \"Чужой атакует\"";
             this.m_rbtnAlienMode.UseVisualStyleBackColor = true;
+            this.m_rbtnAlienMode.CheckedChanged += new System.EventHandler(this.m_rbtnAlienMode_CheckedChanged);
             // 
             // gbxWeaponTable
             // 
@@ -122,16 +124,16 @@
             this.gbxWeaponTable.Controls.Add(this.m_dgvWeapons);
             this.gbxWeaponTable.Location = new System.Drawing.Point(12, 67);
             this.gbxWeaponTable.Name = "gbxWeaponTable";
-            this.gbxWeaponTable.Size = new System.Drawing.Size(400, 335);
+            this.gbxWeaponTable.Size = new System.Drawing.Size(543, 335);
             this.gbxWeaponTable.TabIndex = 1;
             this.gbxWeaponTable.TabStop = false;
             this.gbxWeaponTable.Text = "Таблица типов оружия";
             // 
             // m_btnCalculateTotalResult
             // 
-            this.m_btnCalculateTotalResult.Location = new System.Drawing.Point(226, 288);
+            this.m_btnCalculateTotalResult.Location = new System.Drawing.Point(349, 291);
             this.m_btnCalculateTotalResult.Name = "m_btnCalculateTotalResult";
-            this.m_btnCalculateTotalResult.Size = new System.Drawing.Size(168, 38);
+            this.m_btnCalculateTotalResult.Size = new System.Drawing.Size(188, 38);
             this.m_btnCalculateTotalResult.TabIndex = 28;
             this.m_btnCalculateTotalResult.Text = "Рассчитать показатели типов оружия против всех целей";
             this.m_btnCalculateTotalResult.UseVisualStyleBackColor = true;
@@ -147,16 +149,23 @@
             // 
             // m_dgvWeapons
             // 
+            this.m_dgvWeapons.AllowUserToAddRows = false;
+            this.m_dgvWeapons.AllowUserToDeleteRows = false;
+            this.m_dgvWeapons.AllowUserToResizeRows = false;
             this.m_dgvWeapons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.m_dgvWeapons.Location = new System.Drawing.Point(6, 19);
+            this.m_dgvWeapons.MultiSelect = false;
             this.m_dgvWeapons.Name = "m_dgvWeapons";
-            this.m_dgvWeapons.Size = new System.Drawing.Size(388, 263);
+            this.m_dgvWeapons.RowHeadersVisible = false;
+            this.m_dgvWeapons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.m_dgvWeapons.Size = new System.Drawing.Size(531, 263);
             this.m_dgvWeapons.TabIndex = 0;
             // 
             // gbxTargetTable
             // 
+            this.gbxTargetTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbxTargetTable.Controls.Add(this.m_dgvTargets);
-            this.gbxTargetTable.Location = new System.Drawing.Point(418, 12);
+            this.gbxTargetTable.Location = new System.Drawing.Point(561, 12);
             this.gbxTargetTable.Name = "gbxTargetTable";
             this.gbxTargetTable.Size = new System.Drawing.Size(461, 202);
             this.gbxTargetTable.TabIndex = 2;
@@ -165,14 +174,21 @@
             // 
             // m_dgvTargets
             // 
+            this.m_dgvTargets.AllowUserToAddRows = false;
+            this.m_dgvTargets.AllowUserToDeleteRows = false;
+            this.m_dgvTargets.AllowUserToResizeRows = false;
             this.m_dgvTargets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.m_dgvTargets.Location = new System.Drawing.Point(6, 19);
+            this.m_dgvTargets.MultiSelect = false;
             this.m_dgvTargets.Name = "m_dgvTargets";
+            this.m_dgvTargets.RowHeadersVisible = false;
+            this.m_dgvTargets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.m_dgvTargets.Size = new System.Drawing.Size(449, 177);
             this.m_dgvTargets.TabIndex = 1;
             // 
             // gbxStrikeBlock
             // 
+            this.gbxStrikeBlock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbxStrikeBlock.Controls.Add(this.m_numRestHP);
             this.gbxStrikeBlock.Controls.Add(this.m_btnAtackUntil);
             this.gbxStrikeBlock.Controls.Add(this.m_btnAtack);
@@ -192,7 +208,7 @@
             this.gbxStrikeBlock.Controls.Add(this.m_numArmsCount);
             this.gbxStrikeBlock.Controls.Add(this.m_numBodyCount);
             this.gbxStrikeBlock.Controls.Add(this.m_numHeadCount);
-            this.gbxStrikeBlock.Location = new System.Drawing.Point(418, 220);
+            this.gbxStrikeBlock.Location = new System.Drawing.Point(561, 220);
             this.gbxStrikeBlock.Name = "gbxStrikeBlock";
             this.gbxStrikeBlock.Size = new System.Drawing.Size(461, 182);
             this.gbxStrikeBlock.TabIndex = 3;
@@ -346,14 +362,24 @@
             // 
             // gbxCombatLog
             // 
+            this.gbxCombatLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbxCombatLog.Controls.Add(this.m_btnClearLog);
             this.gbxCombatLog.Controls.Add(this.m_tbxCombatLog);
-            this.gbxCombatLog.Location = new System.Drawing.Point(418, 408);
+            this.gbxCombatLog.Location = new System.Drawing.Point(561, 408);
             this.gbxCombatLog.Name = "gbxCombatLog";
             this.gbxCombatLog.Size = new System.Drawing.Size(461, 160);
             this.gbxCombatLog.TabIndex = 4;
             this.gbxCombatLog.TabStop = false;
             this.gbxCombatLog.Text = "Лог боя";
+            // 
+            // m_btnClearLog
+            // 
+            this.m_btnClearLog.Location = new System.Drawing.Point(6, 127);
+            this.m_btnClearLog.Name = "m_btnClearLog";
+            this.m_btnClearLog.Size = new System.Drawing.Size(152, 23);
+            this.m_btnClearLog.TabIndex = 27;
+            this.m_btnClearLog.Text = "Очистить лог";
+            this.m_btnClearLog.UseVisualStyleBackColor = true;
             // 
             // m_tbxCombatLog
             // 
@@ -369,31 +395,28 @@
             this.gbxResultsTable.Controls.Add(this.dataGridView1);
             this.gbxResultsTable.Location = new System.Drawing.Point(12, 408);
             this.gbxResultsTable.Name = "gbxResultsTable";
-            this.gbxResultsTable.Size = new System.Drawing.Size(400, 160);
+            this.gbxResultsTable.Size = new System.Drawing.Size(543, 160);
             this.gbxResultsTable.TabIndex = 5;
             this.gbxResultsTable.TabStop = false;
             this.gbxResultsTable.Text = "Таблица результатов";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(388, 135);
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(531, 135);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // m_btnClearLog
-            // 
-            this.m_btnClearLog.Location = new System.Drawing.Point(6, 127);
-            this.m_btnClearLog.Name = "m_btnClearLog";
-            this.m_btnClearLog.Size = new System.Drawing.Size(152, 23);
-            this.m_btnClearLog.TabIndex = 27;
-            this.m_btnClearLog.Text = "Очистить лог";
-            this.m_btnClearLog.UseVisualStyleBackColor = true;
             // 
             // CalculatorForm
             // 
-            this.ClientSize = new System.Drawing.Size(891, 580);
+            this.ClientSize = new System.Drawing.Size(1029, 580);
             this.Controls.Add(this.gbxResultsTable);
             this.Controls.Add(this.gbxCombatLog);
             this.Controls.Add(this.gbxStrikeBlock);

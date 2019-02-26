@@ -53,6 +53,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\models\weapon\ACWeapon.cs" />
+    <Compile Include="src\models\weapon\CAlienWeapon.cs" />
+    <Compile Include="src\models\weapon\CHumanShootWeapon.cs" />
     <Compile Include="src\SCChecker.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

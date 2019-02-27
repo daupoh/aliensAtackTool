@@ -61,7 +61,7 @@
             this.m_btnClearLog = new System.Windows.Forms.Button();
             this.m_tbxCombatLog = new System.Windows.Forms.TextBox();
             this.gbxResultsTable = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.m_dgvResultTable = new System.Windows.Forms.DataGridView();
             this.gbxCalculatorMode.SuspendLayout();
             this.gbxWeaponTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvWeapons)).BeginInit();
@@ -79,7 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.m_numHeadCount)).BeginInit();
             this.gbxCombatLog.SuspendLayout();
             this.gbxResultsTable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_dgvResultTable)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxCalculatorMode
@@ -367,14 +367,14 @@
             this.gbxCombatLog.Controls.Add(this.m_tbxCombatLog);
             this.gbxCombatLog.Location = new System.Drawing.Point(561, 408);
             this.gbxCombatLog.Name = "gbxCombatLog";
-            this.gbxCombatLog.Size = new System.Drawing.Size(461, 160);
+            this.gbxCombatLog.Size = new System.Drawing.Size(461, 233);
             this.gbxCombatLog.TabIndex = 4;
             this.gbxCombatLog.TabStop = false;
             this.gbxCombatLog.Text = "Лог боя";
             // 
             // m_btnClearLog
             // 
-            this.m_btnClearLog.Location = new System.Drawing.Point(6, 127);
+            this.m_btnClearLog.Location = new System.Drawing.Point(6, 204);
             this.m_btnClearLog.Name = "m_btnClearLog";
             this.m_btnClearLog.Size = new System.Drawing.Size(152, 23);
             this.m_btnClearLog.TabIndex = 27;
@@ -387,36 +387,36 @@
             this.m_tbxCombatLog.Multiline = true;
             this.m_tbxCombatLog.Name = "m_tbxCombatLog";
             this.m_tbxCombatLog.ReadOnly = true;
-            this.m_tbxCombatLog.Size = new System.Drawing.Size(449, 102);
+            this.m_tbxCombatLog.Size = new System.Drawing.Size(449, 179);
             this.m_tbxCombatLog.TabIndex = 0;
             // 
             // gbxResultsTable
             // 
-            this.gbxResultsTable.Controls.Add(this.dataGridView1);
+            this.gbxResultsTable.Controls.Add(this.m_dgvResultTable);
             this.gbxResultsTable.Location = new System.Drawing.Point(12, 408);
             this.gbxResultsTable.Name = "gbxResultsTable";
-            this.gbxResultsTable.Size = new System.Drawing.Size(543, 160);
+            this.gbxResultsTable.Size = new System.Drawing.Size(543, 233);
             this.gbxResultsTable.TabIndex = 5;
             this.gbxResultsTable.TabStop = false;
             this.gbxResultsTable.Text = "Таблица результатов";
             // 
-            // dataGridView1
+            // m_dgvResultTable
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(531, 135);
-            this.dataGridView1.TabIndex = 1;
+            this.m_dgvResultTable.AllowUserToAddRows = false;
+            this.m_dgvResultTable.AllowUserToDeleteRows = false;
+            this.m_dgvResultTable.AllowUserToResizeRows = false;
+            this.m_dgvResultTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.m_dgvResultTable.Location = new System.Drawing.Point(6, 19);
+            this.m_dgvResultTable.MultiSelect = false;
+            this.m_dgvResultTable.Name = "m_dgvResultTable";
+            this.m_dgvResultTable.RowHeadersVisible = false;
+            this.m_dgvResultTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.m_dgvResultTable.Size = new System.Drawing.Size(531, 208);
+            this.m_dgvResultTable.TabIndex = 1;
             // 
             // CalculatorForm
             // 
-            this.ClientSize = new System.Drawing.Size(1029, 580);
+            this.ClientSize = new System.Drawing.Size(1029, 653);
             this.Controls.Add(this.gbxResultsTable);
             this.Controls.Add(this.gbxCombatLog);
             this.Controls.Add(this.gbxStrikeBlock);
@@ -445,7 +445,7 @@
             this.gbxCombatLog.ResumeLayout(false);
             this.gbxCombatLog.PerformLayout();
             this.gbxResultsTable.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_dgvResultTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -482,7 +482,7 @@
         private System.Windows.Forms.NumericUpDown m_numBodyCount;
         private System.Windows.Forms.NumericUpDown m_numHeadCount;
         private System.Windows.Forms.GroupBox gbxResultsTable;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView m_dgvResultTable;
         private System.Windows.Forms.TextBox m_tbxCombatLog;
         private System.Windows.Forms.Button m_btnCalculateTotalResult;
         private System.Windows.Forms.Button m_btnClearLog;

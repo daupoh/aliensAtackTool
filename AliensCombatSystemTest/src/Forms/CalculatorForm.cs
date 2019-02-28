@@ -21,9 +21,14 @@ namespace AliensCombatSystemTest
             alienMode,humanMode
         }
         CalculatorMode m_eMode;
+        IList<ACWeapon> m_lWeapons;
+        IList<ACTarget> m_lTargets;
+
         public CalculatorForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            m_lWeapons = new List<ACWeapon>();
+            m_lTargets = new List<ACTarget>();
             SetElementsInAlienMode();
         }
         private void SetResultTableByAliens()
@@ -89,6 +94,7 @@ namespace AliensCombatSystemTest
         }
         private void SetWeaponTableByAliens()
         {
+            m_lWeapons.Clear();
             m_dgvWeapons.Columns.Clear();
             m_dgvWeapons.ColumnCount = 12;
             m_dgvWeapons.Columns[0].HeaderText = "Название оружия";
@@ -107,6 +113,7 @@ namespace AliensCombatSystemTest
 
         private void SetWeaponTableByHumans()
         {
+            m_lWeapons.Clear();
             m_dgvWeapons.Columns.Clear();
             m_dgvWeapons.ColumnCount = 15;
             m_dgvWeapons.Columns[0].HeaderText = "Название оружия";            
@@ -129,6 +136,7 @@ namespace AliensCombatSystemTest
         }
         private void SetTargetTableByAliens()
         {
+            m_lTargets.Clear();
             m_dgvTargets.Columns.Clear();
             m_dgvTargets.ColumnCount = 8;
             m_dgvTargets.Columns[0].HeaderText = "Название класса";
@@ -143,6 +151,7 @@ namespace AliensCombatSystemTest
 
         private void SetTargetTableByHumans()
         {
+            m_lTargets.Clear();
             m_dgvTargets.Columns.Clear();
             m_dgvTargets.ColumnCount = 7;
             m_dgvTargets.Columns[0].HeaderText = "Название класса";
@@ -157,21 +166,38 @@ namespace AliensCombatSystemTest
 
         private void m_rbtnAlienMode_CheckedChanged(object sender, EventArgs e)
         {
-            SetElementsInAlienMode();
+            try
+            {
+                SetElementsInAlienMode();
+            }
+            catch (FormatException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
 
         private void m_rbtnHumanMode_CheckedChanged(object sender, EventArgs e)
         {
-            SetElementsInMarinesMode();
+            try
+            {
+                SetElementsInMarinesMode();
+            }
+            catch (FormatException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         private void AddHumanTargetRows()
         {
             CHumanTargetGenerator gen = new CHumanTargetGenerator();
             CHumanTarget human = gen.generateWorkerClass();
+            m_lTargets.Add(human);
             addTargetFrom(human);
             human = gen.generateBuilderClass();
+            m_lTargets.Add(human);
             addTargetFrom(human);
             human = gen.generateScoutClass();
+            m_lTargets.Add(human);
             addTargetFrom(human);
 
         }
@@ -179,10 +205,13 @@ namespace AliensCombatSystemTest
         {
             CHumanShootWeaponGenerator gen = new CHumanShootWeaponGenerator();
             CHumanShootWeapon weapon = gen.generatePistolSC();
+            m_lWeapons.Add(weapon);
             addWeaponFrom(weapon);
             weapon = gen.generatePistolSCAuto();
+            m_lWeapons.Add(weapon);
             addWeaponFrom(weapon);
             weapon = gen.generatePistolHC();
+            m_lWeapons.Add(weapon);
             addWeaponFrom(weapon);
         }
         private void AddAlienTargetRows()
@@ -212,6 +241,82 @@ namespace AliensCombatSystemTest
                 m_dgvWeapons.Rows[lastRow].Cells[index++].Value = s;
             }
         }
+        private void CalculateHumanWeaponAgainstTarget()
+        {
+            
+            if (m_dgvWeapons.SelectedRows != null && m_dgvTargets.SelectedRows!=null)
+            {
+                int selectedWeapRow = m_dgvWeapons.SelectedRows[0].Index,
+                selectedTargRow = m_dgvTargets.SelectedRows[0].Index;
+                string weapName = m_dgvWeapons.Rows[selectedWeapRow].Cells[0].Value.ToString(),
+                    targName = m_dgvTargets.Rows[selectedTargRow].Cells[0].Value.ToString();
+                ACWeapon weap = getWeaponByName(weapName);
+                ACTarget targ = getTargetByName(targName);
 
+
+
+            }
+            else
+            {
+                throw new FormatException("Для расчета необходимо выделить оружие и цель!");
+            }
+
+        }
+
+        private void CalculateAlienWeaponAgainstTarget() { }
+        private ACWeapon getWeaponByName(string name)
+        {
+            ACWeapon weap = null;
+            foreach(ACWeapon w in m_lWeapons)
+            {
+                if (w.Name==name)
+                {
+                    weap = w;
+                    break;
+                }
+            }
+            if (weap==null)
+            {
+                throw new FormatException("Оружие с таким именем не найдено");
+            }
+            return weap;
+
+        }
+        private ACTarget getTargetByName(string name)
+        {
+            ACTarget targ =null;
+            foreach (ACTarget t in m_lTargets)
+            {
+                if (t.NameOfClass == name)
+                {
+                    targ = t;
+                    break;
+                }
+            }
+            if (targ == null)
+            {
+                throw new FormatException("Цель с таким именем класса не найдена");
+            }
+            return targ;
+
+        }
+        private void m_btnCalculateResult_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (m_eMode == CalculatorMode.alienMode)
+                {
+                    CalculateAlienWeaponAgainstTarget();
+                }
+                else
+                {
+                    CalculateHumanWeaponAgainstTarget();
+                }
+            }
+            catch (FormatException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
     }
 }

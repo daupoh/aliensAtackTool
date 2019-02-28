@@ -53,6 +53,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\models\calculator\ACCalculator.cs" />
+    <Compile Include="src\models\calculator\CAlienCalculator.cs" />
+    <Compile Include="src\models\calculator\CHumanCalculator.cs" />
     <Compile Include="src\models\targets\ACTarget.cs" />
     <Compile Include="src\models\targets\ACTargetGenerator.cs" />
     <Compile Include="src\models\targets\CAlienTarget.cs" />

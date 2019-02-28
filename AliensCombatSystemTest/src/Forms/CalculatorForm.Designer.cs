@@ -146,6 +146,7 @@
             this.m_btnCalculateResult.TabIndex = 27;
             this.m_btnCalculateResult.Text = "Рассчитать показатели выбранного оружия против выбранной цели";
             this.m_btnCalculateResult.UseVisualStyleBackColor = true;
+            this.m_btnCalculateResult.Click += new System.EventHandler(this.m_btnCalculateResult_Click);
             // 
             // m_dgvWeapons
             // 

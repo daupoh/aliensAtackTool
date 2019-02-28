@@ -24,7 +24,7 @@ namespace AliensCombatSystemTest.src.models.weapon
                                         0.2, 0.2, 0.4, 0.6, 0.3, 0.35,0.05,0.0);
         }
 
-        private CHumanShootWeapon getWeapon(string name, int ammo, int bulletDmg, int rateOfFire, int dmgByAcid, int dmgByTime,int durationDmg,
+        public CHumanShootWeapon getWeapon(string name, int ammo, int bulletDmg, int rateOfFire, int dmgByAcid, int dmgByTime,int durationDmg,
                                             double bpModDmg, double extraDmgByBP, double soldResist, double guardResist, double runResist, 
                                             double workResist,double acidDmgMod, double overheat)
         {

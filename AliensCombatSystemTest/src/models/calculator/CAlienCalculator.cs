@@ -16,37 +16,7 @@ namespace AliensCombatSystemTest.src.models.calculator
             initializeTarget(target);
             initializeWeapon(weapon);
             m_eAccuracity = AccuracityMode.almostMiss;
-        }
-        public CAlienCalculator withTarget (ACTarget target)
-        {
-            initializeTarget(target);
-            return this;
-        }
-        public CAlienCalculator withWeapon(ACWeapon weapon)
-        {
-            initializeWeapon(weapon);
-            return this;
-        }
-        public CAlienCalculator almostMissMode()
-        {
-            m_eAccuracity = AccuracityMode.almostMiss;
-            return this;
-        }
-        public CAlienCalculator lightHit()
-        {
-            m_eAccuracity = AccuracityMode.lightHit;
-            return this;
-        }
-        public CAlienCalculator strongHit()
-        {
-            m_eAccuracity = AccuracityMode.strongHit;
-            return this;
-        }
-        public CAlienCalculator criticalHit()
-        {
-            m_eAccuracity = AccuracityMode.criticalHit;
-            return this;
-        }
+        }        
 
         public string TimeToKillWithFullArmor()
         {
@@ -66,6 +36,11 @@ namespace AliensCombatSystemTest.src.models.calculator
 
             return timeToKill;
         }
-        
+
+        public override string[] getCalculate()
+        {
+            throw new NotImplementedException();
+           
+        }
     }
 }

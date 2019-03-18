@@ -1,4 +1,5 @@
 ﻿
+using AliensCombatSystemTest.src.models.calculator;
 using AliensCombatSystemTest.src.models.targets;
 using AliensCombatSystemTest.src.models.weapon;
 using System;
@@ -241,6 +242,7 @@ namespace AliensCombatSystemTest
                 m_dgvWeapons.Rows[lastRow].Cells[index++].Value = s;
             }
         }
+     
         private void CalculateHumanWeaponAgainstTarget()
         {
             
@@ -252,8 +254,8 @@ namespace AliensCombatSystemTest
                     targName = m_dgvTargets.Rows[selectedTargRow].Cells[0].Value.ToString();
                 ACWeapon weap = getWeaponByName(weapName);
                 ACTarget targ = getTargetByName(targName);
-
-
+                CHumanCalculator humCalc = new CHumanCalculator(targ, weap);
+                string[] results = humCalc.getCalculate();
 
             }
             else
@@ -263,7 +265,25 @@ namespace AliensCombatSystemTest
 
         }
 
-        private void CalculateAlienWeaponAgainstTarget() { }
+        private void CalculateAlienWeaponAgainstTarget()
+        {
+            if (m_dgvWeapons.SelectedRows != null && m_dgvTargets.SelectedRows != null)
+            {
+                int selectedWeapRow = m_dgvWeapons.SelectedRows[0].Index,
+                selectedTargRow = m_dgvTargets.SelectedRows[0].Index;
+                string weapName = m_dgvWeapons.Rows[selectedWeapRow].Cells[0].Value.ToString(),
+                    targName = m_dgvTargets.Rows[selectedTargRow].Cells[0].Value.ToString();
+                ACWeapon weap = getWeaponByName(weapName);
+                ACTarget targ = getTargetByName(targName);
+                CAlienCalculator alCalc = new CAlienCalculator(targ, weap);
+                string[] results = alCalc.getCalculate();
+
+            }
+            else
+            {
+                throw new FormatException("Для расчета необходимо выделить оружие и цель!");
+            }
+        }
         private ACWeapon getWeaponByName(string name)
         {
             ACWeapon weap = null;

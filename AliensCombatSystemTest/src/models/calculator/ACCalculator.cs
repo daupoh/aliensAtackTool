@@ -14,6 +14,7 @@ namespace AliensCombatSystemTest.src.models.calculator
         {
             almostMiss, lightHit, strongHit, criticalHit
         }
+        public abstract string[] getCalculate();
         protected AccuracityMode m_eAccuracity;
         protected ACTarget m_pTarget;
         protected ACWeapon m_pWeapon;
@@ -25,7 +26,36 @@ namespace AliensCombatSystemTest.src.models.calculator
         {           
             m_pWeapon = weapon;
         }
-         
+        protected ACCalculator withTarget(ACTarget target)
+        {
+            initializeTarget(target);
+            return this;
+        }
+        protected ACCalculator withWeapon(ACWeapon weapon)
+        {
+            initializeWeapon(weapon);
+            return this;
+        }
+        protected ACCalculator almostMissMode()
+        {
+            m_eAccuracity = AccuracityMode.almostMiss;
+            return this;
+        }
+        protected ACCalculator lightHit()
+        {
+            m_eAccuracity = AccuracityMode.lightHit;
+            return this;
+        }
+        protected ACCalculator strongHit()
+        {
+            m_eAccuracity = AccuracityMode.strongHit;
+            return this;
+        }
+        protected ACCalculator criticalHit()
+        {
+            m_eAccuracity = AccuracityMode.criticalHit;
+            return this;
+        }
 
 
     }

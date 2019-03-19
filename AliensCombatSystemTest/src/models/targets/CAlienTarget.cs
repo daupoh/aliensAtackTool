@@ -43,5 +43,12 @@ namespace AliensCombatSystemTest.src.models.targets
                 return tableFormat;
             }
         }
+        public string TypeOfWeapon { get { return m_sTypeOfWeapon; } }
+        public string BarricadeEffect { get { return m_sBarricadeEffect; } }
+        public string BuilderEffect { get { return m_sBuilderEffect; } }
+        public double HeadHitBoxMod { get { return m_dbHeadHitBoxMod; } }
+        public double BodyHitBoxMod { get { return m_dbBodyHitBoxMod; } }
+        public double ArmsHitBoxMod { get { return m_dbArmsHitBoxMod; } }
+        public double LegsHitBoxMod { get { return m_dbLegsHitBoxMod; } }
     }
 }

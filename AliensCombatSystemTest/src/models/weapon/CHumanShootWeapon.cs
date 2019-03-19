@@ -58,5 +58,20 @@ namespace AliensCombatSystemTest.src.models.weapon
                 return tableFormat;
             }
         }
+        public int Ammo { get { return m_iAmmo; } }
+        public int DmgOnBullet { get { return m_iDmgOnBullet; } }
+        public int RateOfFire { get { return m_iRateOfFire; } }
+        public int AcidDmgByBullet { get { return m_iAcidDmgByBullet; } }
+        public int DmgByTime { get { return m_iDmgByTime; } }
+        public int DurationDmgByTime { get { return m_iDurationDmgByTime; } }
+
+        public double DmgOnBodyPointMod { get { return m_dbDmgOnBodyPointMod; } }
+        public double ExtraDmgByRestBodyPointMod { get { return m_dbExtraDmgByRestBodyPointMod; } }
+        public double SoldiersResist { get { return m_dbSoldiersResist; } }
+        public double GuardsResist { get { return m_dbGuardsResist; } }
+        public double RunnersResist { get { return m_dbRunnersResist; } }
+        public double WorkersResist { get { return m_dbWorkersResist; } }
+        public double AcidDmgMod { get { return m_dbAcidDmgMod; } }
+        public double TimeOfOverHeat { get { return m_dbTimeOfOverHeat; } }
     }
 }

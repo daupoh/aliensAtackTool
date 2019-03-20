@@ -10,17 +10,17 @@ namespace AliensCombatSystemTest.src.models.weapon
     {
         public CHumanShootWeapon generatePistolSC()
         {
-            return getWeapon("Пистолет VP70 (одиночные)",24,21,240,20,0,0,
+            return getWeapon("Пистолет VP70 (одиночные)",24,21,240,1,0,0,
                                         0.2,0.2,0.4,0.6,0.3,0.35, 0.05, 0.0);
         }
         public CHumanShootWeapon generatePistolSCAuto()
         {
-            return getWeapon("Пистолет VP70 (очередями)", 24, 21, 500, 20, 0, 0,
+            return getWeapon("Пистолет VP70 (очередями)", 24, 21, 500, 1, 0, 0,
                                         0.2, 0.2, 0.4, 0.6, 0.3, 0.35,0.05, 0.0);
         }
         public CHumanShootWeapon generatePistolHC()
         {
-            return getWeapon("Пистолет M43", 20, 24, 240, 20, 0, 0,
+            return getWeapon("Пистолет M43", 20, 24, 240, 1, 0, 0,
                                         0.2, 0.2, 0.4, 0.6, 0.3, 0.35,0.05,0.0);
         }
 

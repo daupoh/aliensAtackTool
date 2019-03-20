@@ -30,26 +30,42 @@ namespace AliensCombatSystemTest.src.models.calculator
             m_eAccuracity = AccuracityMode.criticalHit;
             int countFull = countOfHitsToKillWithFullBodyPoints(),
             countZero = countOfHitsToKillWithZeroBodyPoints();
-            results[2] = (countFull / ((m_pWeapon as CHumanShootWeapon).RateOfFire / 60)).ToString();
+            results[2] = (countFull * 1.0 / ((m_pWeapon as CHumanShootWeapon).RateOfFire / 60)).ToString();
             results[3] = (countZero*1.0 / ((m_pWeapon as CHumanShootWeapon).RateOfFire / 60)).ToString();
+            double allAcidDmg = getAllAcidDmg(countFull);
+            results[4] = allAcidDmg.ToString();
+            results[5] = (allAcidDmg*0.9).ToString();
+            results[6] = (allAcidDmg * 0.1).ToString();
 
             m_eAccuracity = AccuracityMode.strongHit;
             countFull = countOfHitsToKillWithFullBodyPoints();
             countZero = countOfHitsToKillWithZeroBodyPoints();
-            results[7] = (countFull / ((m_pWeapon as CHumanShootWeapon).RateOfFire / 60)).ToString();
+            results[7] = (countFull * 1.0 / ((m_pWeapon as CHumanShootWeapon).RateOfFire / 60)).ToString();
             results[8] = (countZero * 1.0 / ((m_pWeapon as CHumanShootWeapon).RateOfFire / 60)).ToString();
+            allAcidDmg = getAllAcidDmg(countFull);
+            results[9] = allAcidDmg.ToString();
+            results[10] = (allAcidDmg * 0.9).ToString();
+            results[11] = (allAcidDmg * 0.1).ToString();
 
             m_eAccuracity = AccuracityMode.lightHit;
             countFull = countOfHitsToKillWithFullBodyPoints();
             countZero = countOfHitsToKillWithZeroBodyPoints();
-            results[12] = (countFull / ((m_pWeapon as CHumanShootWeapon).RateOfFire / 60)).ToString();
+            results[12] = (countFull * 1.0 / ((m_pWeapon as CHumanShootWeapon).RateOfFire / 60)).ToString();
             results[13] = (countZero * 1.0 / ((m_pWeapon as CHumanShootWeapon).RateOfFire / 60)).ToString();
+            allAcidDmg = getAllAcidDmg(countFull);
+            results[14] = allAcidDmg.ToString();
+            results[15] = (allAcidDmg * 0.9).ToString();
+            results[16] = (allAcidDmg * 0.1).ToString();
 
             m_eAccuracity = AccuracityMode.almostMiss;
             countFull = countOfHitsToKillWithFullBodyPoints();
             countZero = countOfHitsToKillWithZeroBodyPoints();
-            results[17] = (countFull / ((m_pWeapon as CHumanShootWeapon).RateOfFire / 60)).ToString();
+            results[17] = (countFull * 1.0 / ((m_pWeapon as CHumanShootWeapon).RateOfFire / 60)).ToString();
             results[18] = (countZero * 1.0 / ((m_pWeapon as CHumanShootWeapon).RateOfFire / 60)).ToString();
+            allAcidDmg = getAllAcidDmg(countFull);
+            results[19] = allAcidDmg.ToString();
+            results[20] = (allAcidDmg * 0.9).ToString();
+            results[21] = (allAcidDmg * 0.1).ToString();
 
             return results;
 
@@ -90,7 +106,8 @@ namespace AliensCombatSystemTest.src.models.calculator
         private double getAllAcidDmg(int countHits)
         {
             double acidDmg = 0;
-
+            acidDmg = countHits * (m_pWeapon as CHumanShootWeapon).AcidDmgByBullet *
+                (m_pWeapon as CHumanShootWeapon).AcidDmgMod*(m_pTarget as CHumanTarget).AmountAcidMod;
             return acidDmg;
 
         }

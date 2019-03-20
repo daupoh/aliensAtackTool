@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models.targets
 {
-    
+
     class CAlienTarget : ACTarget
     {
         string m_sTypeOfWeapon, m_sBarricadeEffect;
-     
 
-        public CAlienTarget(string name,string[] strSettings, int[] integerSettings, double[] floatSettings)
+
+        public CAlienTarget(string name, string[] strSettings, int[] integerSettings, double[] floatSettings)
         {
             SCChecker.checkSettings(name, strSettings, integerSettings, floatSettings);
 
@@ -23,7 +23,7 @@ namespace AliensCombatSystemTest.src.models.targets
             m_dbArmsHitBoxMod = floatSettings[2];
             m_dbLegsHitBoxMod = floatSettings[3];
             m_sTypeOfWeapon = strSettings[0];
-            m_sBarricadeEffect= strSettings[1];
+            m_sBarricadeEffect = strSettings[1];
             m_sBuilderEffect = strSettings[2];
 
         }
@@ -34,12 +34,12 @@ namespace AliensCombatSystemTest.src.models.targets
                 string[] tableFormat = new string[8];
                 tableFormat[0] = m_sName;
                 tableFormat[1] = m_dbHeadHitBoxMod.ToString(); ;
-                tableFormat[2] =m_dbBodyHitBoxMod.ToString(); ;
-                tableFormat[3] =m_dbArmsHitBoxMod.ToString(); ;
-                tableFormat[4] =m_dbLegsHitBoxMod.ToString(); ;
-                tableFormat[5] =m_sTypeOfWeapon;
-                tableFormat[6] =m_sBarricadeEffect;
-                tableFormat[7] =m_sBuilderEffect;
+                tableFormat[2] = m_dbBodyHitBoxMod.ToString(); ;
+                tableFormat[3] = m_dbArmsHitBoxMod.ToString(); ;
+                tableFormat[4] = m_dbLegsHitBoxMod.ToString(); ;
+                tableFormat[5] = m_sTypeOfWeapon;
+                tableFormat[6] = m_sBarricadeEffect;
+                tableFormat[7] = m_sBuilderEffect;
                 return tableFormat;
             }
         }
@@ -49,6 +49,11 @@ namespace AliensCombatSystemTest.src.models.targets
         public double HeadHitBoxMod { get { return m_dbHeadHitBoxMod; } }
         public double BodyHitBoxMod { get { return m_dbBodyHitBoxMod; } }
         public double ArmsHitBoxMod { get { return m_dbArmsHitBoxMod; } }
-        public double LegsHitBoxMod { get { return m_dbLegsHitBoxMod; } }
+        public double LegsHitBoxMod
+        {
+            get { return m_dbLegsHitBoxMod; }
+
+
+        }
     }
 }

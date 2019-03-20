@@ -155,13 +155,14 @@ namespace AliensCombatSystemTest
             m_dgvTargets.Columns[5].HeaderText = "Тип оружия в руках (тяж\\срд\\лег)";
             m_dgvTargets.Columns[6].HeaderText = "Действие баррикады (да\\нет)";
             m_dgvTargets.Columns[7].HeaderText = "Действие слизи билдера (да\\нет)";
+            
         }
 
         private void SetTargetTableByHumans()
         {
             m_lTargets.Clear();
             m_dgvTargets.Columns.Clear();
-            m_dgvTargets.ColumnCount = 7;
+            m_dgvTargets.ColumnCount = 8;
             m_dgvTargets.Columns[0].HeaderText = "Название класса";
             m_dgvTargets.Columns[1].HeaderText = "Модификатор попадания в голову";
             m_dgvTargets.Columns[2].HeaderText = "Модификатор попадания в тело";
@@ -169,6 +170,7 @@ namespace AliensCombatSystemTest
             m_dgvTargets.Columns[4].HeaderText = "Модификатор попадания в ноги";
             m_dgvTargets.Columns[5].HeaderText = "Расстояние до цели";
             m_dgvTargets.Columns[6].HeaderText = "Действие слизи билдера (да\\нет)";
+            m_dgvTargets.Columns[7].HeaderText = "Модификатор количества кислоты";
             AddHumanTargetRows();
         }
 
@@ -354,6 +356,11 @@ namespace AliensCombatSystemTest
             {
                 MessageBox.Show(exc.Message);
             }
+        }
+
+        private void m_btnClearResults_Click(object sender, EventArgs e)
+        {
+            m_dgvResultTable.Rows.Clear();
         }
     }
 }

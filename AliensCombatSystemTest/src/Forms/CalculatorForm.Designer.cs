@@ -62,6 +62,7 @@
             this.m_tbxCombatLog = new System.Windows.Forms.TextBox();
             this.gbxResultsTable = new System.Windows.Forms.GroupBox();
             this.m_dgvResultTable = new System.Windows.Forms.DataGridView();
+            this.m_btnClearResults = new System.Windows.Forms.Button();
             this.gbxCalculatorMode.SuspendLayout();
             this.gbxWeaponTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvWeapons)).BeginInit();
@@ -119,6 +120,7 @@
             // 
             // gbxWeaponTable
             // 
+            this.gbxWeaponTable.Controls.Add(this.m_btnClearResults);
             this.gbxWeaponTable.Controls.Add(this.m_btnCalculateTotalResult);
             this.gbxWeaponTable.Controls.Add(this.m_btnCalculateResult);
             this.gbxWeaponTable.Controls.Add(this.m_dgvWeapons);
@@ -415,6 +417,16 @@
             this.m_dgvResultTable.Size = new System.Drawing.Size(531, 208);
             this.m_dgvResultTable.TabIndex = 1;
             // 
+            // m_btnClearResults
+            // 
+            this.m_btnClearResults.Location = new System.Drawing.Point(226, 296);
+            this.m_btnClearResults.Name = "m_btnClearResults";
+            this.m_btnClearResults.Size = new System.Drawing.Size(117, 23);
+            this.m_btnClearResults.TabIndex = 29;
+            this.m_btnClearResults.Text = "Очистить";
+            this.m_btnClearResults.UseVisualStyleBackColor = true;
+            this.m_btnClearResults.Click += new System.EventHandler(this.m_btnClearResults_Click);
+            // 
             // CalculatorForm
             // 
             this.ClientSize = new System.Drawing.Size(1029, 653);
@@ -487,6 +499,7 @@
         private System.Windows.Forms.TextBox m_tbxCombatLog;
         private System.Windows.Forms.Button m_btnCalculateTotalResult;
         private System.Windows.Forms.Button m_btnClearLog;
+        private System.Windows.Forms.Button m_btnClearResults;
     }
 }
 

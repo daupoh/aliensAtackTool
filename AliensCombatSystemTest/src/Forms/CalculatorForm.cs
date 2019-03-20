@@ -57,26 +57,33 @@ namespace AliensCombatSystemTest
         private void SetResultTableByHumans()
         {
             m_dgvResultTable.Rows.Clear();
-            m_dgvResultTable.ColumnCount = 17;
+            m_dgvResultTable.ColumnCount = 22;
             m_dgvResultTable.Columns[0].HeaderText = "Название оружия";
             m_dgvResultTable.Columns[1].HeaderText = "Название класса цели";
+
             m_dgvResultTable.Columns[2].HeaderText = "ТТК с уровнем Крепости Тела 100% (стрельба в голову)";
             m_dgvResultTable.Columns[3].HeaderText = "ТТК с уровнем Крепости Тела 0% (стрельба в голову)";
             m_dgvResultTable.Columns[4].HeaderText = "Суммарный полученный урон кислоты (стрельба в голову)";
             m_dgvResultTable.Columns[5].HeaderText = "Суммарный урон кислоты по броне (стрельба в голову)";
             m_dgvResultTable.Columns[6].HeaderText = "Суммарный урон кислоты по здоровью (стрельба в голову)";
 
-            m_dgvResultTable.Columns[7].HeaderText = "ТТК с уровнем Крепости Тела 100% (стрельба в конечности)";
-            m_dgvResultTable.Columns[8].HeaderText = "ТТК с уровнем Крепости Тела 0% (стрельба в конечности)";
-            m_dgvResultTable.Columns[9].HeaderText = "Суммарный полученный урон кислоты (стрельба в конечности)";
-            m_dgvResultTable.Columns[10].HeaderText = "Суммарный урон кислоты по броне (стрельба в конечности)";
-            m_dgvResultTable.Columns[11].HeaderText = "Суммарный урон кислоты по здоровью (стрельба в конечности)";
+            m_dgvResultTable.Columns[7].HeaderText = "ТТК с уровнем Крепости Тела 100% (стрельба в тело)";
+            m_dgvResultTable.Columns[8].HeaderText = "ТТК с уровнем Крепости Тела 0% (стрельба в тело)";
+            m_dgvResultTable.Columns[9].HeaderText = "Суммарный полученный урон кислоты (стрельба в тело)";
+            m_dgvResultTable.Columns[10].HeaderText = "Суммарный урон кислоты по броне (стрельба в тело)";
+            m_dgvResultTable.Columns[11].HeaderText = "Суммарный урон кислоты по здоровью (стрельба в тело)";
 
-            m_dgvResultTable.Columns[12].HeaderText = "ТТК с уровнем Крепости Тела 100% (стрельба в тело)";
-            m_dgvResultTable.Columns[13].HeaderText = "ТТК с уровнем Крепости Тела 0% (стрельба в тело)";
-            m_dgvResultTable.Columns[14].HeaderText = "Суммарный полученный урон кислоты (стрельба в тело)";
-            m_dgvResultTable.Columns[15].HeaderText = "Суммарный урон кислоты по броне (стрельба в тело)";
-            m_dgvResultTable.Columns[16].HeaderText = "Суммарный урон кислоты по здоровью (стрельба в тело)";
+            m_dgvResultTable.Columns[12].HeaderText = "ТТК с уровнем Крепости Тела 100% (стрельба в ноги)";
+            m_dgvResultTable.Columns[13].HeaderText = "ТТК с уровнем Крепости Тела 0% (стрельба в ноги)";
+            m_dgvResultTable.Columns[14].HeaderText = "Суммарный полученный урон кислоты (стрельба в ноги)";
+            m_dgvResultTable.Columns[15].HeaderText = "Суммарный урон кислоты по броне (стрельба в ноги)";
+            m_dgvResultTable.Columns[16].HeaderText = "Суммарный урон кислоты по здоровью (стрельба в ноги)";
+
+            m_dgvResultTable.Columns[17].HeaderText = "ТТК с уровнем Крепости Тела 100% (стрельба в руки)";
+            m_dgvResultTable.Columns[18].HeaderText = "ТТК с уровнем Крепости Тела 0% (стрельба в руки)";
+            m_dgvResultTable.Columns[19].HeaderText = "Суммарный полученный урон кислоты (стрельба в руки)";
+            m_dgvResultTable.Columns[20].HeaderText = "Суммарный урон кислоты по броне (стрельба в руки)";
+            m_dgvResultTable.Columns[21].HeaderText = "Суммарный урон кислоты по здоровью (стрельба в руки)";
         }
 
         private void SetElementsInAlienMode()
@@ -191,15 +198,15 @@ namespace AliensCombatSystemTest
         private void AddHumanTargetRows()
         {
             CHumanTargetGenerator gen = new CHumanTargetGenerator();
-            CHumanTarget human = gen.generateWorkerClass();
-            m_lTargets.Add(human);
-            addTargetFrom(human);
-            human = gen.generateBuilderClass();
-            m_lTargets.Add(human);
-            addTargetFrom(human);
-            human = gen.generateScoutClass();
-            m_lTargets.Add(human);
-            addTargetFrom(human);
+            CHumanTarget target = gen.generateWorkerClass();
+            m_lTargets.Add(target);
+            addTargetFrom(target);
+            target = gen.generateBuilderClass();
+            m_lTargets.Add(target);
+            addTargetFrom(target);
+            target = gen.generateScoutClass();
+            m_lTargets.Add(target);
+            addTargetFrom(target);
 
         }
         private void AddHumanWeaponShootRows()
@@ -242,7 +249,17 @@ namespace AliensCombatSystemTest
                 m_dgvWeapons.Rows[lastRow].Cells[index++].Value = s;
             }
         }
-     
+        private void addResultsFrom(string[] results)
+        {            
+            m_dgvResultTable.RowCount += 1;
+            int lastRow = m_dgvResultTable.RowCount - 1;
+            int index = 0;
+            foreach (string s in results)
+            {
+                m_dgvResultTable.Rows[lastRow].Cells[index++].Value = s;
+            }
+        }
+
         private void CalculateHumanWeaponAgainstTarget()
         {
             
@@ -256,7 +273,7 @@ namespace AliensCombatSystemTest
                 ACTarget targ = getTargetByName(targName);
                 CHumanCalculator humCalc = new CHumanCalculator(targ, weap);
                 string[] results = humCalc.getCalculate();
-
+                addResultsFrom(results);
             }
             else
             {
@@ -267,7 +284,7 @@ namespace AliensCombatSystemTest
 
         private void CalculateAlienWeaponAgainstTarget()
         {
-            if (m_dgvWeapons.SelectedRows != null && m_dgvTargets.SelectedRows != null)
+            if (m_dgvWeapons.SelectedRows.Count != 0 && m_dgvTargets.SelectedRows.Count != 0)
             {
                 int selectedWeapRow = m_dgvWeapons.SelectedRows[0].Index,
                 selectedTargRow = m_dgvTargets.SelectedRows[0].Index;

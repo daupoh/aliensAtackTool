@@ -15,13 +15,9 @@ namespace AliensCombatSystemTest.src.models.targets
             m_aStrSettings = new string[1];
             m_aFloatSettings = new double[5];
             m_aIntegerSettings = new int[1];
-            double[] mods = SCChecker.GetDefaultModHitBoxes();
-
+           
             m_aIntegerSettings[0] = distance;
-            m_aFloatSettings[0] = mods[0];
-            m_aFloatSettings[1] = mods[1];
-            m_aFloatSettings[2] = mods[2];
-            m_aFloatSettings[3] = mods[3];
+           
             
             m_aStrSettings[0] = "нет";
         }  

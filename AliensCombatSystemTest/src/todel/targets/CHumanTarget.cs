@@ -11,11 +11,9 @@ namespace AliensCombatSystemTest.src.models.targets
     {
         int m_iDistance;
         double m_dbAmountAcidMod;
-        string m_sBuilderEffect;
         public CHumanTarget(string name, string[] strSettings, int[] integerSettings, double[] floatSettings)
         {
-            SCChecker.checkSettings(name, strSettings, integerSettings, floatSettings);
-
+          
             m_sName = name;
             m_dbHeadHitBoxMod = floatSettings[0];
             m_dbBodyHitBoxMod = floatSettings[1];

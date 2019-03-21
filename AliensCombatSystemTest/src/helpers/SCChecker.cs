@@ -9,32 +9,7 @@ namespace AliensCombatSystemTest.src.Models
     static class SCChecker
     {
         
-        public static void checkSettings(string name, string[] strSettings, int[] integerSettings, double[] floatSettings)
-        {
-            CheckStringIsNotEmpty(name);
-            if (strSettings != null)
-            {
-                foreach (string s in strSettings)
-                {
-                    CheckStringIsNotEmpty(s);
-                }
-            }
-            if (integerSettings!= null)
-            {
-                foreach (int i in integerSettings)
-                {
-                    CheckNumberMoreOrEqualThenZero(i);
-                }
-            }
-            if (floatSettings!= null)
-            {
-                foreach (double f in floatSettings)
-                {
-                    CheckNumberMoreOrEqualThenZero(f);
-                }
-            }
-            
-        }
+      
         public static void CheckNumberMoreThenZero(double number)
         {
             if (number <= 0)
@@ -46,6 +21,14 @@ namespace AliensCombatSystemTest.src.Models
         public static void CheckNumberMoreOrEqualThenZero(double number)
         {
             if (number < 0)
+            {
+                throw new FormatException();
+            }
+
+        }
+        public static void CheckNumberBinary(double number)
+        {
+            if (number != 0 || number !=1)
             {
                 throw new FormatException();
             }
@@ -80,14 +63,6 @@ namespace AliensCombatSystemTest.src.Models
                 throw new FormatException();
             }
         }
-        public static double[] GetDefaultModHitBoxes()
-        {
-            double[] mods = new double[4];
-            mods[0]=1.7;
-            mods[1] = 1.0;
-            mods[2] = 0.6;
-            mods[3] = 0.8;
-            return mods;
-        }
+        
     }
 }

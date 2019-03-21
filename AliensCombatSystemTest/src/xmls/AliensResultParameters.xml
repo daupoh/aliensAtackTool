@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<aliensResultParameters>
+  <weaponName>Название оружия</weaponName>
+  <targetName>Название цели</targetName>
+  <targetEffects>Эффекты на цели (ловушка?, зона защиты?)</targetEffects>
+  <hitsOnHitBoxes>Попадания в конечности (голова, тело, ноги, руки, мимо)</hitsOnHitBoxes>
+  <timeAndDmgOnAtack>Время атак и суммарный урон (время, урон здоровью, броне)</timeAndDmgOnAtack>
+  <nockDownResults>Падение цели (номер атаки, кол-во здоровья,кол-во брони, время)</nockDownResults>
+  <targetCocooned>Цель оглушена?</targetCocooned>
+  <damagesOnTarget>Урон от атак (на здоровье, на броню, сумма)</damagesOnTarget>
+  <autoDamageOnTarget>Автоурон (на здоровье, на броню, сумма)</autoDamageOnTarget>
+  <damagesPeriodOnTarget>Временный урон (время, урон, общий урон)</damagesPeriodOnTarget>  
+</aliensResultParameters>

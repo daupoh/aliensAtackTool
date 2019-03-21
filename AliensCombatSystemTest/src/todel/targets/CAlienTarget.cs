@@ -15,7 +15,7 @@ namespace AliensCombatSystemTest.src.models.targets
 
         public CAlienTarget(string name, string[] strSettings, int[] integerSettings, double[] floatSettings)
         {
-            SCChecker.checkSettings(name, strSettings, integerSettings, floatSettings);
+            
 
             m_sName = name;
             m_dbHeadHitBoxMod = floatSettings[0];

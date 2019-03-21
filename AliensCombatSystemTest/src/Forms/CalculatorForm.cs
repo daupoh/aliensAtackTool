@@ -227,7 +227,7 @@ namespace AliensCombatSystemTest
         private void AddAlienTargetRows()
         {
             CAlienTargetGenerator gen = new CAlienTargetGenerator();
-            CAlienTarget alien;
+           
         }
         private void addTargetFrom(ACTarget target)
         {

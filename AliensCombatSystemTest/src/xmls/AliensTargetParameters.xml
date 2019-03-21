@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<aliensTargetParameters>
+  <className>Название класса</className>
+  <metaClassName>Название мета-класса</metaClassName>
+  <hitBoxMods>Модификаторы урона конечностей (голова, тело, ноги, руки)</hitBoxMods>
+  <baseAcidDmg>Базовый урон от кислоты</baseAcidDmg>
+  <onAcidDistance>На дистанции брызгов кислоты?</onAcidDistance>
+  <underAmbushEffect>Действует эффект Ловушки?</underAmbushEffect>
+  <underDefendZoneEffect>Действует эффект Зоны Защиты?</underDefendZoneEffect>
+  
+</aliensTargetParameters>

@@ -15,7 +15,7 @@ namespace AliensCombatSystemTest.src.models.weapon
 
         public CHumanShootWeapon(string name,int[] integerSettings, double[] floatSettings)
         {
-            SCChecker.checkSettings(name, null, integerSettings, floatSettings);
+            
             m_sName = name;
             m_iAmmo = integerSettings[0];
             m_iDmgOnBullet= integerSettings[1];

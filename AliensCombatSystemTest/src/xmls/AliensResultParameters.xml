@@ -2,7 +2,7 @@
 <aliensResultParameters>
   <weaponName>Название оружия</weaponName>
   <targetName>Название цели</targetName>
-  <targetEffects>Эффекты на цели (ловушка?, зона защиты?)</targetEffects>
+  <targetEffects>Эффекты на цели (ловушка?, зона защиты?, баррикада?)</targetEffects>
   <hitsOnHitBoxes>Попадания в конечности (голова, тело, ноги, руки, мимо)</hitsOnHitBoxes>
   <timeAndDmgOnAtack>Время атак и суммарный урон (время, урон здоровью, броне)</timeAndDmgOnAtack>
   <nockDownResults>Падение цели (номер атаки, кол-во здоровья,кол-во брони, время)</nockDownResults>

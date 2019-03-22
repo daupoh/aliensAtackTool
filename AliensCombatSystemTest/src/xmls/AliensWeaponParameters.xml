@@ -1,19 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <aliensWeaponParameters>
   <weaponName>Название оружия</weaponName>
-  <vectorsOnStrike>Кол-во векторов на удар</vectorsOnStrike>
-  <strikesOnAtack>Кол-во ударов в атаке</strikesOnAtack>
+  <atack>Параметры атаки (кол-во векторов на удар, кол-во ударов в атаке, время подготовки атаки)</atack> 
   <timeOfStrikes>Время анимации ударов (1-го удара, 2-го и т.д.)</timeOfStrikes>
   <strikesCooldowns>Время паузы между ударами (1-го, 2-го и т.д.)</strikesCooldowns>
-  <strikePrepareTime>Время подготовки удара</strikePrepareTime>
-  <dmgOnVector>Урон за вектор</dmgOnVector>
-  <autoDmgMod>Коэффициент автоурона</autoDmgMod>
-  <defendZoneDmgMod>Коэффициент урона в Зонах Защиты</defendZoneDmgMod>
-  <periodDmg>Урон во времени</periodDmg>
-  <periodTime>Продолжительность урона во времени</periodTime>
+  <damage>Параметры урона (урон за вектор, коэффициент автоурона, модификатора урона в Зонах Защиты)</damage> 
+  <periodDmg>Параметры урона во времени(урон, продолжительность)</periodDmg>  
   <armorResist>Коэффициент поглощения урона броней</armorResist>
-  <humansResists>Коэффициенты сопротивления к урону</humansResists>
+  <humansResists>Коэффициенты сопротивления к урону (люди, синтетики)</humansResists>
   <nockdownHealthMod>Порог здоровья для сбивания с ног</nockdownHealthMod>
-  <makeCocoon>Создает Оглушенных?</makeCocoon>
-  <makeBleeding>Накладывает эффект Рана</makeBleeding>
+  <makeEffects>Накладывает эффекты? (рана?, оглушение?)</makeEffects>
+  
 </aliensWeaponParameters>

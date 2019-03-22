@@ -2,6 +2,7 @@
 using AliensCombatSystemTest.src.models.calculator;
 using AliensCombatSystemTest.src.models.targets;
 using AliensCombatSystemTest.src.models.weapon;
+using gravityPrototype.models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -123,39 +124,26 @@ namespace AliensCombatSystemTest
         {
             m_lWeapons.Clear();
             m_dgvWeapons.Columns.Clear();
-            m_dgvWeapons.ColumnCount = 15;
-            m_dgvWeapons.Columns[0].HeaderText = "Название оружия";            
-            m_dgvWeapons.Columns[1].HeaderText = "Боезапас";
-            m_dgvWeapons.Columns[2].HeaderText = "Урон за пулю";
-            m_dgvWeapons.Columns[3].HeaderText = "Скорострельность";
-            m_dgvWeapons.Columns[4].HeaderText = "Урон от кислоты за пулю";            
-            m_dgvWeapons.Columns[5].HeaderText = "Урон во времени";
-            m_dgvWeapons.Columns[6].HeaderText = "Время урона во времени";
-            m_dgvWeapons.Columns[7].HeaderText = "Коэффициент урона по Крепости Тела";
-            m_dgvWeapons.Columns[8].HeaderText = "Модификатор бонус-урона по коэффициенту Крепости Тела";
-            m_dgvWeapons.Columns[9].HeaderText = "Сопротивление к урону (Солдаты)";
-            m_dgvWeapons.Columns[10].HeaderText = "Сопротивление к урону (Гварды)";
-            m_dgvWeapons.Columns[11].HeaderText = "Сопротивление к урону (Ранеры)";
-            m_dgvWeapons.Columns[12].HeaderText = "Сопротивление к урону (Рабочие)";
-            m_dgvWeapons.Columns[13].HeaderText = "Модификатор урона кислоты";
-            m_dgvWeapons.Columns[14].HeaderText = "Время до перегрева";
-            AddHumanWeaponShootRows();
+            m_dgvWeapons.ColumnCount = SCXmlHelper.CountOfHumanWeaponRows;
+            
+            for (int i = 0; i < m_dgvWeapons.Columns.Count; i++)
+            {
+                m_dgvWeapons.Columns[i].HeaderText = SCXmlHelper.RowFromHymansWeapon(i);
+            }
+           
 
         }
         private void SetTargetTableByAliens()
         {
             m_lTargets.Clear();
             m_dgvTargets.Columns.Clear();
-            m_dgvTargets.ColumnCount = 8;
-            m_dgvTargets.Columns[0].HeaderText = "Название класса";
-            m_dgvTargets.Columns[1].HeaderText = "Модификатор попадания в голову";
-            m_dgvTargets.Columns[2].HeaderText = "Модификатор попадания в тело";
-            m_dgvTargets.Columns[3].HeaderText = "Модификатор попадания в руки";
-            m_dgvTargets.Columns[4].HeaderText = "Модификатор попадания в ноги";
-            m_dgvTargets.Columns[5].HeaderText = "Тип оружия в руках (тяж\\срд\\лег)";
-            m_dgvTargets.Columns[6].HeaderText = "Действие баррикады (да\\нет)";
-            m_dgvTargets.Columns[7].HeaderText = "Действие слизи билдера (да\\нет)";
-            
+            m_dgvTargets.ColumnCount = SCXmlHelper.CountOfAlienTargetRows;
+
+            for (int i = 0; i < m_dgvTargets.Columns.Count; i++)
+            {
+                m_dgvTargets.Columns[i].HeaderText = SCXmlHelper.RowFromAliensTarget(i);
+            }
+
         }
 
         private void SetTargetTableByHumans()
@@ -163,6 +151,7 @@ namespace AliensCombatSystemTest
             m_lTargets.Clear();
             m_dgvTargets.Columns.Clear();
             m_dgvTargets.ColumnCount = 8;
+            
             m_dgvTargets.Columns[0].HeaderText = "Название класса";
             m_dgvTargets.Columns[1].HeaderText = "Модификатор попадания в голову";
             m_dgvTargets.Columns[2].HeaderText = "Модификатор попадания в тело";
@@ -265,7 +254,7 @@ namespace AliensCombatSystemTest
         private void CalculateHumanWeaponAgainstTarget()
         {
             
-            if (m_dgvWeapons.SelectedRows != null && m_dgvTargets.SelectedRows!=null)
+            if (m_dgvWeapons.SelectedRows.Count != 0 && m_dgvTargets.SelectedRows.Count!=0)
             {
                 int selectedWeapRow = m_dgvWeapons.SelectedRows[0].Index,
                 selectedTargRow = m_dgvTargets.SelectedRows[0].Index;

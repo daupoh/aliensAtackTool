@@ -20,21 +20,23 @@ namespace gravityPrototype.models
              m_strAliensTargetParametersParent = "aliensTargetParameters",
              
             m_strHumansWeaponParametersParent = "humansWeaponParameters",
-            m_strHumansTargetParametersParent = "humanTargetParameters",
-            m_strHumansResultParametersParent = "humanResultParameters",
+            m_strHumansTargetParametersParent = "humansTargetParameters",
+            m_strHumansResultParametersParent = "humansResultParameters",
+
+            //C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\
+            //C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\
+
+            m_strFilePathModelError = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\ModelErrors.xml",
+            m_strFilePathAliensWeaponParameter= "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\AliensWeaponParameters.xml",
+            m_strFilePathAliensTargetParameter = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\AliensTargetParameters.xml",
+            m_strFilePathAliensResultParameter = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\AliensResultParameters.xml",
+
+            m_strFilePathHumansWeaponParameter = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\HumansWeaponParameters.xml",
+            m_strFilePathHumansTargetParameter = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\HumansTargetParameters.xml",
+            m_strFilePathHumansResultParameter = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\HumansResultParameters.xml",
 
 
-            m_strFilePathModelError = "C:\\Users\\user\\source\\repos\\gravityPrototype\\gravityPrototype\\models\\ModelErrors.xml",
-            m_strFilePathAliensWeaponParameter= "C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\AliensWeaponParameters.xml",
-            m_strFilePathAliensTargetParameter = "C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\AliensTargetParameters.xml",
-            m_strFilePathAliensResultParameter = "C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\AliensResultParameters.xml",
-
-            m_strFilePathHumansWeaponParameter = "C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\HumansWeaponParameters.xml",
-            m_strFilePathHumansTargetParameter = "C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\HumansTargetParameters.xml",
-            m_strFilePathHumansResultParameter = "C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\HumansResultParameters.xml",
-
-
-            m_strFilePathStringConstant = "C:\\Users\\user\\source\\repos\\gravityPrototype\\gravityPrototype\\models\\StringConstants.xml";
+            m_strFilePathStringConstant = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\StringConstants.xml";
         
         public static string RowFromAliensWeapon(int number)
         {

@@ -10,33 +10,32 @@ namespace gravityPrototype.models
 {
     public static class SCXmlHelper
     {
-        static string 
+        static string
             m_strXmlError = "Не найден узел",
             m_strServerErrorsParent = "serverErrors",
 
-            m_strServerConstantParent= "serverConstant",
-            m_strAliensWeaponParametersParent= "aliensWeaponParameters",
+            m_strServerConstantParent = "serverConstant",
+            m_strAliensWeaponParametersParent = "aliensWeaponParameters",
              m_strAliensResultParametersParent = "aliensResultParameters",
              m_strAliensTargetParametersParent = "aliensTargetParameters",
-             
+
             m_strHumansWeaponParametersParent = "humansWeaponParameters",
             m_strHumansTargetParametersParent = "humansTargetParameters",
             m_strHumansResultParametersParent = "humansResultParameters",
+      //      m_strPathHead = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\",
+        m_strPathHead = "C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\",
 
-            //C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\
-            //C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\
+            m_strFilePathModelError = m_strPathHead+"ModelErrors.xml",
+            m_strFilePathAliensWeaponParameter= m_strPathHead + "AliensWeaponParameters.xml",
+            m_strFilePathAliensTargetParameter = m_strPathHead + "AliensTargetParameters.xml",
+            m_strFilePathAliensResultParameter = m_strPathHead + "AliensResultParameters.xml",
 
-            m_strFilePathModelError = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\ModelErrors.xml",
-            m_strFilePathAliensWeaponParameter= "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\AliensWeaponParameters.xml",
-            m_strFilePathAliensTargetParameter = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\AliensTargetParameters.xml",
-            m_strFilePathAliensResultParameter = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\AliensResultParameters.xml",
-
-            m_strFilePathHumansWeaponParameter = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\HumansWeaponParameters.xml",
-            m_strFilePathHumansTargetParameter = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\HumansTargetParameters.xml",
-            m_strFilePathHumansResultParameter = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\HumansResultParameters.xml",
+            m_strFilePathHumansWeaponParameter = m_strPathHead + "HumansWeaponParameters.xml",
+            m_strFilePathHumansTargetParameter = m_strPathHead + "HumansTargetParameters.xml",
+            m_strFilePathHumansResultParameter = m_strPathHead + "HumansResultParameters.xml",
 
 
-            m_strFilePathStringConstant = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\StringConstants.xml";
+            m_strFilePathStringConstant = m_strPathHead + "StringConstants.xml";
         
         public static string RowFromAliensWeapon(int number)
         {

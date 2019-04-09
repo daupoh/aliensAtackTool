@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AliensCombatSystemTest.src.models.parameter
+namespace AliensCombatSystemTest.src.models.parametersPool
 {
-    interface IParameter:IEntity
+    interface IParametersPool:IEntity
     {
-       
-        double Value { get; }
-     
+        string TableView { get; }
     }
 }

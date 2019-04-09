@@ -21,14 +21,6 @@ namespace AliensCombatSystemTest.src.models.parameter
                 return Math.Round(m_fValue);
             }
         }
-
-        public override string View
-        {
-            get
-            {
-                int view = (int)Math.Round(m_fValue);
-                return view.ToString();
-            }
-        }
+      
     }
 }

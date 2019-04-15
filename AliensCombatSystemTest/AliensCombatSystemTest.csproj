@@ -62,7 +62,6 @@
     <Compile Include="src\models\parameter\CIntNumbParameter.cs" />
     <Compile Include="src\models\parameter\CModParameter.cs" />
     <Compile Include="src\models\parameter\CYesNoParameter.cs" />
-    <Compile Include="src\helpers\SCParameterKeeper.cs" />
     <Compile Include="src\models\parameter\IParameter.cs" />
     <Compile Include="src\models\weapon\ACWeapon.cs" />
     <Compile Include="src\models\weapon\IWeapon.cs" />

@@ -7,20 +7,16 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models.parameter
 {
-    abstract class ACParameter : IParameter
+    abstract class ACParameter :ACEntity, IParameter
     {
         protected double m_fValue;
-        protected string m_sName;
-        protected ACParameter(string name)
+       
+       
+        protected ACParameter(string name):base(name)
         {
-            SCChecker.CheckStringIsNotEmpty(name);
-            m_sName = name;
+           
         }
-        public string NameParameter { get { return m_sName; } }
         public abstract double Value { get; }
-        public abstract string View { get; }
-
-
 
     }
 

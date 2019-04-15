@@ -183,7 +183,7 @@ namespace AliensCombatSystemTest
         }
         private void addWeaponFrom(ACWeapon weapon)
         {
-            string[] tableFormat = weapon.TableFormat;
+            //string[] tableFormat = weapon.TableFormat;
             m_dgvWeapons.RowCount += 1;
             int lastRow = m_dgvWeapons.RowCount - 1;
             int index = 0;

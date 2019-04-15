@@ -20,8 +20,18 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
         {
             get
             {
-                throw new NotImplementedException();
+                IList<ICombatEntity> result;
+                if (m_lsCombatEntities.Count!=0)
+                {
+                    result = m_lsCombatEntities;
+                }
+                else
+                {
+                    throw new FormatException();
+                }
+                return result;
             }
         }
+        
     }
 }

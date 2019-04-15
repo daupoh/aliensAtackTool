@@ -10,6 +10,6 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
     interface ICombatBuilder
     {
         IList<ICombatEntity> CombatEntities { get; }
-        void CreateCombatEntityByName(string name);
+        
     }
 }

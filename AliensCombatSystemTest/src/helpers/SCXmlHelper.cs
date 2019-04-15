@@ -23,7 +23,8 @@ namespace gravityPrototype.models
             m_strHumansTargetParametersParent = "humansTargetParameters",
             m_strHumansResultParametersParent = "humansResultParameters",
       //      m_strPathHead = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\",
-        m_strPathHead = "C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\",
+        m_strPathHead = "xmls\\",
+            //"C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\",
 
             m_strFilePathModelError = m_strPathHead+"ModelErrors.xml",
             m_strFilePathAliensWeaponParameter= m_strPathHead + "AliensWeaponParameters.xml",

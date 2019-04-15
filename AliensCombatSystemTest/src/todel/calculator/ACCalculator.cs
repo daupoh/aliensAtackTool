@@ -17,12 +17,12 @@ namespace AliensCombatSystemTest.src.models.calculator
         public abstract string[] getCalculate();
         protected AccuracityMode m_eAccuracity;
         protected ACTarget m_pTarget;
-        protected ACWeapon m_pWeapon;
+        protected CWeapon m_pWeapon;
         protected void initializeTarget(ACTarget target)
         {
             m_pTarget = target;           
         }
-        protected void initializeWeapon(ACWeapon weapon)
+        protected void initializeWeapon(CWeapon weapon)
         {           
             m_pWeapon = weapon;
         }
@@ -31,7 +31,7 @@ namespace AliensCombatSystemTest.src.models.calculator
             initializeTarget(target);
             return this;
         }
-        protected ACCalculator withWeapon(ACWeapon weapon)
+        protected ACCalculator withWeapon(CWeapon weapon)
         {
             initializeWeapon(weapon);
             return this;

@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models.weapon
 {
-    interface IWeapon:IEntity
+    interface ICombatEntity : IEntity
     {
        
         double getParameterValueByName(string name);
-    
+        string getParameterPoolViewByName(string name);
+
     }
 }

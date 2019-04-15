@@ -11,7 +11,7 @@ namespace AliensCombatSystemTest.src.models.calculator
     class CAlienCalculator:ACCalculator
     {
 
-        public CAlienCalculator(ACTarget target, ACWeapon weapon)
+        public CAlienCalculator(ACTarget target, CWeapon weapon)
         {
             initializeTarget(target);
             initializeWeapon(weapon);

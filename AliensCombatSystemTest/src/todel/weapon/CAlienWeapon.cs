@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models.weapon
 {
-    class CAlienWeapon : ACWeapon
+    class CAlienWeapon : CWeapon
     {
         int m_iVectorsOnAtack, m_iDmgOnAtack, m_iStrikesOnAtack, m_iDmgByTime, m_iDurationDmgByTime;
         double m_dbAutoDmgOnAtack, m_dbTimeOnStrike, m_dbHumanResist, m_dbSynthResist, m_dbDmgOnArmorMod, m_dbNockdownHealthThreshold;

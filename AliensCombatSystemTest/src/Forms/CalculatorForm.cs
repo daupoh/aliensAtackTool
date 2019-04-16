@@ -23,13 +23,13 @@ namespace AliensCombatSystemTest
             alienMode,humanMode
         }
         CalculatorMode m_eMode;
-        IList<ACWeapon> m_lWeapons;
+        IList<CWeapon> m_lWeapons;
         IList<ACTarget> m_lTargets;
 
         public CalculatorForm()
         {
             InitializeComponent();
-            m_lWeapons = new List<ACWeapon>();
+            m_lWeapons = new List<CWeapon>();
             m_lTargets = new List<ACTarget>();
             SetElementsInAlienMode();
         }
@@ -181,9 +181,9 @@ namespace AliensCombatSystemTest
                 m_dgvTargets.Rows[lastRow].Cells[index++].Value = s;
             }
         }
-        private void addWeaponFrom(ACWeapon weapon)
+        private void addWeaponFrom(CWeapon weapon)
         {
-            string[] tableFormat = weapon.TableFormat;
+            //string[] tableFormat = weapon.TableFormat;
             m_dgvWeapons.RowCount += 1;
             int lastRow = m_dgvWeapons.RowCount - 1;
             int index = 0;
@@ -212,7 +212,7 @@ namespace AliensCombatSystemTest
                 selectedTargRow = m_dgvTargets.SelectedRows[0].Index;
                 string weapName = m_dgvWeapons.Rows[selectedWeapRow].Cells[0].Value.ToString(),
                     targName = m_dgvTargets.Rows[selectedTargRow].Cells[0].Value.ToString();
-                ACWeapon weap = getWeaponByName(weapName);
+                CWeapon weap = getWeaponByName(weapName);
                 ACTarget targ = getTargetByName(targName);
                 CHumanCalculator humCalc = new CHumanCalculator(targ, weap);
                 string[] results = humCalc.getCalculate();
@@ -233,7 +233,7 @@ namespace AliensCombatSystemTest
                 selectedTargRow = m_dgvTargets.SelectedRows[0].Index;
                 string weapName = m_dgvWeapons.Rows[selectedWeapRow].Cells[0].Value.ToString(),
                     targName = m_dgvTargets.Rows[selectedTargRow].Cells[0].Value.ToString();
-                ACWeapon weap = getWeaponByName(weapName);
+                CWeapon weap = getWeaponByName(weapName);
                 ACTarget targ = getTargetByName(targName);
                 CAlienCalculator alCalc = new CAlienCalculator(targ, weap);
                 string[] results = alCalc.getCalculate();
@@ -244,10 +244,10 @@ namespace AliensCombatSystemTest
                 throw new FormatException("Для расчета необходимо выделить оружие и цель!");
             }
         }
-        private ACWeapon getWeaponByName(string name)
+        private CWeapon getWeaponByName(string name)
         {
-            ACWeapon weap = null;
-            foreach(ACWeapon w in m_lWeapons)
+            CWeapon weap = null;
+            foreach(CWeapon w in m_lWeapons)
             {
                 if (w.Name==name)
                 {

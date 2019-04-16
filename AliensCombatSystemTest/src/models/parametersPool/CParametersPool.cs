@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models.parametersPool
 {
-    abstract class ACParametersPool : ACEntity,IParametersPool
+    class CParametersPool : ACEntity,IParametersPool
     {
         IList<IParameter> m_lsParameters;
-        protected ACParametersPool(string name):base(name)
+        protected CParametersPool(string name):base(name)
         {
             m_lsParameters = new List<IParameter>();
         }

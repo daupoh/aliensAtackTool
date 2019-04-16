@@ -71,107 +71,6 @@ namespace gravityPrototype.models
             result = getRowsInNode(rootNode, parentNode, filePath, number);
             return result;
         }
-
-        public static string RowFromAliensWeapon(int number)
-        {
-            string result = "";
-            SCChecker.CheckNumberMoreOrEqualThenZero(number);
-            result = getRowsInNode(m_strAliensWeaponParametersParent
-               , m_strParametersPools, m_strFilePathAliensWeaponParameter, number);
-            return result;
-        }
-        public static string RowFromAliensTarget(int number)
-        {
-            string result = "";
-            SCChecker.CheckNumberMoreOrEqualThenZero(number);
-            result = getRowsInNode(m_strAliensTargetParametersParent
-               , m_strParametersPools, m_strFilePathAliensTargetParameter, number);
-            return result;
-        }
-        public static string RowFromAliensResult(int number)
-        {
-            string result = "";
-            SCChecker.CheckNumberMoreOrEqualThenZero(number);
-            result = getRowsInNode(m_strAliensResultParametersParent
-                , m_strParametersPools, m_strFilePathAliensResultParameter, number);
-            return result;
-        }
-        public static string RowFromHymansWeapon(int number)
-        {
-            string result = "";
-            SCChecker.CheckNumberMoreOrEqualThenZero(number);
-            result = getRowsInNode(m_strHumansWeaponParametersParent, m_strParametersPools, m_strFilePathHumansWeaponParameter, number);
-            return result;
-        }
-        public static string RowFromHumansTarget(int number)
-        {
-            string result = "";
-            SCChecker.CheckNumberMoreOrEqualThenZero(number);
-            result = getRowsInNode(m_strHumansTargetParametersParent, m_strParametersPools, m_strFilePathHumansTargetParameter, number);
-            return result;
-        }
-        public static string RowFromHumansResult(int number)
-        {
-            string result = "";
-            SCChecker.CheckNumberMoreOrEqualThenZero(number);
-            result = getRowsInNode(m_strHumansResultParametersParent, m_strParametersPools, m_strFilePathHumansResultParameter, number);
-            return result;
-        }
-        public static int CountOfAlienWeaponRows
-        {
-            get
-            {
-                int result = 0;
-                result = getCoundOfRowsInNode(m_strAliensWeaponParametersParent, m_strParametersPools, m_strFilePathAliensWeaponParameter);
-                return result;
-            }
-        }
-        public static int CountOfAlienTargetRows
-        {
-            get
-            {
-                int result = 0;
-                result = getCoundOfRowsInNode(m_strAliensTargetParametersParent, m_strParametersPools, m_strFilePathAliensTargetParameter);
-                return result;
-            }
-        }
-        public static int CountOfAlienResultRows
-        {
-            get
-            {
-                int result = 0;
-                result = getCoundOfRowsInNode(m_strAliensResultParametersParent, m_strParametersPools, m_strFilePathAliensResultParameter);
-                return result;
-            }
-        }
-        public static int CountOfHumanWeaponRows
-        {
-            get
-            {
-                int result = 0;
-                result = getCoundOfRowsInNode(m_strHumansWeaponParametersParent, m_strParametersPools, m_strFilePathHumansWeaponParameter);
-                return result;
-            }
-        }
-        public static int CountOfHumanResultRows
-        {
-            get
-            {
-                int result = 0;
-                result = getCoundOfRowsInNode(m_strHumansResultParametersParent, m_strParametersPools, m_strFilePathHumansResultParameter);
-                return result;
-            }
-        }
-        public static int CountOfHumanTargetRows
-        {
-            get
-            {
-                int result = 0;
-                result = getCoundOfRowsInNode(m_strHumansTargetParametersParent, m_strParametersPools, m_strFilePathHumansTargetParameter);
-                return result;
-            }
-        }
-
         private static string getRowViewInNode(string rootNode, string parentNode, string nodeName, string filePath)
         {
             string result = "";
@@ -280,7 +179,7 @@ namespace gravityPrototype.models
                     break;
                 default: throw new FormatException();
             }
-            switch (fileCode)
+            switch (typeCode)
             {
                 case "P":
                     parentNode = m_strParameters;

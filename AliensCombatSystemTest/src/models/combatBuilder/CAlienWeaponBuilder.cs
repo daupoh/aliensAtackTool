@@ -39,7 +39,7 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
         {
             IParameter pHitVectorsCount = new CIntNumbParameter(nHitVectors, "Количество векторов в атаке"),
                         pStrikesCount= new CIntNumbParameter(nStrikes, "Количество ударов в атаке");
-                        pTimePreparation = new CIntNumbParameter(timePreparation )
+                        
         }
     }
 }

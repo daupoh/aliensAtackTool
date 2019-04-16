@@ -35,22 +35,22 @@ namespace AliensCombatSystemTest
         private void SetResultTableByAliens()
         {
             m_dgvResultTable.Columns.Clear();
-            m_dgvResultTable.ColumnCount = SCXmlHelper.CountOfAlienResultRows;
+            m_dgvResultTable.ColumnCount = SCXmlHelper.CountRowsFromXml("ARP","PP");
 
             for (int i = 0; i < m_dgvResultTable.Columns.Count; i++)
             {
-                m_dgvResultTable.Columns[i].HeaderText = SCXmlHelper.RowFromAliensResult(i);
+                m_dgvResultTable.Columns[i].HeaderText = SCXmlHelper.RowFromXml(i, "ARP", "PP");
             }
 
         }
         private void SetResultTableByHumans()
         {            
             m_dgvResultTable.Columns.Clear();
-            m_dgvResultTable.ColumnCount = SCXmlHelper.CountOfHumanResultRows;
+            m_dgvResultTable.ColumnCount = SCXmlHelper.CountRowsFromXml("HRP", "PP"); 
 
             for (int i = 0; i < m_dgvResultTable.Columns.Count; i++)
             {
-                m_dgvResultTable.Columns[i].HeaderText = SCXmlHelper.RowFromHumansResult(i);
+                m_dgvResultTable.Columns[i].HeaderText = SCXmlHelper.RowFromXml(i, "HRP", "PP");
             }
         }
 
@@ -72,11 +72,11 @@ namespace AliensCombatSystemTest
         {
             m_lWeapons.Clear();
             m_dgvWeapons.Columns.Clear();
-            m_dgvWeapons.ColumnCount = SCXmlHelper.CountOfAlienWeaponRows;
+            m_dgvWeapons.ColumnCount = SCXmlHelper.CountRowsFromXml("AWP", "PP"); ;
 
             for (int i = 0; i < m_dgvWeapons.Columns.Count; i++)
             {
-                m_dgvWeapons.Columns[i].HeaderText = SCXmlHelper.RowFromAliensWeapon(i);
+                m_dgvWeapons.Columns[i].HeaderText = SCXmlHelper.RowFromXml(i, "AWP", "PP");
             }
         }
 
@@ -84,11 +84,11 @@ namespace AliensCombatSystemTest
         {
             m_lWeapons.Clear();
             m_dgvWeapons.Columns.Clear();
-            m_dgvWeapons.ColumnCount = SCXmlHelper.CountOfHumanWeaponRows;
+            m_dgvWeapons.ColumnCount = SCXmlHelper.CountRowsFromXml("HWP", "PP"); ;
             
             for (int i = 0; i < m_dgvWeapons.Columns.Count; i++)
             {
-                m_dgvWeapons.Columns[i].HeaderText = SCXmlHelper.RowFromHymansWeapon(i);
+                m_dgvWeapons.Columns[i].HeaderText = SCXmlHelper.RowFromXml(i, "HWP", "PP");
             }
            
 
@@ -97,11 +97,11 @@ namespace AliensCombatSystemTest
         {
             m_lTargets.Clear();
             m_dgvTargets.Columns.Clear();
-            m_dgvTargets.ColumnCount = SCXmlHelper.CountOfHumanTargetRows;
+            m_dgvTargets.ColumnCount = SCXmlHelper.CountRowsFromXml("HTP", "PP"); ;
 
             for (int i = 0; i < m_dgvTargets.Columns.Count; i++)
             {
-                m_dgvTargets.Columns[i].HeaderText = SCXmlHelper.RowFromHumansTarget(i);
+                m_dgvTargets.Columns[i].HeaderText = SCXmlHelper.RowFromXml(i, "HTP", "PP");
             }
 
         }
@@ -110,11 +110,11 @@ namespace AliensCombatSystemTest
         {
             m_lTargets.Clear();
             m_dgvTargets.Columns.Clear();
-            m_dgvTargets.ColumnCount = SCXmlHelper.CountOfAlienTargetRows;
+            m_dgvTargets.ColumnCount = SCXmlHelper.CountRowsFromXml("ATP", "PP"); ;
 
             for (int i = 0; i < m_dgvTargets.Columns.Count; i++)
             {
-                m_dgvTargets.Columns[i].HeaderText = SCXmlHelper.RowFromAliensTarget(i);
+                m_dgvTargets.Columns[i].HeaderText = SCXmlHelper.RowFromXml(i, "ATP", "PP");
             }
         }
 

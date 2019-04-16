@@ -143,7 +143,7 @@ namespace AliensCombatSystemTest
         }
        
        
-        private void addResultsFrom(string[] results)
+        private void AddResultsFrom(string[] results)
         {            
             m_dgvResultTable.RowCount += 1;
             int lastRow = m_dgvResultTable.RowCount - 1;

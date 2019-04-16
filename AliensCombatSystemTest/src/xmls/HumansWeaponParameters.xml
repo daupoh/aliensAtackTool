@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <humansWeaponParameters>
-  <weaponName>Название оружия</weaponName>
-  <ammoRateReload>Метрики оружия (боезапас, скорострельность, время перезарядки)</ammoRateReload>  
-  <damage>Параметры урона (урон атаки, временный урон, продолжительность)</damage>
-  <damageResists>Сопротивление урону (гварды, солдаты, рабочие, охотники)</damageResists>
-  <acidBlowsMod>Модификатор брызгов кислоты</acidBlowsMod>
-  <bodyPointsDamageMod>Коэффициент урона по Крепости Тела</bodyPointsDamageMod>
-  <damageByBodyPointsMod>Модификатор бонус-урона от Крепости Тела</damageByBodyPointsMod>
-  <overhit>Параметры перегрева (прирост за пулю, время полного охлаждения)</overhit> 
-  <underEffectBarricade>Действует эффект баррикады?</underEffectBarricade>
+  <parametersPools>
+    <weaponName>Название оружия</weaponName>
+    <ammoRateReload>Метрики оружия (боезапас, скорострельность, время перезарядки)</ammoRateReload>
+    <damage>Параметры урона (урон атаки, временный урон, продолжительность)</damage>
+    <damageResists>Сопротивление урону (гварды, солдаты, рабочие, охотники)</damageResists>
+    <acidBlowsMod>Модификатор брызгов кислоты</acidBlowsMod>
+    <bodyPointsDamageMod>Коэффициент урона по Крепости Тела</bodyPointsDamageMod>
+    <damageByBodyPointsMod>Модификатор бонус-урона от Крепости Тела</damageByBodyPointsMod>
+    <overhit>Параметры перегрева (прирост за пулю, время полного охлаждения)</overhit>
+    <underEffectBarricade>Действует эффект баррикады?</underEffectBarricade>
+  </parametersPools>
 </humansWeaponParameters>

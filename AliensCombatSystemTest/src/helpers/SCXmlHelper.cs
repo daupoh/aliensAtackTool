@@ -10,24 +10,29 @@ namespace gravityPrototype.models
 {
     public static class SCXmlHelper
     {
-        static string
+        const string
             m_strXmlError = "Не найден узел",
             m_strServerErrorsParent = "serverErrors",
 
+            m_strParameters = "parameters",
+            m_strParametersPools = "parametersPools",
+
             m_strServerConstantParent = "serverConstant",
             m_strAliensWeaponParametersParent = "aliensWeaponParameters",
+
+
              m_strAliensResultParametersParent = "aliensResultParameters",
              m_strAliensTargetParametersParent = "aliensTargetParameters",
 
             m_strHumansWeaponParametersParent = "humansWeaponParameters",
             m_strHumansTargetParametersParent = "humansTargetParameters",
             m_strHumansResultParametersParent = "humansResultParameters",
-      //      m_strPathHead = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\",
+        //      m_strPathHead = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\",
         m_strPathHead = "xmls\\",
             //"C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\",
 
-            m_strFilePathModelError = m_strPathHead+"ModelErrors.xml",
-            m_strFilePathAliensWeaponParameter= m_strPathHead + "AliensWeaponParameters.xml",
+            m_strFilePathModelError = m_strPathHead + "ModelErrors.xml",
+            m_strFilePathAliensWeaponParameter = m_strPathHead + "AliensWeaponParameters.xml",
             m_strFilePathAliensTargetParameter = m_strPathHead + "AliensTargetParameters.xml",
             m_strFilePathAliensResultParameter = m_strPathHead + "AliensResultParameters.xml",
 
@@ -37,13 +42,42 @@ namespace gravityPrototype.models
 
 
             m_strFilePathStringConstant = m_strPathHead + "StringConstants.xml";
-        
+
+        public static string RowFromXml(string nodeName, string fileCode, string typeCode)
+        {
+            string result = "", rootNode = "", parentNode = "", filePath = "";
+            string[] codes = new string[2];
+            codes[0] = fileCode; codes[1] = typeCode;
+            SetUp(codes, out rootNode, out parentNode, out filePath);
+            result = getRowViewInNode(rootNode, parentNode, nodeName, filePath);
+            return result;
+        }
+        public static int CountRowsFromXml(string fileCode, string typeCode)
+        {
+            int result = 0;
+            string rootNode = "", parentNode = "", filePath = "";
+            string[] codes = new string[2];
+            codes[0] = fileCode; codes[1] = typeCode;
+            SetUp(codes, out rootNode, out parentNode, out filePath);
+            result = getCoundOfRowsInNode(rootNode, parentNode,filePath);
+            return result;
+        }
+        public static string RowFromXml(int number, string fileCode, string typeCode)
+        {
+            string result = "", rootNode = "", parentNode = "", filePath = "";
+            string[] codes = new string[2];
+            codes[0] = fileCode; codes[1] = typeCode;
+            SetUp(codes, out rootNode, out parentNode, out filePath);
+            result = getRowsInNode(rootNode, parentNode, filePath, number);
+            return result;
+        }
+
         public static string RowFromAliensWeapon(int number)
         {
             string result = "";
             SCChecker.CheckNumberMoreOrEqualThenZero(number);
             result = getRowsInNode(m_strAliensWeaponParametersParent
-               , m_strFilePathAliensWeaponParameter, number);
+               , m_strParametersPools, m_strFilePathAliensWeaponParameter, number);
             return result;
         }
         public static string RowFromAliensTarget(int number)
@@ -51,7 +85,7 @@ namespace gravityPrototype.models
             string result = "";
             SCChecker.CheckNumberMoreOrEqualThenZero(number);
             result = getRowsInNode(m_strAliensTargetParametersParent
-               , m_strFilePathAliensTargetParameter, number);
+               , m_strParametersPools, m_strFilePathAliensTargetParameter, number);
             return result;
         }
         public static string RowFromAliensResult(int number)
@@ -59,28 +93,28 @@ namespace gravityPrototype.models
             string result = "";
             SCChecker.CheckNumberMoreOrEqualThenZero(number);
             result = getRowsInNode(m_strAliensResultParametersParent
-                , m_strFilePathAliensResultParameter, number);
+                , m_strParametersPools, m_strFilePathAliensResultParameter, number);
             return result;
         }
         public static string RowFromHymansWeapon(int number)
         {
             string result = "";
             SCChecker.CheckNumberMoreOrEqualThenZero(number);
-            result = getRowsInNode(m_strHumansWeaponParametersParent, m_strFilePathHumansWeaponParameter, number);
+            result = getRowsInNode(m_strHumansWeaponParametersParent, m_strParametersPools, m_strFilePathHumansWeaponParameter, number);
             return result;
         }
         public static string RowFromHumansTarget(int number)
         {
             string result = "";
             SCChecker.CheckNumberMoreOrEqualThenZero(number);
-            result = getRowsInNode(m_strHumansTargetParametersParent, m_strFilePathHumansTargetParameter, number);
+            result = getRowsInNode(m_strHumansTargetParametersParent, m_strParametersPools, m_strFilePathHumansTargetParameter, number);
             return result;
         }
         public static string RowFromHumansResult(int number)
         {
             string result = "";
             SCChecker.CheckNumberMoreOrEqualThenZero(number);
-            result = getRowsInNode(m_strHumansResultParametersParent, m_strFilePathHumansResultParameter,number);
+            result = getRowsInNode(m_strHumansResultParametersParent, m_strParametersPools, m_strFilePathHumansResultParameter, number);
             return result;
         }
         public static int CountOfAlienWeaponRows
@@ -88,7 +122,7 @@ namespace gravityPrototype.models
             get
             {
                 int result = 0;
-                result = getCoundOfRowsInNode(m_strAliensWeaponParametersParent, m_strFilePathAliensWeaponParameter);
+                result = getCoundOfRowsInNode(m_strAliensWeaponParametersParent, m_strParametersPools, m_strFilePathAliensWeaponParameter);
                 return result;
             }
         }
@@ -97,7 +131,7 @@ namespace gravityPrototype.models
             get
             {
                 int result = 0;
-                result = getCoundOfRowsInNode(m_strAliensTargetParametersParent, m_strFilePathAliensTargetParameter);
+                result = getCoundOfRowsInNode(m_strAliensTargetParametersParent, m_strParametersPools, m_strFilePathAliensTargetParameter);
                 return result;
             }
         }
@@ -106,7 +140,7 @@ namespace gravityPrototype.models
             get
             {
                 int result = 0;
-                result = getCoundOfRowsInNode(m_strAliensResultParametersParent, m_strFilePathAliensResultParameter);
+                result = getCoundOfRowsInNode(m_strAliensResultParametersParent, m_strParametersPools, m_strFilePathAliensResultParameter);
                 return result;
             }
         }
@@ -115,7 +149,7 @@ namespace gravityPrototype.models
             get
             {
                 int result = 0;
-                result = getCoundOfRowsInNode(m_strHumansWeaponParametersParent, m_strFilePathHumansWeaponParameter);
+                result = getCoundOfRowsInNode(m_strHumansWeaponParametersParent, m_strParametersPools, m_strFilePathHumansWeaponParameter);
                 return result;
             }
         }
@@ -124,7 +158,7 @@ namespace gravityPrototype.models
             get
             {
                 int result = 0;
-                result = getCoundOfRowsInNode(m_strHumansResultParametersParent, m_strFilePathHumansResultParameter);
+                result = getCoundOfRowsInNode(m_strHumansResultParametersParent, m_strParametersPools, m_strFilePathHumansResultParameter);
                 return result;
             }
         }
@@ -133,52 +167,131 @@ namespace gravityPrototype.models
             get
             {
                 int result = 0;
-                result = getCoundOfRowsInNode(m_strHumansTargetParametersParent, m_strFilePathHumansTargetParameter);
+                result = getCoundOfRowsInNode(m_strHumansTargetParametersParent, m_strParametersPools, m_strFilePathHumansTargetParameter);
                 return result;
             }
         }
-      
-        
-        private static int getCoundOfRowsInNode(string parentNode, string filePath)
+
+        private static string getRowViewInNode(string rootNode, string parentNode, string nodeName, string filePath)
+        {
+            string result = "";
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(filePath);
+            XmlElement xRoot = xmlDoc.DocumentElement;
+            if (xRoot.Name == rootNode)
+            {
+                foreach (XmlElement xpnode in xRoot)
+                {
+                    if (xpnode.Name == parentNode)
+                    {
+                        foreach (XmlElement node in xpnode)
+                        {
+                            if (node.Name == nodeName)
+                            {
+                                result = node.InnerText;
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+        private static int getCoundOfRowsInNode(string rootNode, string parentNode, string filePath)
         {
             int result = 0;
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filePath);
             XmlElement xRoot = xmlDoc.DocumentElement;
-            if (xRoot.Name == parentNode)
+            if (xRoot.Name == rootNode)
             {
                 foreach (XmlElement xpnode in xRoot)
                 {
-                    result++;
-                   
+                    if (xpnode.Name == parentNode)
+                    {
+                        foreach (XmlElement node in xpnode)
+                        {
+                            result++;
+                        }
+                    }
                 }
-
             }
-          
+
             return result;
         }
-        private static string getRowsInNode(string parentNode, string filePath,int index)
+        private static string getRowsInNode(string rootNode, string parentNode, string filePath, int index)
         {
             string result = "";
             int count = 0;
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filePath);
             XmlElement xRoot = xmlDoc.DocumentElement;
-            if (xRoot.Name == parentNode)
+            if (xRoot.Name == rootNode)
             {
                 foreach (XmlElement xnode in xRoot)
                 {
-                    if (count == index)
+                    if (xnode.Name == parentNode)
                     {
-                        result = xnode.InnerText;
-                    break;
+                        foreach (XmlElement node in xnode)
+                        {
+                            if (count == index)
+                            {
+                                result = node.InnerText;
+                                break;
+                            }
+                            count++;
+                        }
                     }
-                    count++;
+
                 }
-            }      
+            }
             return result;
         }
-        
+        private static void SetUp(string[] codes, out string rootNode, out string parentNode, out string filePath)
+        {
+            string fileCode = codes[0],
+                typeCode = codes[1];
+            switch (fileCode)
+            {
+                case "ARP":
+                    rootNode = m_strAliensResultParametersParent;
+                    filePath = m_strFilePathAliensResultParameter;
+                    break;
+                case "ATP":
+                    rootNode = m_strAliensTargetParametersParent;
+                    filePath = m_strFilePathAliensTargetParameter;
+                    break;
+                case "AWP":
+                    rootNode = m_strAliensWeaponParametersParent;
+                    filePath = m_strFilePathAliensWeaponParameter;
+                    break;
+                case "HRP":
+                    rootNode = m_strHumansResultParametersParent;
+                    filePath = m_strFilePathHumansResultParameter;
+                    break;
+                case "HTP":
+                    rootNode = m_strHumansTargetParametersParent;
+                    filePath = m_strFilePathHumansTargetParameter;
+                    break;
+                case "HWP":
+                    rootNode = m_strHumansWeaponParametersParent;
+                    filePath = m_strFilePathHumansWeaponParameter;
+                    break;
+                default: throw new FormatException();
+            }
+            switch (fileCode)
+            {
+                case "P":
+                    parentNode = m_strParameters;
+                    break;
+                case "PP":
+                    parentNode = m_strParametersPools;
+                    break;
+                default: throw new FormatException();
+            }
+
+        }
     }
 }
 

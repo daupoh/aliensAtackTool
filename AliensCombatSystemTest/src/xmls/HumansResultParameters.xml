@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <humansResultParameters>
-  <weaponName>Название оружия</weaponName>
-  <targetName>Название цели</targetName>
-  <targetEffects>Эффекты на цели (ловушка?)</targetEffects>
-  <hitsOnHitBoxes>Попадания в конечности (голова, тело, ноги, руки, мимо)</hitsOnHitBoxes>
-  <timeAndDmgOnAtack>Время атак и суммарный урон (время, урон здоровью, крепости тела)</timeAndDmgOnAtack>
-  <nockDownResults>Падение цели (номер атаки, кол-во здоровья,кол-во крепости тела, время)</nockDownResults>
-  <damagesOnTarget>Урон от пуль (на здоровье, на крепость тела, сумма)</damagesOnTarget>  
-  <damagesPeriodOnTarget>Временный урон (время, урон, общий урон)</damagesPeriodOnTarget>
+  <parametersPools>
+    <weaponName>Название оружия</weaponName>
+    <targetName>Название цели</targetName>
+    <targetEffects>Эффекты на цели (ловушка?)</targetEffects>
+    <hitsOnHitBoxes>Попадания в конечности (голова, тело, ноги, руки, мимо)</hitsOnHitBoxes>
+    <timeAndDmgOnAtack>Время атак и суммарный урон (время, урон здоровью, крепости тела)</timeAndDmgOnAtack>
+    <nockDownResults>Падение цели (номер атаки, кол-во здоровья,кол-во крепости тела, время)</nockDownResults>
+    <damagesOnTarget>Урон от пуль (на здоровье, на крепость тела, сумма)</damagesOnTarget>
+    <damagesPeriodOnTarget>Временный урон (время, урон, общий урон)</damagesPeriodOnTarget>
+  </parametersPools>
 </humansResultParameters>

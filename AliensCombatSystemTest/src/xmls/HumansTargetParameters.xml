@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <humansTargetParameters>
-  <className>Название класса</className>
-  <hitBoxesMods>Модификаторы конечностей (голова, тело, ноги, руки)</hitBoxesMods>
-  <baseNockdownHealthPoints>Базовый порог сбивания с ног</baseNockdownHealthPoints>
-  <weightOfWeaponMod>Модификатор тяжести оружия</weightOfWeaponMod>
-  <underEffect>Действует эффект?(ловушка?, баррикада?, зона защиты?)</underEffect>
-
+  <parametersPools>
+    <className>Название класса</className>
+    <hitBoxesMods>Модификаторы конечностей (голова, тело, ноги, руки)</hitBoxesMods>
+    <baseNockdownHealthPoints>Базовый порог сбивания с ног</baseNockdownHealthPoints>
+    <weightOfWeaponMod>Модификатор тяжести оружия</weightOfWeaponMod>
+    <underEffect>Действует эффект?(ловушка?, баррикада?, зона защиты?)</underEffect>
+  </parametersPools>
 </humansTargetParameters>

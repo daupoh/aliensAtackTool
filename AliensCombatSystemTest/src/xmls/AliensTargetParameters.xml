@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <aliensTargetParameters>
-  <className>Название класса</className>
-  <metaClassName>Название мета-класса</metaClassName>
-  <hitBoxMods>Модификаторы урона конечностей (голова, тело, ноги, руки)</hitBoxMods>
-  <onAcidDistance>На дистанции брызгов кислоты?</onAcidDistance>
-  <baseAcidDmg>Базовый урон от кислоты</baseAcidDmg>
-  <underEffect>Действует эффект?(ловушка?)</underEffect>  
+  <parametersPools>
+    <className>Название класса</className>
+    <metaClassName>Название мета-класса</metaClassName>
+    <hitBoxMods>Модификаторы урона конечностей (голова, тело, ноги, руки)</hitBoxMods>
+    <onAcidDistance>На дистанции брызгов кислоты?</onAcidDistance>
+    <baseAcidDmg>Базовый урон от кислоты</baseAcidDmg>
+    <underEffect>Действует эффект?(ловушка?)</underEffect>
+  </parametersPools>
 </aliensTargetParameters>

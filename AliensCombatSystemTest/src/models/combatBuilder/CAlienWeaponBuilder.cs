@@ -1,5 +1,6 @@
 ﻿using AliensCombatSystemTest.src.models.parameter;
 using AliensCombatSystemTest.src.models.weapon;
+using gravityPrototype.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,7 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
         {
             IParameter pHitVectorsCount = new CIntNumbParameter(nHitVectors, "Количество векторов в атаке"),
                         pStrikesCount= new CIntNumbParameter(nStrikes, "Количество ударов в атаке");
+                        pTimePreparation = new CIntNumbParameter(timePreparation )
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models
 {
-    abstract class ACEntity
+     abstract class ACEntity
     {
         protected string m_sName = "";
 

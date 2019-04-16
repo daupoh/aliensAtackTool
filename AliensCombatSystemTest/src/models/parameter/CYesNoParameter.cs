@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models.parameter
 {
-    class CYesNoParameter : ACParameter
+     class CYesNoParameter : ACParameter
     {
         public CYesNoParameter(double value, string name):base(name)
         {

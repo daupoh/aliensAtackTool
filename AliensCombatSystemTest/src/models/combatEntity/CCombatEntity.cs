@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace AliensCombatSystemTest.src.models.weapon
 {
-   class CCombatEntity : ACEntity,ICombatEntity
+    class CCombatEntity : ACEntity,ICombatEntity
     {       
         private Dictionary<string, IParameter> m_dctParametersDictionary;
         private Dictionary<string, IParametersPool> m_dctParametersPoolsDictionary;
 
-        protected CCombatEntity(string name):base(name)
+        public CCombatEntity(string name):base(name)
         {
             m_dctParametersDictionary = new Dictionary<string, IParameter>();
             m_dctParametersPoolsDictionary = new Dictionary<string, IParametersPool>();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models.parametersPool
 {
-    interface IParametersPool:IEntity
+     interface IParametersPool:IEntity
     {
         string TableView { get; }
     }

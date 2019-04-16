@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models
 {
-    interface IEntity
+     interface IEntity
     {
         string Name { get; }
     }

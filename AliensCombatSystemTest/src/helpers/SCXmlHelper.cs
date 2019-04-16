@@ -137,48 +137,8 @@ namespace gravityPrototype.models
                 return result;
             }
         }
-
-        public static string getServerError(string nodeName)
-        {
-            string serverError = "";
-            serverError = getTextByNode(m_strServerErrorsParent, nodeName, m_strFilePathModelError);
-            return serverError;
-        }
-        public static string getAliensWeaponParameter(string nodeName)
-        {
-            string alienWeaponParameter = "";
-            alienWeaponParameter = getTextByNode(m_strAliensWeaponParametersParent,
-                nodeName, m_strFilePathAliensWeaponParameter);
-            return alienWeaponParameter;
-        }
-        public static string getServerConstant(string nodeName)
-        {
-            string serverConst = "";
-            serverConst = getTextByNode(m_strServerConstantParent, nodeName, m_strFilePathStringConstant);
-            return serverConst;
-        }
-        private static string getTextByNode(string parentNode, string nodeName, string filePath)
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(filePath);
-            string textNode = "";
-            XmlElement xRoot = xmlDoc.DocumentElement;
-            bool nodeHasFinded = false;
-            if (xRoot.Name == parentNode)
-            {
-                foreach (XmlElement xnode in xRoot)
-                {
-                    textNode = xnode.InnerText;
-                    nodeHasFinded = true;
-                    break;
-                }
-            }                         
-            if (!nodeHasFinded)
-            {
-                throw new FormatException(m_strXmlError);
-            }
-            return textNode;
-        }
+      
+        
         private static int getCoundOfRowsInNode(string parentNode, string filePath)
         {
             int result = 0;

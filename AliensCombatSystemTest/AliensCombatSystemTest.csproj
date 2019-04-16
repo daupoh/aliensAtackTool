@@ -56,6 +56,7 @@
     <Compile Include="src\helpers\SCXmlHelper.cs" />
     <Compile Include="src\models\ACEntity.cs" />
     <Compile Include="src\models\combatBuilder\ACCombatBuilder.cs" />
+    <Compile Include="src\models\combatBuilder\CAlienWeaponBuilder.cs" />
     <Compile Include="src\models\combatBuilder\ICombatBuilder.cs" />
     <Compile Include="src\models\IEntity.cs" />
     <Compile Include="src\models\parametersPool\CParametersPool.cs" />
@@ -67,19 +68,6 @@
     <Compile Include="src\models\parameter\IParameter.cs" />
     <Compile Include="src\models\combatEntity\CCombatEntity.cs" />
     <Compile Include="src\models\combatEntity\ICombatEntity.cs" />
-    <Compile Include="src\todel\calculator\ACCalculator.cs" />
-    <Compile Include="src\todel\calculator\CAlienCalculator.cs" />
-    <Compile Include="src\todel\calculator\CHumanCalculator.cs" />
-    <Compile Include="src\todel\targets\ACTarget.cs" />
-    <Compile Include="src\todel\targets\ACTargetGenerator.cs" />
-    <Compile Include="src\todel\targets\CAlienTarget.cs" />
-    <Compile Include="src\todel\targets\CAlienTargetGenerator.cs" />
-    <Compile Include="src\todel\targets\CHumanTarget.cs" />
-    <Compile Include="src\todel\targets\CHumanTargetGenerator.cs" />
-    <Compile Include="src\todel\weapon\CAlienWeapon.cs" />
-    <Compile Include="src\todel\weapon\CHumanShootWeapon.cs" />
-    <Compile Include="src\todel\weapon\ACWeaponGenerator.cs" />
-    <Compile Include="src\todel\weapon\CHumanShootWeaponGenerator.cs" />
     <Compile Include="src\helpers\SCChecker.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models.parameter
 {
-    class CIntNumbParameter : ACParameter
+     class CIntNumbParameter : ACParameter
     {
         public CIntNumbParameter(double value, string name):base(name)
         {

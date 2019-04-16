@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models.parameter
 {
-    abstract class ACParameter :ACEntity, IParameter
+     abstract class ACParameter :ACEntity, IParameter
     {
         protected double m_fValue;
        

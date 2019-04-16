@@ -7,11 +7,12 @@ using AliensCombatSystemTest.src.models.weapon;
 
 namespace AliensCombatSystemTest.src.models.combatBuilder
 {
-    abstract class ACCombatBuilder : ACEntity, ICombatBuilder
+     abstract class ACCombatBuilder : ACEntity, ICombatBuilder
     {
         protected IList<ICombatEntity> m_lsCombatEntities;
+        protected ICombatEntity m_pCurrentCombatEntity;
 
-        private ACCombatBuilder (string name):base(name)
+        protected ACCombatBuilder (string name):base(name)
         {
             m_lsCombatEntities = new List<ICombatEntity>();
         }

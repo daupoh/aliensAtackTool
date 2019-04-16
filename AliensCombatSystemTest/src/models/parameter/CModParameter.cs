@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models.parameter
 {
-    class CModParameter : ACParameter
+     class CModParameter : ACParameter
     {
         public CModParameter(double value, string name):base(name)
         {

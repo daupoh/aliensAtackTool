@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models.combatBuilder
 {
-    interface ICombatBuilder
+     interface ICombatBuilder
     {
         IList<ICombatEntity> CombatEntities { get; }
         

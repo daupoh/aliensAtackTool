@@ -1,5 +1,6 @@
 ﻿
 
+using AliensCombatSystemTest.src.models.combatBuilder;
 using AliensCombatSystemTest.src.models.weapon;
 using gravityPrototype.models;
 using System;
@@ -72,12 +73,16 @@ namespace AliensCombatSystemTest
         {
             m_lWeapons.Clear();
             m_dgvWeapons.Columns.Clear();
-            m_dgvWeapons.ColumnCount = SCXmlHelper.CountRowsFromXml("AWP", "PP"); ;
+            int parametersCount = SCXmlHelper.CountRowsFromXml("AWP", "PP");
+            m_dgvWeapons.ColumnCount = parametersCount + 1;
 
-            for (int i = 0; i < m_dgvWeapons.Columns.Count; i++)
+            m_dgvWeapons.Columns[0].HeaderText = "Название оружия";
+            for (int i = 0; i < parametersCount; i++)
             {
-                m_dgvWeapons.Columns[i].HeaderText = SCXmlHelper.RowFromXml(i, "AWP", "PP");
+                m_dgvWeapons.Columns[i+1].HeaderText = SCXmlHelper.RowFromXml(i, "AWP", "PP");
             }
+
+            AddAlienWeapons();
         }
 
         private void SetWeaponTableByHumans()
@@ -117,6 +122,27 @@ namespace AliensCombatSystemTest
                 m_dgvTargets.Columns[i].HeaderText = SCXmlHelper.RowFromXml(i, "ATP", "PP");
             }
         }
+        //--------------------
+        private void AddAlienWeapons()
+        {
+            ICombatBuilder alienBuilder = new CAlienWeaponBuilder();
+            IList<ICombatEntity> combatEntities = alienBuilder.CombatEntities;
+            m_dgvWeapons.RowCount += combatEntities.Count;
+            int parametersCount = SCXmlHelper.CountRowsFromXml("AWP", "PP"),
+                indexRows=0;
+
+            foreach (ICombatEntity combat in combatEntities)
+            {
+                m_dgvWeapons.Rows[indexRows].Cells[0].Value = combat.Name;
+                for (int i = 0; i < parametersCount; i++)
+                {
+                    m_dgvWeapons.Rows[indexRows].Cells[i+1].Value = combat.getParameterPoolViewByName(SCXmlHelper.RowFromXml(i, "AWP", "PP"));
+                }
+                indexRows++;
+            }
+        }
+        //---------------------
+
 
         private void m_rbtnAlienMode_CheckedChanged(object sender, EventArgs e)
         {
@@ -141,21 +167,6 @@ namespace AliensCombatSystemTest
                 MessageBox.Show(exc.Message);
             }
         }
-       
-       
-        private void AddResultsFrom(string[] results)
-        {            
-            m_dgvResultTable.RowCount += 1;
-            int lastRow = m_dgvResultTable.RowCount - 1;
-            int index = 0;
-            foreach (string s in results)
-            {
-                m_dgvResultTable.Rows[lastRow].Cells[index++].Value = s;
-            }
-        }
-
-   
-
 
         private void m_btnClearResults_Click(object sender, EventArgs e)
         {

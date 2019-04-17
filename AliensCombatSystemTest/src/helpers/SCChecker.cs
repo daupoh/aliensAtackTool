@@ -28,7 +28,7 @@ namespace AliensCombatSystemTest.src.Models
         }
         public static void CheckNumberBinary(double number)
         {
-            if (number != 0 || number !=1)
+            if (number != 0 && number !=1)
             {
                 throw new FormatException();
             }

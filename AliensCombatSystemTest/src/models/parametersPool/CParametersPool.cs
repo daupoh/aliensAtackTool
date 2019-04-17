@@ -10,11 +10,27 @@ namespace AliensCombatSystemTest.src.models.parametersPool
     class CParametersPool : ACEntity,IParametersPool
     {
         IList<IParameter> m_lsParameters;
-        protected CParametersPool(string name):base(name)
+        public CParametersPool(string name):base(name)
         {
             m_lsParameters = new List<IParameter>();
         }
-        protected void AddParameter(IParameter parameter)
+        public double getValueByParameter(string name)
+        {
+            double result = -1;
+            foreach(IParameter parameter in m_lsParameters)
+            {
+                if (parameter.Name==name)
+                {
+                    result = parameter.Value;
+                }
+            }
+            if (result==-1)
+            {
+                throw new FormatException();
+            }
+            return result;
+        }
+        public void AddParameter(IParameter parameter)
         {
             m_lsParameters.Add(parameter);
         }
@@ -43,7 +59,7 @@ namespace AliensCombatSystemTest.src.models.parametersPool
                         lastParameters--;
                         if (lastParameters != 0)
                         {
-                            result += ',';
+                            result += ';';
                         }
                     }
                     result += ')';

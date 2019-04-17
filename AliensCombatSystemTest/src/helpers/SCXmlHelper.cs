@@ -16,6 +16,14 @@ namespace gravityPrototype.models
 
             m_strParameters = "parameters",
             m_strParametersPools = "parametersPools",
+            m_strAlienWorker = "alienWorker",
+            m_strAlienSoldier = "alienSoldier",
+            m_strAlienHunter = "alienHunter",
+            m_strAlienPraetorian = "alienPraetorian",
+
+            m_strPrimeAtack="_primeAtack",
+            m_strHoldPrimeAtack = "_holdPrimeAtack",
+            m_strTailAtack = "_tailAtack",
 
             m_strServerConstantParent = "serverConstant",
             m_strAliensWeaponParametersParent = "aliensWeaponParameters",
@@ -28,10 +36,11 @@ namespace gravityPrototype.models
             m_strHumansTargetParametersParent = "humansTargetParameters",
             m_strHumansResultParametersParent = "humansResultParameters",
         //      m_strPathHead = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\",
-        m_strPathHead = "xmls\\",
+        m_strPathHead = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\",
+            //"xmls\\",
             //"C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\",
 
-            m_strFilePathModelError = m_strPathHead + "ModelErrors.xml",
+        m_strFilePathModelError = m_strPathHead + "ModelErrors.xml",
             m_strFilePathAliensWeaponParameter = m_strPathHead + "AliensWeaponParameters.xml",
             m_strFilePathAliensTargetParameter = m_strPathHead + "AliensTargetParameters.xml",
             m_strFilePathAliensResultParameter = m_strPathHead + "AliensResultParameters.xml",
@@ -60,6 +69,12 @@ namespace gravityPrototype.models
             codes[0] = fileCode; codes[1] = typeCode;
             SetUp(codes, out rootNode, out parentNode, out filePath);
             result = getCoundOfRowsInNode(rootNode, parentNode,filePath);
+            return result;
+        }
+        public static double DoubleFromXml(string nodeName, string fileCode, string typeCode)
+        {
+            double result = 0;
+            result = Convert.ToDouble(RowFromXml(nodeName, fileCode, typeCode));
             return result;
         }
         public static string RowFromXml(int number, string fileCode, string typeCode)
@@ -187,6 +202,16 @@ namespace gravityPrototype.models
                 case "PP":
                     parentNode = m_strParametersPools;
                     break;
+                case "WP_PA":
+                    parentNode = m_strAlienWorker+m_strPrimeAtack;
+                    break;
+                case "WP_HPA":
+                    parentNode = m_strAlienWorker + m_strHoldPrimeAtack;
+                    break;
+                case "WP_TA":
+                    parentNode = m_strAlienWorker + m_strTailAtack;
+                    break;
+
                 default: throw new FormatException();
             }
 

@@ -15,29 +15,23 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
 
         public CAlienWeaponBuilder() : base("AlienWeaponBuilder")
         {
-            AddWorker();
-        }
-        private void AddWorker()
-        {
-            string classCode = "WP_PA";
-            m_pCurrentCombatEntity = new CCombatEntity("Удары Лапами (Рабочий)");
-            AddAtack(classCode);
-            m_lsCombatEntities.Add(m_pCurrentCombatEntity);
-            classCode = "WP_HPA";
-            m_pCurrentCombatEntity = new CCombatEntity("Зажатый Удар (Рабочий)");
-            AddAtack(classCode);
-            m_lsCombatEntities.Add(m_pCurrentCombatEntity);
-            classCode = "WP_TA";
-            m_pCurrentCombatEntity = new CCombatEntity("Удар Хвостом (Рабочий)");
-            AddAtack(classCode);
-            m_lsCombatEntities.Add(m_pCurrentCombatEntity);
+            string[] classCodes = { "WP_PA", "WP_HPA", "WP_TA", "WP_BA", "WP_HBA", "WP_AA" },
+           //"SP_PA", "SP_HPA", "SP_TA", "SP_BA", "SP_HBA", "SP_AA",
+           //"HP_PA", "HP_HPA", "HP_TA", "HP_BA", "HP_HBA", "HP_AA",
+           //"PP_PA", "PP_HPA", "PP_TA", "PP_BA", "PP_HBA", "PP_AA"},
+           weaponsNames =
+           { "Удары Лапами (Рабочий)", "Серия Ударов (Рабочий)", "Удар Хвостом (Рабочий)", "Укус (Рабочий)", "Мощный укус (Рабочий)", "Оглушающий Удар (Рабочий)" };
+            /*     "Удары Лапами (Солдат)", "Ранящий удар (Солдат)", "Удар Хвостом (Солдат)", "Укус (Солдат)", "Мощный укус (Солдат)", "Оглушающий Удар (Солдат)",
+                 "Удары Когтями (Охотник)", "Ранящий удар (Охотник)", "Подсечка Хвостом (Охотник)", "Укус (Охотник)", "Мощный укус (Охотник)", "Растерзание (Охотник)",
+                 "Удары Когтями (Преторианец)", "Мощный удар (Преторианец)", "Выпад Хвостом (Преторианец)", "Укус (Преторианец)", "Мощный укус (Преторианец)", "Таран (Преторианец)",};
+                 */
+            m_asTypesCodes = classCodes;
+            m_asCombatsNames = weaponsNames;
 
-           
-            
-        }
-        //_________________________
-
-        private void AddAtack(string classCode)
+            AddCombat();
+        }      
+       
+        protected override void AddAtack(string classCode)
         {
             AddParameterPool_Atack(classCode);
             AddParameterPool_Damage(classCode);

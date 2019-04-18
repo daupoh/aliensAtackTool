@@ -2,8 +2,8 @@
 <aliensWeaponParameters>
   <parametersPools>    
     <atack>Параметры атаки (кол-во векторов на удар, кол-во ударов в атаке, время подготовки атаки)</atack>
-    <timeOfStrikes>Время анимации ударов (1-го удара, 2-го и т.д.)</timeOfStrikes>
-    <strikesCooldowns>Время паузы между ударами (1-го, 2-го и т.д.)</strikesCooldowns>
+    <timeOfStrikes>Время анимации одного удара (в милисекундах)</timeOfStrikes>
+    <strikesCooldowns>Время паузы между ударами (в милисекундах)</strikesCooldowns>
     <damage>Параметры урона (урон за вектор, коэффициент автоурона, модификатора урона в Зонах Защиты)</damage>
     <periodDmg>Параметры урона во времени(урон, продолжительность)</periodDmg>
     <armorResist>Коэффициент поглощения урона броней</armorResist>
@@ -33,7 +33,7 @@
     <hitVectorsCount>8</hitVectorsCount>
     <strikesCount>2</strikesCount>
     <preparationAtackTime>0,0</preparationAtackTime>
-    <timeToStrike_0>0,5</timeToStrike_0>
+    <timeToStrike_0>500</timeToStrike_0>
     <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
     <damageOnVector>8</damageOnVector>
     <autoDamageMod>0,5</autoDamageMod>
@@ -50,8 +50,8 @@
   <alienWorker_holdPrimeAtack>
     <hitVectorsCount>8</hitVectorsCount>
     <strikesCount>4</strikesCount>
-    <preparationAtackTime>1,0</preparationAtackTime>
-    <timeToStrike_0>0,25</timeToStrike_0>
+    <preparationAtackTime>1000</preparationAtackTime>
+    <timeToStrike_0>250</timeToStrike_0>
     <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
     <damageOnVector>6</damageOnVector>
     <autoDamageMod>0,5</autoDamageMod>
@@ -69,7 +69,7 @@
     <hitVectorsCount>10</hitVectorsCount>
     <strikesCount>1</strikesCount>
     <preparationAtackTime>0,0</preparationAtackTime>
-    <timeToStrike_0>1,0</timeToStrike_0>
+    <timeToStrike_0>1000</timeToStrike_0>
     <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
     <damageOnVector>6</damageOnVector>
     <autoDamageMod>0,5</autoDamageMod>
@@ -83,6 +83,59 @@
     <makeBleedEffect>1</makeBleedEffect>
     <makeStunEffect>0</makeStunEffect>
   </alienWorker_tailAtack>
-    
+  <alienWorker_biteAtack>
+    <hitVectorsCount>1</hitVectorsCount>
+    <strikesCount>1</strikesCount>
+    <preparationAtackTime>0,0</preparationAtackTime>
+    <timeToStrike_0>500</timeToStrike_0>
+    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <damageOnVector>15</damageOnVector>
+    <autoDamageMod>0,0</autoDamageMod>
+    <defenceZonesDamageMod>1,0</defenceZonesDamageMod>
+    <periodDamage>0</periodDamage>
+    <periodDamageTime>0,0</periodDamageTime>
+    <armorDamageMod>0,1</armorDamageMod>
+    <humanResist>0,0</humanResist>
+    <synthResist>0,2</synthResist>
+    <nockdownHealthMod>0,0</nockdownHealthMod>
+    <makeBleedEffect>0</makeBleedEffect>
+    <makeStunEffect>0</makeStunEffect>
+  </alienWorker_biteAtack>
+  <alienWorker_holdBiteAtack>
+    <hitVectorsCount>1</hitVectorsCount>
+    <strikesCount>1</strikesCount>
+    <preparationAtackTime>1,0</preparationAtackTime>
+    <timeToStrike_0>1000</timeToStrike_0>
+    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <damageOnVector>35</damageOnVector>
+    <autoDamageMod>0,0</autoDamageMod>
+    <defenceZonesDamageMod>1,0</defenceZonesDamageMod>
+    <periodDamage>0</periodDamage>
+    <periodDamageTime>0,0</periodDamageTime>
+    <armorDamageMod>0,1</armorDamageMod>
+    <humanResist>0,0</humanResist>
+    <synthResist>0,2</synthResist>
+    <nockdownHealthMod>0,0</nockdownHealthMod>
+    <makeBleedEffect>0</makeBleedEffect>
+    <makeStunEffect>0</makeStunEffect>
+  </alienWorker_holdBiteAtack>
+  <alienWorker_altAtack>
+    <hitVectorsCount>8</hitVectorsCount>
+    <strikesCount>2</strikesCount>
+    <preparationAtackTime>0,0</preparationAtackTime>
+    <timeToStrike_0>1000</timeToStrike_0>
+    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <damageOnVector>4</damageOnVector>
+    <autoDamageMod>0,5</autoDamageMod>
+    <defenceZonesDamageMod>1,2</defenceZonesDamageMod>
+    <periodDamage>0</periodDamage>
+    <periodDamageTime>0,0</periodDamageTime>
+    <armorDamageMod>0,3</armorDamageMod>
+    <humanResist>0,4</humanResist>
+    <synthResist>0,8</synthResist>
+    <nockdownHealthMod>0</nockdownHealthMod>
+    <makeBleedEffect>0</makeBleedEffect>
+    <makeStunEffect>1</makeStunEffect>
+  </alienWorker_altAtack>
   
 </aliensWeaponParameters>

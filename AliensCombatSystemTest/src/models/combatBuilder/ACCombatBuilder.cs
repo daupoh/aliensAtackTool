@@ -11,7 +11,7 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
     {
         protected IList<ICombatEntity> m_lsCombatEntities;
         protected ICombatEntity m_pCurrentCombatEntity;
-
+        protected string[] m_asTypesCodes, m_asCombatsNames;
         protected ACCombatBuilder (string name):base(name)
         {
             m_lsCombatEntities = new List<ICombatEntity>();
@@ -33,6 +33,18 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
                 return result;
             }
         }
+        protected void AddCombat()
+        {
+            int index = 0;
+            foreach (string s in m_asTypesCodes)
+            {
+                m_pCurrentCombatEntity = new CCombatEntity(m_asCombatsNames[index]);
+                AddAtack(s);
+                m_lsCombatEntities.Add(m_pCurrentCombatEntity);
+                index++;
+            }
+        }
+        protected abstract void AddAtack(string typeCode);
         
     }
 }

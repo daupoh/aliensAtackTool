@@ -24,6 +24,9 @@ namespace gravityPrototype.models
             m_strPrimeAtack="_primeAtack",
             m_strHoldPrimeAtack = "_holdPrimeAtack",
             m_strTailAtack = "_tailAtack",
+            m_strBiteAtack = "_biteAtack",
+            m_strHoldBiteAtack = "_holdBiteAtack",
+            m_strAltAtack = "_altAtack",
 
             m_strServerConstantParent = "serverConstant",
             m_strAliensWeaponParametersParent = "aliensWeaponParameters",
@@ -210,6 +213,15 @@ namespace gravityPrototype.models
                     break;
                 case "WP_TA":
                     parentNode = m_strAlienWorker + m_strTailAtack;
+                    break;
+                case "WP_BA":
+                    parentNode = m_strAlienWorker + m_strBiteAtack;
+                    break;
+                case "WP_HBA":
+                    parentNode = m_strAlienWorker + m_strHoldBiteAtack;
+                    break;
+                case "WP_AA":
+                    parentNode = m_strAlienWorker + m_strAltAtack;
                     break;
 
                 default: throw new FormatException();

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <aliensWeaponParameters>
-  <parametersPools>    
+  <parametersPools>
     <atack>Параметры атаки (кол-во векторов на удар, кол-во ударов в атаке, время подготовки атаки)</atack>
     <timeOfStrikes>Время анимации одного удара (в милисекундах)</timeOfStrikes>
     <strikesCooldowns>Время паузы между ударами (в милисекундах)</strikesCooldowns>
@@ -11,7 +11,7 @@
     <nockdownHealthMod>Порог здоровья для сбивания с ног</nockdownHealthMod>
     <makeEffects>Накладывает эффекты? (рана?, оглушение?)</makeEffects>
   </parametersPools>
-  <parameters>    
+  <parameters>
     <hitVectorsCount>Количество векторов в атаке</hitVectorsCount>
     <strikesCount>Количество ударов в атаке</strikesCount>
     <preparationAtackTime>Время подготовки атаки</preparationAtackTime>
@@ -20,7 +20,7 @@
     <damageOnVector>Урон за вектор</damageOnVector>
     <autoDamageMod>Коэффициент автоурона</autoDamageMod>
     <defenceZonesDamageMod>Модификатор урона в Зоне</defenceZonesDamageMod>
-    <periodDamage>Урон во времени</periodDamage>    
+    <periodDamage>Урон во времени</periodDamage>
     <periodDamageTime>Продолжительность урона во времени</periodDamageTime>
     <armorDamageMod>Коэффициент урона по броне</armorDamageMod>
     <humanResist>Коэффициент сопротивления к урону (человек)</humanResist>
@@ -137,5 +137,112 @@
     <makeBleedEffect>0</makeBleedEffect>
     <makeStunEffect>1</makeStunEffect>
   </alienWorker_altAtack>
-  
+  <alienSoldier_primeAtack>
+    <hitVectorsCount>8</hitVectorsCount>
+    <strikesCount>2</strikesCount>
+    <preparationAtackTime>0,0</preparationAtackTime>
+    <timeToStrike_0>500</timeToStrike_0>
+    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <damageOnVector>8</damageOnVector>
+    <autoDamageMod>0,5</autoDamageMod>
+    <defenceZonesDamageMod>1,2</defenceZonesDamageMod>
+    <periodDamage>0</periodDamage>
+    <periodDamageTime>0,0</periodDamageTime>
+    <armorDamageMod>0,4</armorDamageMod>
+    <humanResist>0,6</humanResist>
+    <synthResist>0,4</synthResist>
+    <nockdownHealthMod>0</nockdownHealthMod>
+    <makeBleedEffect>0</makeBleedEffect>
+    <makeStunEffect>0</makeStunEffect>
+  </alienSoldier_primeAtack>
+  <alienSoldier_holdPrimeAtack>
+    <hitVectorsCount>8</hitVectorsCount>
+    <strikesCount>4</strikesCount>
+    <preparationAtackTime>1000</preparationAtackTime>
+    <timeToStrike_0>250</timeToStrike_0>
+    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <damageOnVector>6</damageOnVector>
+    <autoDamageMod>0,5</autoDamageMod>
+    <defenceZonesDamageMod>1,0</defenceZonesDamageMod>
+    <periodDamage>0</periodDamage>
+    <periodDamageTime>0,0</periodDamageTime>
+    <armorDamageMod>0,4</armorDamageMod>
+    <humanResist>0,6</humanResist>
+    <synthResist>0,4</synthResist>
+    <nockdownHealthMod>0</nockdownHealthMod>
+    <makeBleedEffect>0</makeBleedEffect>
+    <makeStunEffect>0</makeStunEffect>
+  </alienSoldier_holdPrimeAtack>
+  <alienSoldier_tailAtack>
+    <hitVectorsCount>10</hitVectorsCount>
+    <strikesCount>1</strikesCount>
+    <preparationAtackTime>0,0</preparationAtackTime>
+    <timeToStrike_0>1000</timeToStrike_0>
+    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <damageOnVector>6</damageOnVector>
+    <autoDamageMod>0,5</autoDamageMod>
+    <defenceZonesDamageMod>1,2</defenceZonesDamageMod>
+    <periodDamage>0</periodDamage>
+    <periodDamageTime>0,0</periodDamageTime>
+    <armorDamageMod>0,4</armorDamageMod>
+    <humanResist>0,6</humanResist>
+    <synthResist>0,4</synthResist>
+    <nockdownHealthMod>0,5</nockdownHealthMod>
+    <makeBleedEffect>1</makeBleedEffect>
+    <makeStunEffect>0</makeStunEffect>
+  </alienSoldier_tailAtack>
+  <alienSoldier_biteAtack>
+    <hitVectorsCount>1</hitVectorsCount>
+    <strikesCount>1</strikesCount>
+    <preparationAtackTime>0,0</preparationAtackTime>
+    <timeToStrike_0>500</timeToStrike_0>
+    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <damageOnVector>15</damageOnVector>
+    <autoDamageMod>0,0</autoDamageMod>
+    <defenceZonesDamageMod>1,0</defenceZonesDamageMod>
+    <periodDamage>0</periodDamage>
+    <periodDamageTime>0,0</periodDamageTime>
+    <armorDamageMod>0,1</armorDamageMod>
+    <humanResist>0,0</humanResist>
+    <synthResist>0,2</synthResist>
+    <nockdownHealthMod>0,0</nockdownHealthMod>
+    <makeBleedEffect>0</makeBleedEffect>
+    <makeStunEffect>0</makeStunEffect>
+  </alienSoldier_biteAtack>
+  <alienSoldier_holdBiteAtack>
+    <hitVectorsCount>1</hitVectorsCount>
+    <strikesCount>1</strikesCount>
+    <preparationAtackTime>1,0</preparationAtackTime>
+    <timeToStrike_0>1000</timeToStrike_0>
+    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <damageOnVector>35</damageOnVector>
+    <autoDamageMod>0,0</autoDamageMod>
+    <defenceZonesDamageMod>1,0</defenceZonesDamageMod>
+    <periodDamage>0</periodDamage>
+    <periodDamageTime>0,0</periodDamageTime>
+    <armorDamageMod>0,1</armorDamageMod>
+    <humanResist>0,0</humanResist>
+    <synthResist>0,2</synthResist>
+    <nockdownHealthMod>0,0</nockdownHealthMod>
+    <makeBleedEffect>0</makeBleedEffect>
+    <makeStunEffect>0</makeStunEffect>
+  </alienSoldier_holdBiteAtack>
+  <alienSoldier_altAtack>
+    <hitVectorsCount>8</hitVectorsCount>
+    <strikesCount>2</strikesCount>
+    <preparationAtackTime>0,0</preparationAtackTime>
+    <timeToStrike_0>1000</timeToStrike_0>
+    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <damageOnVector>4</damageOnVector>
+    <autoDamageMod>0,5</autoDamageMod>
+    <defenceZonesDamageMod>1,2</defenceZonesDamageMod>
+    <periodDamage>0</periodDamage>
+    <periodDamageTime>0,0</periodDamageTime>
+    <armorDamageMod>0,3</armorDamageMod>
+    <humanResist>0,4</humanResist>
+    <synthResist>0,8</synthResist>
+    <nockdownHealthMod>0</nockdownHealthMod>
+    <makeBleedEffect>0</makeBleedEffect>
+    <makeStunEffect>1</makeStunEffect>
+  </alienSoldier_altAtack>
 </aliensWeaponParameters>

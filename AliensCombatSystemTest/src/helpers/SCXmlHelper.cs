@@ -223,7 +223,24 @@ namespace gravityPrototype.models
                 case "WP_AA":
                     parentNode = m_strAlienWorker + m_strAltAtack;
                     break;
-
+                case "SP_PA":
+                    parentNode = m_strAlienSoldier + m_strPrimeAtack;
+                    break;
+                case "SP_HPA":
+                    parentNode = m_strAlienSoldier + m_strHoldPrimeAtack;
+                    break;
+                case "SP_TA":
+                    parentNode = m_strAlienSoldier + m_strTailAtack;
+                    break;
+                case "SP_BA":
+                    parentNode = m_strAlienSoldier + m_strBiteAtack;
+                    break;
+                case "SP_HBA":
+                    parentNode = m_strAlienSoldier + m_strHoldBiteAtack;
+                    break;
+                case "SP_AA":
+                    parentNode = m_strAlienSoldier + m_strAltAtack;
+                    break;
                 default: throw new FormatException();
             }
 

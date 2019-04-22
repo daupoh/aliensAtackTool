@@ -21,7 +21,20 @@ namespace gravityPrototype.models
             m_strAlienHunter = "alienHunter",
             m_strAlienPraetorian = "alienPraetorian",
 
-            m_strPrimeAtack="_primeAtack",
+            m_strHuman = "humanWith",
+            m_strSynth = "sunthWith",
+
+            m_strLightWeapon = "_LightWeapon_",
+            m_strNormalWeapon = "_NormalWeapon_",
+            m_strHeavyWeapon = "_HeavyWeapon_",
+
+            m_strNoEffects = "UnderNothing",
+            m_strAllEffects = "UnderAll",
+            m_strHumanTrapEffect = "UnderTrap",
+            m_strHumanBarricadeEffect = "UnderBarricade",
+            m_strHumanZoneEffect = "UnderZone",
+
+            m_strPrimeAtack ="_primeAtack",
             m_strHoldPrimeAtack = "_holdPrimeAtack",
             m_strTailAtack = "_tailAtack",
             m_strBiteAtack = "_biteAtack",
@@ -39,7 +52,7 @@ namespace gravityPrototype.models
             m_strHumansTargetParametersParent = "humansTargetParameters",
             m_strHumansResultParametersParent = "humansResultParameters",
         //      m_strPathHead = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\",
-        m_strPathHead = "C:\\Users\\user\\source\\repos\\AliensCombatSystemTest\\AliensCombatSystemTest\\src\\xmls\\",
+        m_strPathHead = "C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\",
             //"xmls\\",
             //"C:\\Users\\daupoh\\Source\\Repos\\AlienCombatTool\\AliensCombatSystemTest\\src\\xmls\\",
 
@@ -106,7 +119,7 @@ namespace gravityPrototype.models
                             if (node.Name == nodeName)
                             {
                                 result = node.InnerText;
-
+                                break;
                             }
                         }
                     }
@@ -206,7 +219,7 @@ namespace gravityPrototype.models
                     parentNode = m_strParametersPools;
                     break;
                 case "WP_PA":
-                    parentNode = m_strAlienWorker+m_strPrimeAtack;
+                    parentNode = m_strAlienWorker + m_strPrimeAtack;
                     break;
                 case "WP_HPA":
                     parentNode = m_strAlienWorker + m_strHoldPrimeAtack;
@@ -241,6 +254,19 @@ namespace gravityPrototype.models
                 case "SP_AA":
                     parentNode = m_strAlienSoldier + m_strAltAtack;
                     break;
+
+                case "HL_NE":
+                    parentNode = m_strHuman + m_strLightWeapon + m_strNoEffects;
+                    break;
+                case "HL_TE":
+                    parentNode = m_strHuman + m_strLightWeapon + m_strHumanTrapEffect;
+                    break;
+                case "HL_BE":
+                    parentNode = m_strHuman + m_strLightWeapon + m_strHumanBarricadeEffect; break;
+                case "HL_ZE":
+                    parentNode = m_strHuman + m_strLightWeapon + m_strHumanZoneEffect; break;
+                case "HL_AE":
+                    parentNode = m_strHuman + m_strLightWeapon + m_strAllEffects; break;
                 default: throw new FormatException();
             }
 

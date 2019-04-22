@@ -10,6 +10,7 @@ namespace AliensCombatSystemTest.src.models.parameter
     {
        
         double Value { get; }
+        string View { get; }
      
     }
 }

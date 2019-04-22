@@ -82,7 +82,7 @@ namespace AliensCombatSystemTest
                 m_dgvWeapons.Columns[i+1].HeaderText = SCXmlHelper.RowFromXml(i, "AWP", "PP");
             }
 
-            AddAlienWeapons();
+           AddAlienWeapons();
         }
 
         private void SetWeaponTableByHumans()
@@ -102,13 +102,16 @@ namespace AliensCombatSystemTest
         {
             m_lTargets.Clear();
             m_dgvTargets.Columns.Clear();
-            m_dgvTargets.ColumnCount = SCXmlHelper.CountRowsFromXml("HTP", "PP"); ;
+            int parametersCount = SCXmlHelper.CountRowsFromXml("HTP", "PP");
+            m_dgvTargets.ColumnCount = parametersCount + 1;
 
-            for (int i = 0; i < m_dgvTargets.Columns.Count; i++)
+            m_dgvTargets.Columns[0].HeaderText = "Обозначение цели";
+
+            for (int i = 0; i < parametersCount; i++)
             {
-                m_dgvTargets.Columns[i].HeaderText = SCXmlHelper.RowFromXml(i, "HTP", "PP");
+                m_dgvTargets.Columns[i+1].HeaderText = SCXmlHelper.RowFromXml(i, "HTP", "PP");
             }
-
+            AddHumanTargets();
         }
 
         private void SetTargetTableByHumans()
@@ -137,6 +140,24 @@ namespace AliensCombatSystemTest
                 for (int i = 0; i < parametersCount; i++)
                 {
                     m_dgvWeapons.Rows[indexRows].Cells[i+1].Value = combat.getParameterPoolViewByName(SCXmlHelper.RowFromXml(i, "AWP", "PP"));
+                }
+                indexRows++;
+            }
+        }
+        private void AddHumanTargets()
+        {
+            ICombatBuilder humanBuilder = new CHumanTargetBuilder();
+            IList<ICombatEntity> combatEntities = humanBuilder.CombatEntities;
+            m_dgvTargets.RowCount += combatEntities.Count;
+            int parametersCount = SCXmlHelper.CountRowsFromXml("HTP", "PP"),
+                indexRows = 0;
+
+            foreach (ICombatEntity combat in combatEntities)
+            {
+                m_dgvTargets.Rows[indexRows].Cells[0].Value = combat.Name;
+                for (int i = 0; i < parametersCount; i++)
+                {
+                    m_dgvTargets.Rows[indexRows].Cells[i + 1].Value = combat.getParameterPoolViewByName(SCXmlHelper.RowFromXml(i, "HTP", "PP"));
                 }
                 indexRows++;
             }

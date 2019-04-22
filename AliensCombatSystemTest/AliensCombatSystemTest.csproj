@@ -57,6 +57,7 @@
     <Compile Include="src\models\ACEntity.cs" />
     <Compile Include="src\models\combatBuilder\ACCombatBuilder.cs" />
     <Compile Include="src\models\combatBuilder\CAlienWeaponBuilder.cs" />
+    <Compile Include="src\models\combatBuilder\CHumanTargetBuilder.cs" />
     <Compile Include="src\models\combatBuilder\ICombatBuilder.cs" />
     <Compile Include="src\models\IEntity.cs" />
     <Compile Include="src\models\parametersPool\CParametersPool.cs" />

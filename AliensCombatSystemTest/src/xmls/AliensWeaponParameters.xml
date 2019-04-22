@@ -80,7 +80,7 @@
     <humanResist>0,6</humanResist>
     <synthResist>0,4</synthResist>
     <nockdownHealthMod>0,5</nockdownHealthMod>
-    <makeBleedEffect>1</makeBleedEffect>
+    <makeBleedEffect>0</makeBleedEffect>
     <makeStunEffect>0</makeStunEffect>
   </alienWorker_tailAtack>
   <alienWorker_biteAtack>
@@ -140,10 +140,10 @@
   <alienSoldier_primeAtack>
     <hitVectorsCount>8</hitVectorsCount>
     <strikesCount>2</strikesCount>
-    <preparationAtackTime>0,0</preparationAtackTime>
+    <preparationAtackTime>0</preparationAtackTime>
     <timeToStrike_0>500</timeToStrike_0>
     <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
-    <damageOnVector>8</damageOnVector>
+    <damageOnVector>10</damageOnVector>
     <autoDamageMod>0,5</autoDamageMod>
     <defenceZonesDamageMod>1,2</defenceZonesDamageMod>
     <periodDamage>0</periodDamage>
@@ -157,20 +157,20 @@
   </alienSoldier_primeAtack>
   <alienSoldier_holdPrimeAtack>
     <hitVectorsCount>8</hitVectorsCount>
-    <strikesCount>4</strikesCount>
+    <strikesCount>1</strikesCount>
     <preparationAtackTime>1000</preparationAtackTime>
-    <timeToStrike_0>250</timeToStrike_0>
+    <timeToStrike_0>500</timeToStrike_0>
     <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
-    <damageOnVector>6</damageOnVector>
+    <damageOnVector>5</damageOnVector>
     <autoDamageMod>0,5</autoDamageMod>
     <defenceZonesDamageMod>1,0</defenceZonesDamageMod>
-    <periodDamage>0</periodDamage>
-    <periodDamageTime>0,0</periodDamageTime>
-    <armorDamageMod>0,4</armorDamageMod>
-    <humanResist>0,6</humanResist>
-    <synthResist>0,4</synthResist>
+    <periodDamage>10</periodDamage>
+    <periodDamageTime>3,0</periodDamageTime>
+    <armorDamageMod>0,2</armorDamageMod>
+    <humanResist>0,4</humanResist>
+    <synthResist>0,6</synthResist>
     <nockdownHealthMod>0</nockdownHealthMod>
-    <makeBleedEffect>0</makeBleedEffect>
+    <makeBleedEffect>1</makeBleedEffect>
     <makeStunEffect>0</makeStunEffect>
   </alienSoldier_holdPrimeAtack>
   <alienSoldier_tailAtack>
@@ -188,7 +188,7 @@
     <humanResist>0,6</humanResist>
     <synthResist>0,4</synthResist>
     <nockdownHealthMod>0,5</nockdownHealthMod>
-    <makeBleedEffect>1</makeBleedEffect>
+    <makeBleedEffect>0</makeBleedEffect>
     <makeStunEffect>0</makeStunEffect>
   </alienSoldier_tailAtack>
   <alienSoldier_biteAtack>

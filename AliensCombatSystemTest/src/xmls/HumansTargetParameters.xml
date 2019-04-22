@@ -1,10 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <humansTargetParameters>
-  <parametersPools>
-    <className>Название класса</className>
+  <parametersPools>    
     <hitBoxesMods>Модификаторы конечностей (голова, тело, ноги, руки)</hitBoxesMods>
     <baseNockdownHealthPoints>Базовый порог сбивания с ног</baseNockdownHealthPoints>
     <weightOfWeaponMod>Модификатор тяжести оружия</weightOfWeaponMod>
     <underEffect>Действует эффект?(ловушка?, баррикада?, зона защиты?)</underEffect>
   </parametersPools>
+  <parameters>
+    <hitBoxesModHead>Модификатор урона (голова)</hitBoxesModHead>
+    <hitBoxesModBody>Модификатор урона (тело)</hitBoxesModBody>
+    <hitBoxesModArms>Модификатор урона (руки)</hitBoxesModArms>
+    <hitBoxesModLegs>Модификатор урона (ноги)</hitBoxesModLegs>
+    <baseNockdownHealthPoints>Базовый порог сбивания с ног</baseNockdownHealthPoints>
+    <weightOfWeaponMod>Модификатор тяжести оружия</weightOfWeaponMod>
+    <underEffectTrap>Под эффектом ловушки?</underEffectTrap>
+    <underEffectBarricade>Под эффектом баррикады?</underEffectBarricade>
+    <underEffectDefZone>Под эффектом Зоны Защиты?</underEffectDefZone>    
+  </parameters>
+  <humanWith_LightWeapon_UnderNothing>
+    <hitBoxesModHead>1,7</hitBoxesModHead>
+    <hitBoxesModBody>1,0</hitBoxesModBody>
+    <hitBoxesModArms>0,65</hitBoxesModArms>
+    <hitBoxesModLegs>0,8</hitBoxesModLegs>
+    <baseNockdownHealthPoints>0,21</baseNockdownHealthPoints>
+    <weightOfWeaponMod>0,2</weightOfWeaponMod>
+    <underEffectTrap>0</underEffectTrap>
+    <underEffectBarricade>0</underEffectBarricade>
+    <underEffectDefZone>0</underEffectDefZone>
+  </humanWith_LightWeapon_UnderNothing>
+  <humanWith_LightWeapon_UnderTrap>
+    <hitBoxesModHead>1,7</hitBoxesModHead>
+    <hitBoxesModBody>1,0</hitBoxesModBody>
+    <hitBoxesModArms>0,65</hitBoxesModArms>
+    <hitBoxesModLegs>0,8</hitBoxesModLegs>
+    <baseNockdownHealthPoints>0,21</baseNockdownHealthPoints>
+    <weightOfWeaponMod>0,2</weightOfWeaponMod>
+    <underEffectTrap>1</underEffectTrap>
+    <underEffectBarricade>0</underEffectBarricade>
+    <underEffectDefZone>0</underEffectDefZone>
+  </humanWith_LightWeapon_UnderTrap>
+  <humanWith_LightWeapon_UnderBarricade>
+    <hitBoxesModHead>1,7</hitBoxesModHead>
+    <hitBoxesModBody>1,0</hitBoxesModBody>
+    <hitBoxesModArms>0,65</hitBoxesModArms>
+    <hitBoxesModLegs>0,8</hitBoxesModLegs>
+    <baseNockdownHealthPoints>0,21</baseNockdownHealthPoints>
+    <weightOfWeaponMod>0,2</weightOfWeaponMod>
+    <underEffectTrap>0</underEffectTrap>
+    <underEffectBarricade>1</underEffectBarricade>
+    <underEffectDefZone>0</underEffectDefZone>
+  </humanWith_LightWeapon_UnderBarricade>
+  <humanWith_LightWeapon_UnderZone>
+    <hitBoxesModHead>1,7</hitBoxesModHead>
+    <hitBoxesModBody>1,0</hitBoxesModBody>
+    <hitBoxesModArms>0,65</hitBoxesModArms>
+    <hitBoxesModLegs>0,8</hitBoxesModLegs>
+    <baseNockdownHealthPoints>0,21</baseNockdownHealthPoints>
+    <weightOfWeaponMod>0,2</weightOfWeaponMod>
+    <underEffectTrap>0</underEffectTrap>
+    <underEffectBarricade>0</underEffectBarricade>
+    <underEffectDefZone>1</underEffectDefZone>
+  </humanWith_LightWeapon_UnderZone>
+  <humanWith_LightWeapon_UnderAll>
+    <hitBoxesModHead>1,7</hitBoxesModHead>
+    <hitBoxesModBody>1,0</hitBoxesModBody>
+    <hitBoxesModArms>0,65</hitBoxesModArms>
+    <hitBoxesModLegs>0,8</hitBoxesModLegs>
+    <baseNockdownHealthPoints>0,21</baseNockdownHealthPoints>
+    <weightOfWeaponMod>0,2</weightOfWeaponMod>
+    <underEffectTrap>1</underEffectTrap>
+    <underEffectBarricade>1</underEffectBarricade>
+    <underEffectDefZone>1</underEffectDefZone>
+  </humanWith_LightWeapon_UnderAll>
 </humansTargetParameters>

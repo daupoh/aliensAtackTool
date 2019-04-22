@@ -21,6 +21,21 @@ namespace AliensCombatSystemTest.src.models.parameter
                 return Math.Round(m_fValue, 1);
             }
         }
-       
+        public override string View
+        {
+            get
+            {
+                string result = "";
+                if (Value==1)
+                {
+                    result = "да";
+                }
+                else
+                {
+                    result = "нет";
+                }
+                return result;
+            }
+        }
     }
 }

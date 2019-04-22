@@ -17,7 +17,7 @@ namespace AliensCombatSystemTest.src.models.parameter
            
         }
         public abstract double Value { get; }
-
+        public virtual string View { get { return Value.ToString(); } }
     }
 
 

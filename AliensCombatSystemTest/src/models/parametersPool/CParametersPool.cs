@@ -47,7 +47,7 @@ namespace AliensCombatSystemTest.src.models.parametersPool
                 if (lastParameters == 1)
                 {
                     IParameter parameter = m_lsParameters[0];
-                    result += parameter.Value.ToString();
+                    result += parameter.View;
                 }
                 else
                 {
@@ -55,7 +55,7 @@ namespace AliensCombatSystemTest.src.models.parametersPool
 
                     foreach (IParameter parameter in m_lsParameters)
                     {
-                        result += parameter.Value.ToString();
+                        result += parameter.View;
                         lastParameters--;
                         if (lastParameters != 0)
                         {

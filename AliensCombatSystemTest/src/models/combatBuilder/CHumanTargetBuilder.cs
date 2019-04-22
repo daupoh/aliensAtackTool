@@ -28,7 +28,7 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
             AddCombat();
         }
 
-        protected override void AddAtack(string typeCode)
+        protected override void AddParametersPool(string typeCode)
         {
             AddParameterPool_BaseKnockdown(typeCode);
             AddParameterPool_HitMods(typeCode);

@@ -31,7 +31,7 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
             AddCombat();
         }      
        
-        protected override void AddAtack(string classCode)
+        protected override void AddParametersPool(string classCode)
         {
             AddParameterPool_Atack(classCode);
             AddParameterPool_Damage(classCode);

@@ -56,9 +56,12 @@
     <Compile Include="src\helpers\SCXmlHelper.cs" />
     <Compile Include="src\models\ACEntity.cs" />
     <Compile Include="src\models\combatBuilder\ACCombatBuilder.cs" />
+    <Compile Include="src\models\combatBuilder\ACCombatCalculator.cs" />
+    <Compile Include="src\models\combatBuilder\CAlienAtackCalculator.cs" />
     <Compile Include="src\models\combatBuilder\CAlienWeaponBuilder.cs" />
     <Compile Include="src\models\combatBuilder\CHumanTargetBuilder.cs" />
     <Compile Include="src\models\combatBuilder\ICombatBuilder.cs" />
+    <Compile Include="src\models\combatBuilder\ICombatCalculator.cs" />
     <Compile Include="src\models\IEntity.cs" />
     <Compile Include="src\models\parametersPool\CParametersPool.cs" />
     <Compile Include="src\models\parametersPool\IParametersPool.cs" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,12 +40,12 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
             foreach (string s in m_asTypesCodes)
             {
                 m_pCurrentCombatEntity = new CCombatEntity(m_asCombatsNames[index]);
-                AddAtack(s);
+                AddParametersPool(s);
                 m_lsCombatEntities.Add(m_pCurrentCombatEntity);
                 index++;
             }
         }
-        protected abstract void AddAtack(string typeCode);
+        protected abstract void AddParametersPool(string typeCode);
         
     }
 }

@@ -8,7 +8,7 @@
     <periodDmg>Параметры урона во времени(урон, продолжительность)</periodDmg>
     <armorResist>Коэффициент поглощения урона броней</armorResist>
     <humansResists>Коэффициенты сопротивления к урону (люди, синтетики)</humansResists>
-    <nockdownHealthMod>Порог здоровья для сбивания с ног</nockdownHealthMod>
+    <nockdownHealthMod>Порог здоровья для сбивания с ног </nockdownHealthMod>
     <makeEffects>Накладывает эффекты? (рана?, оглушение?)</makeEffects>
   </parametersPools>
   <parameters>

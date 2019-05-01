@@ -31,29 +31,21 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
         protected override void AddParametersPool(string typeCode)
         {
             AddParameterPool_BaseKnockdown(typeCode);
-            AddParameterPool_HitMods(typeCode);
+            AddParameterPool_IsHuman(typeCode);
             AddParameterPool_UnderEffects(typeCode);
             AddParameterPool_WeaponWeight(typeCode);
         }
-        private void AddParameterPool_HitMods(string typeCode)
+       
+        private void AddParameterPool_IsHuman(string typeCode)
         {
-            IParameter pHitModHead = new CModParameter(SCXmlHelper.DoubleFromXml("hitBoxesModHead", "HTP", typeCode),
-                                                        SCXmlHelper.RowFromXml("hitBoxesModHead", "HTP", "P")),
-                       pHitModBody = new CModParameter(SCXmlHelper.DoubleFromXml("hitBoxesModBody", "HTP", typeCode),
-                                                        SCXmlHelper.RowFromXml("hitBoxesModBody", "HTP", "P")),
-                       pHitModArms = new CModParameter(SCXmlHelper.DoubleFromXml("hitBoxesModArms", "HTP", typeCode),
-                                                        SCXmlHelper.RowFromXml("hitBoxesModArms", "HTP", "P")),
-                       pHitModLegs = new CModParameter(SCXmlHelper.DoubleFromXml("hitBoxesModLegs", "HTP", typeCode),
-                                                        SCXmlHelper.RowFromXml("hitBoxesModLegs", "HTP", "P"));
+            IParameter pIsHuman = new CYesNoParameter(SCXmlHelper.DoubleFromXml("isHuman", "HTP", typeCode),
+                                                        SCXmlHelper.RowFromXml("isHuman", "HTP", "P"));
+                      
+            IParametersPool pIsHumanOrSynth = new CParametersPool(SCXmlHelper.RowFromXml("isHuman", "HTP", "PP"));
 
-            IParametersPool pHitMods = new CParametersPool(SCXmlHelper.RowFromXml("hitBoxesMods", "HTP", "PP"));
-
-            pHitMods.AddParameter(pHitModHead);
-            pHitMods.AddParameter(pHitModBody);           
-            pHitMods.AddParameter(pHitModLegs);
-            pHitMods.AddParameter(pHitModArms);
-
-            m_pCurrentCombatEntity.AddParameterPool(pHitMods);
+            pIsHumanOrSynth.AddParameter(pIsHuman);
+          
+            m_pCurrentCombatEntity.AddParameterPool(pIsHumanOrSynth);
 
         }
         private void AddParameterPool_BaseKnockdown(string typeCode)

@@ -1,21 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <humansTargetParameters>
-  <parametersPools>    
-    <hitBoxesMods>Модификаторы конечностей (голова, тело, ноги, руки)</hitBoxesMods>
+  <parametersPools>       
     <baseNockdownHealthPoints>Базовый порог сбивания с ног</baseNockdownHealthPoints>
     <weightOfWeaponMod>Модификатор тяжести оружия</weightOfWeaponMod>
     <underEffect>Действует эффект?(ловушка?, баррикада?, зона защиты?)</underEffect>
+    <isHuman>Человек?</isHuman>
   </parametersPools>
-  <parameters>
-    <hitBoxesModHead>Модификатор урона (голова)</hitBoxesModHead>
-    <hitBoxesModBody>Модификатор урона (тело)</hitBoxesModBody>
-    <hitBoxesModArms>Модификатор урона (руки)</hitBoxesModArms>
-    <hitBoxesModLegs>Модификатор урона (ноги)</hitBoxesModLegs>
+  <parameters>   
     <baseNockdownHealthPoints>Базовый порог сбивания с ног</baseNockdownHealthPoints>
     <weightOfWeaponMod>Модификатор тяжести оружия</weightOfWeaponMod>
     <underEffectTrap>Под эффектом ловушки?</underEffectTrap>
     <underEffectBarricade>Под эффектом баррикады?</underEffectBarricade>
-    <underEffectDefZone>Под эффектом Зоны Защиты?</underEffectDefZone>    
+    <underEffectDefZone>Под эффектом Зоны Защиты?</underEffectDefZone>
+    <isHuman>Человек?</isHuman>
   </parameters>
   <humanWith_LightWeapon_UnderNothing>
     <hitBoxesModHead>1,7</hitBoxesModHead>
@@ -27,6 +24,7 @@
     <underEffectTrap>0</underEffectTrap>
     <underEffectBarricade>0</underEffectBarricade>
     <underEffectDefZone>0</underEffectDefZone>
+    <isHuman>1</isHuman>
   </humanWith_LightWeapon_UnderNothing>
   <humanWith_LightWeapon_UnderTrap>
     <hitBoxesModHead>1,7</hitBoxesModHead>
@@ -38,6 +36,7 @@
     <underEffectTrap>1</underEffectTrap>
     <underEffectBarricade>0</underEffectBarricade>
     <underEffectDefZone>0</underEffectDefZone>
+    <isHuman>1</isHuman>
   </humanWith_LightWeapon_UnderTrap>
   <humanWith_LightWeapon_UnderBarricade>
     <hitBoxesModHead>1,7</hitBoxesModHead>
@@ -49,6 +48,7 @@
     <underEffectTrap>0</underEffectTrap>
     <underEffectBarricade>1</underEffectBarricade>
     <underEffectDefZone>0</underEffectDefZone>
+    <isHuman>1</isHuman>
   </humanWith_LightWeapon_UnderBarricade>
   <humanWith_LightWeapon_UnderZone>
     <hitBoxesModHead>1,7</hitBoxesModHead>
@@ -60,6 +60,7 @@
     <underEffectTrap>0</underEffectTrap>
     <underEffectBarricade>0</underEffectBarricade>
     <underEffectDefZone>1</underEffectDefZone>
+    <isHuman>1</isHuman>
   </humanWith_LightWeapon_UnderZone>
   <humanWith_LightWeapon_UnderAll>
     <hitBoxesModHead>1,7</hitBoxesModHead>
@@ -71,5 +72,6 @@
     <underEffectTrap>1</underEffectTrap>
     <underEffectBarricade>1</underEffectBarricade>
     <underEffectDefZone>1</underEffectDefZone>
+    <isHuman>1</isHuman>
   </humanWith_LightWeapon_UnderAll>
 </humansTargetParameters>

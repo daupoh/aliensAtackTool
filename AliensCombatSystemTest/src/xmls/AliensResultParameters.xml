@@ -1,39 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <aliensResultParameters>
-  <parametersPools>   
-    <targetEffects>Эффекты на цели (ловушка?, зона защиты?, баррикада?)</targetEffects>
-    <hitsOnHitBoxes>Попадания в конечности (голова, тело, ноги, руки, мимо)</hitsOnHitBoxes>
-    <timeAndDmgOnAtack>Время атак и суммарный урон (время, урон здоровью, броне)</timeAndDmgOnAtack>
-    <nockDownResults>Падение цели (номер атаки, кол-во здоровья,кол-во брони, время)</nockDownResults>
-    <targetCocooned>Цель оглушена?</targetCocooned>
-    <damagesOnTarget>Урон от атак (на здоровье, на броню, сумма)</damagesOnTarget>
-    <autoDamageOnTarget>Автоурон (на здоровье, на броню, сумма)</autoDamageOnTarget>
-    <damagesPeriodOnTarget>Временный урон (время, урон, общий урон)</damagesPeriodOnTarget>
+  <parametersPools>
+    <ttk>Время убийства (максимальное, среднее, минимальное)</ttk>
+   
   </parametersPools>
   <parameters>
-    <trapEffect>Эффект ловушки</trapEffect>
-    <ZoneEffect>Эффект зоны</ZoneEffect>
-    <barricadeEffect>Эффект баррикады</barricadeEffect>
-    <hitsOnHead>Попаданий в голову</hitsOnHead>
-    <hitsOnBody>Попаданий в тело</hitsOnBody>
-    <hitsOnLegs>Попаданий в ноги</hitsOnLegs>
-    <hitsOnArms>Попаданий в руки</hitsOnArms>
-    <timeAtack>Время атаки</timeAtack>
-    <damageToHealth>Урон здоровью от атаки</damageToHealth>
-    <damageToArmor>Урон броне от атаки</damageToArmor>
-    <numberKnockdownAtack>Номер атаки, сбившей с ног</numberKnockdownAtack>
-    <knockdownHealthPoints>Количество здоровья при сбивании с ног</knockdownHealthPoints>
-    <knockdownArmorPoints>Количество брони при сбивании с ног</knockdownArmorPoints>
-    <knockdownTime>Время сбивания с ног</knockdownTime>
-    <targetCocooned>Цель оглушена?</targetCocooned>
-    <healthDmg>Прямой урон здоровью</healthDmg>
-    <armorDmg>Прямой урон броне</armorDmg>
-    <totalDmg>Суммарный прямой урон</totalDmg>
-    <autoHealthDmg>Автоурон здоровью</autoHealthDmg>
-    <autoArmorDmg>Автоурон броне</autoArmorDmg>
-    <autoTotalDmg>Суммарный автоурон</autoTotalDmg>
-    <periodDmgTime>Время получения урона во времени</periodDmgTime>
-    <periodDmg>Урон во времени за единицу времени</periodDmg>
-    <periodDmgTotal>Общий полученный урон во времени</periodDmgTotal>
+    <ttkMax></ttkMax>
+    <ttkMin></ttkMin>
+    <ttkAvg></ttkAvg>
   </parameters>
 </aliensResultParameters>

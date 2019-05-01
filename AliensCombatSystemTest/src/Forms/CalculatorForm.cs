@@ -16,7 +16,7 @@ namespace AliensCombatSystemTest
         {
             alienMode,humanMode
         }
-        CalculatorMode m_eMode;
+        //CalculatorMode m_eMode;
         IList<CCombatEntity> m_lWeapons;
         IList<CCombatEntity> m_lTargets;
 
@@ -51,14 +51,14 @@ namespace AliensCombatSystemTest
 
         private void SetElementsInAlienMode()
         {
-            m_eMode = CalculatorMode.alienMode;
+           // m_eMode = CalculatorMode.alienMode;
             SetWeaponTableByAliens();
             SetTargetTableByAliens();
             SetResultTableByAliens();
         }
         private void SetElementsInMarinesMode()
         {
-            m_eMode = CalculatorMode.humanMode;
+            //m_eMode = CalculatorMode.humanMode;
             SetWeaponTableByHumans();
             SetTargetTableByHumans();
             SetResultTableByHumans();

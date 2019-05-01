@@ -11,10 +11,10 @@ namespace gravityPrototype.models
     public static class SCXmlHelper
     {
         public const string
-            HIGH_ACCURACITY = "Очень Метко",
-            NORMAL_ACCURACITY = "Достаточно Метко",
-            LOW_ACCURACITY = "Недостаточно Метко",
-            BAD_ACCURACITY = "Почти Мимо";
+            MAX_ACCURACITY = "Максимально Метко",
+            MIN_ACCURACITY = "Минимально Метко";
+            
+            
         const string
             m_strXmlError = "Не найден узел",
             m_strServerErrorsParent = "serverErrors",

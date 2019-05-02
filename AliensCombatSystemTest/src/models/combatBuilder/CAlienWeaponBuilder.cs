@@ -63,29 +63,20 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
             m_pCurrentCombatEntity.AddParameterPool(pAtackPool);
         }
         private void AddParameterPool_TimeOfStrikes(string classCode, int length)
-        {           
-            IParameter[] parameters = new IParameter[length];
+        {  
+            IParameter parameter = new CIntNumbParameter(SCXmlHelper.DoubleFromXml("timeToStrike", "AWP", classCode),
+                   SCXmlHelper.RowFromXml("timeToStrike", "AWP", "P")); ;
             IParametersPool parameterPool = new CParametersPool(SCXmlHelper.RowFromXml("timeOfStrikes", "AWP", "PP"));
-            for (int i = 0; i < length; i++)
-            {
-                parameters[i] = new CIntNumbParameter(SCXmlHelper.DoubleFromXml("timeToStrike_"+ i.ToString(), "AWP", classCode),
-                    SCXmlHelper.RowFromXml("timeToStrike", "AWP", "P")+"_"+i.ToString());
-                parameterPool.AddParameter(parameters[i]);              
-            }
-
+            parameterPool.AddParameter(parameter);
             m_pCurrentCombatEntity.AddParameterPool(parameterPool);
         }
         private void AddParameterPool_StrikesCooldowns(string classCode, int length)
         {           
-            IParameter[] parameters = new IParameter[length];
+            IParameter parameter = new CIntNumbParameter(SCXmlHelper.DoubleFromXml("timeBetweenStrikes", "AWP", classCode),
+                    SCXmlHelper.RowFromXml("timeBetweenStrikes", "AWP", "P")); ;
             IParametersPool parameterPool = new CParametersPool(SCXmlHelper.RowFromXml("strikesCooldowns", "AWP", "PP"));
-            for (int i = 0; i < length; i++)
-            {
-                parameters[i] = new CIntNumbParameter(SCXmlHelper.DoubleFromXml("timeBetweenStrikes_" + i.ToString(), "AWP", classCode),
-                    SCXmlHelper.RowFromXml("timeBetweenStrikes", "AWP", "P") + "_" + i.ToString());
-                parameterPool.AddParameter(parameters[i]);               
-            }
-
+            parameterPool.AddParameter(parameter);               
+            
             m_pCurrentCombatEntity.AddParameterPool(parameterPool);
         }
         private void AddParameterPool_Damage(string classCode)

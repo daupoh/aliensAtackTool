@@ -11,9 +11,9 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
     {
         protected ICombatEntity m_pTarget, m_pWeapon;
         protected string m_sAccuracity = "";
-        protected ACCombatCalculator(string accuracity) : base("CombatCalculator")
+        protected ACCombatCalculator() : base("CombatCalculator")
         {
-            m_sAccuracity = accuracity;
+           
             m_asTypesCodes = new string[1];
             m_asCombatsNames = new string[1];
         }   

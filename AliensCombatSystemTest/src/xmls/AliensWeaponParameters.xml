@@ -33,8 +33,8 @@
     <hitVectorsCount>8</hitVectorsCount>
     <strikesCount>2</strikesCount>
     <preparationAtackTime>0,0</preparationAtackTime>
-    <timeToStrike_0>500</timeToStrike_0>
-    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <timeToStrike>500</timeToStrike>
+    <timeBetweenStrikes>0</timeBetweenStrikes>
     <damageOnVector>8</damageOnVector>
     <autoDamageMod>0,5</autoDamageMod>
     <defenceZonesDamageMod>1,2</defenceZonesDamageMod>
@@ -51,8 +51,8 @@
     <hitVectorsCount>8</hitVectorsCount>
     <strikesCount>4</strikesCount>
     <preparationAtackTime>1000</preparationAtackTime>
-    <timeToStrike_0>250</timeToStrike_0>
-    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <timeToStrike>250</timeToStrike>
+    <timeBetweenStrikes>0</timeBetweenStrikes>
     <damageOnVector>6</damageOnVector>
     <autoDamageMod>0,5</autoDamageMod>
     <defenceZonesDamageMod>1,0</defenceZonesDamageMod>
@@ -69,8 +69,8 @@
     <hitVectorsCount>10</hitVectorsCount>
     <strikesCount>1</strikesCount>
     <preparationAtackTime>0,0</preparationAtackTime>
-    <timeToStrike_0>1000</timeToStrike_0>
-    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <timeToStrike>1000</timeToStrike>
+    <timeBetweenStrikes>0</timeBetweenStrikes>
     <damageOnVector>6</damageOnVector>
     <autoDamageMod>0,5</autoDamageMod>
     <defenceZonesDamageMod>1,2</defenceZonesDamageMod>
@@ -87,8 +87,8 @@
     <hitVectorsCount>1</hitVectorsCount>
     <strikesCount>1</strikesCount>
     <preparationAtackTime>0,0</preparationAtackTime>
-    <timeToStrike_0>500</timeToStrike_0>
-    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <timeToStrike>500</timeToStrike>
+    <timeBetweenStrikes>0</timeBetweenStrikes>
     <damageOnVector>15</damageOnVector>
     <autoDamageMod>0,0</autoDamageMod>
     <defenceZonesDamageMod>1,0</defenceZonesDamageMod>
@@ -105,8 +105,8 @@
     <hitVectorsCount>1</hitVectorsCount>
     <strikesCount>1</strikesCount>
     <preparationAtackTime>1,0</preparationAtackTime>
-    <timeToStrike_0>1000</timeToStrike_0>
-    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <timeToStrike>1000</timeToStrike>
+    <timeBetweenStrikes>0</timeBetweenStrikes>
     <damageOnVector>35</damageOnVector>
     <autoDamageMod>0,0</autoDamageMod>
     <defenceZonesDamageMod>1,0</defenceZonesDamageMod>
@@ -123,8 +123,8 @@
     <hitVectorsCount>8</hitVectorsCount>
     <strikesCount>2</strikesCount>
     <preparationAtackTime>0,0</preparationAtackTime>
-    <timeToStrike_0>1000</timeToStrike_0>
-    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <timeToStrike>1000</timeToStrike>
+    <timeBetweenStrikes>0</timeBetweenStrikes>
     <damageOnVector>4</damageOnVector>
     <autoDamageMod>0,5</autoDamageMod>
     <defenceZonesDamageMod>1,2</defenceZonesDamageMod>
@@ -141,8 +141,8 @@
     <hitVectorsCount>8</hitVectorsCount>
     <strikesCount>2</strikesCount>
     <preparationAtackTime>0</preparationAtackTime>
-    <timeToStrike_0>500</timeToStrike_0>
-    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <timeToStrike>500</timeToStrike>
+    <timeBetweenStrikes>0</timeBetweenStrikes>
     <damageOnVector>10</damageOnVector>
     <autoDamageMod>0,5</autoDamageMod>
     <defenceZonesDamageMod>1,2</defenceZonesDamageMod>
@@ -159,8 +159,8 @@
     <hitVectorsCount>8</hitVectorsCount>
     <strikesCount>1</strikesCount>
     <preparationAtackTime>1000</preparationAtackTime>
-    <timeToStrike_0>500</timeToStrike_0>
-    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <timeToStrike>500</timeToStrike>
+    <timeBetweenStrikes>0</timeBetweenStrikes>
     <damageOnVector>5</damageOnVector>
     <autoDamageMod>0,5</autoDamageMod>
     <defenceZonesDamageMod>1,0</defenceZonesDamageMod>
@@ -177,8 +177,8 @@
     <hitVectorsCount>10</hitVectorsCount>
     <strikesCount>1</strikesCount>
     <preparationAtackTime>0,0</preparationAtackTime>
-    <timeToStrike_0>1000</timeToStrike_0>
-    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <timeToStrike>1000</timeToStrike>
+    <timeBetweenStrikes>0</timeBetweenStrikes>
     <damageOnVector>6</damageOnVector>
     <autoDamageMod>0,5</autoDamageMod>
     <defenceZonesDamageMod>1,2</defenceZonesDamageMod>
@@ -195,8 +195,8 @@
     <hitVectorsCount>1</hitVectorsCount>
     <strikesCount>1</strikesCount>
     <preparationAtackTime>0,0</preparationAtackTime>
-    <timeToStrike_0>500</timeToStrike_0>
-    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <timeToStrike>500</timeToStrike>
+    <timeBetweenStrikes>0</timeBetweenStrikes>
     <damageOnVector>15</damageOnVector>
     <autoDamageMod>0,0</autoDamageMod>
     <defenceZonesDamageMod>1,0</defenceZonesDamageMod>
@@ -213,8 +213,8 @@
     <hitVectorsCount>1</hitVectorsCount>
     <strikesCount>1</strikesCount>
     <preparationAtackTime>1,0</preparationAtackTime>
-    <timeToStrike_0>1000</timeToStrike_0>
-    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <timeToStrike>1000</timeToStrike>
+    <timeBetweenStrikes>0</timeBetweenStrikes>
     <damageOnVector>35</damageOnVector>
     <autoDamageMod>0,0</autoDamageMod>
     <defenceZonesDamageMod>1,0</defenceZonesDamageMod>
@@ -231,8 +231,8 @@
     <hitVectorsCount>8</hitVectorsCount>
     <strikesCount>2</strikesCount>
     <preparationAtackTime>0,0</preparationAtackTime>
-    <timeToStrike_0>1000</timeToStrike_0>
-    <timeBetweenStrikes_0>0</timeBetweenStrikes_0>
+    <timeToStrike>1000</timeToStrike>
+    <timeBetweenStrikes>0</timeBetweenStrikes>
     <damageOnVector>4</damageOnVector>
     <autoDamageMod>0,5</autoDamageMod>
     <defenceZonesDamageMod>1,2</defenceZonesDamageMod>

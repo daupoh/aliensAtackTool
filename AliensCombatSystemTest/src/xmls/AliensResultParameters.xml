@@ -5,8 +5,8 @@
    
   </parametersPools>
   <parameters>
-    <ttkMax></ttkMax>
-    <ttkMin></ttkMin>
-    <ttkAvg></ttkAvg>
+    <ttkMax>Время убийства максимальное</ttkMax>
+    <ttkMin>Время убийства минимальное</ttkMin>
+    <ttkAvg>Время убийства среднее</ttkAvg>
   </parameters>
 </aliensResultParameters>

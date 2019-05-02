@@ -32,6 +32,7 @@
             this.m_rbtnHumanMode = new System.Windows.Forms.RadioButton();
             this.m_rbtnAlienMode = new System.Windows.Forms.RadioButton();
             this.gbxWeaponTable = new System.Windows.Forms.GroupBox();
+            this.m_btnClearResults = new System.Windows.Forms.Button();
             this.m_btnCalculateTotalResult = new System.Windows.Forms.Button();
             this.m_btnCalculateResult = new System.Windows.Forms.Button();
             this.m_dgvWeapons = new System.Windows.Forms.DataGridView();
@@ -62,7 +63,6 @@
             this.m_tbxCombatLog = new System.Windows.Forms.TextBox();
             this.gbxResultsTable = new System.Windows.Forms.GroupBox();
             this.m_dgvResultTable = new System.Windows.Forms.DataGridView();
-            this.m_btnClearResults = new System.Windows.Forms.Button();
             this.gbxCalculatorMode.SuspendLayout();
             this.gbxWeaponTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m_dgvWeapons)).BeginInit();
@@ -131,6 +131,16 @@
             this.gbxWeaponTable.TabStop = false;
             this.gbxWeaponTable.Text = "Таблица типов оружия";
             // 
+            // m_btnClearResults
+            // 
+            this.m_btnClearResults.Location = new System.Drawing.Point(226, 296);
+            this.m_btnClearResults.Name = "m_btnClearResults";
+            this.m_btnClearResults.Size = new System.Drawing.Size(117, 23);
+            this.m_btnClearResults.TabIndex = 29;
+            this.m_btnClearResults.Text = "Очистить";
+            this.m_btnClearResults.UseVisualStyleBackColor = true;
+            this.m_btnClearResults.Click += new System.EventHandler(this.m_btnClearResults_Click);
+            // 
             // m_btnCalculateTotalResult
             // 
             this.m_btnCalculateTotalResult.Location = new System.Drawing.Point(349, 291);
@@ -148,7 +158,7 @@
             this.m_btnCalculateResult.TabIndex = 27;
             this.m_btnCalculateResult.Text = "Рассчитать показатели выбранного оружия против выбранной цели";
             this.m_btnCalculateResult.UseVisualStyleBackColor = true;
-            
+            this.m_btnCalculateResult.Click += new System.EventHandler(this.m_btnCalculateResult_Click);
             // 
             // m_dgvWeapons
             // 
@@ -416,16 +426,6 @@
             this.m_dgvResultTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.m_dgvResultTable.Size = new System.Drawing.Size(531, 208);
             this.m_dgvResultTable.TabIndex = 1;
-            // 
-            // m_btnClearResults
-            // 
-            this.m_btnClearResults.Location = new System.Drawing.Point(226, 296);
-            this.m_btnClearResults.Name = "m_btnClearResults";
-            this.m_btnClearResults.Size = new System.Drawing.Size(117, 23);
-            this.m_btnClearResults.TabIndex = 29;
-            this.m_btnClearResults.Text = "Очистить";
-            this.m_btnClearResults.UseVisualStyleBackColor = true;
-            this.m_btnClearResults.Click += new System.EventHandler(this.m_btnClearResults_Click);
             // 
             // CalculatorForm
             // 

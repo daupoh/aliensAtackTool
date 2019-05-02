@@ -17,14 +17,14 @@ namespace AliensCombatSystemTest
             alienMode,humanMode
         }
         //CalculatorMode m_eMode;
-        IList<CCombatEntity> m_lWeapons;
-        IList<CCombatEntity> m_lTargets;
-
+        IDictionary<string, ICombatEntity> m_lWeapons;
+        IDictionary<string, ICombatEntity> m_lTargets;
+        ICombatCalculator m_pAlienCalculator = new CAlienAtackCalculator();
         public CalculatorForm()
         {
             InitializeComponent();
-            m_lWeapons = new List<CCombatEntity>();
-            m_lTargets = new List<CCombatEntity>();
+            m_lWeapons = new Dictionary<string, ICombatEntity>();
+            m_lTargets = new Dictionary<string, ICombatEntity>();
             SetElementsInAlienMode();
         }
         private void SetResultTableByAliens()
@@ -130,6 +130,7 @@ namespace AliensCombatSystemTest
 
             foreach (ICombatEntity combat in combatEntities)
             {
+                m_lWeapons.Add(combat.Name, combat);
                 m_dgvWeapons.Rows[indexRows].Cells[0].Value = combat.Name;
                 for (int i = 0; i < parametersCount; i++)
                 {
@@ -148,6 +149,7 @@ namespace AliensCombatSystemTest
 
             foreach (ICombatEntity combat in combatEntities)
             {
+                m_lTargets.Add(combat.Name, combat);
                 m_dgvTargets.Rows[indexRows].Cells[0].Value = combat.Name;
                 for (int i = 0; i < parametersCount; i++)
                 {
@@ -186,6 +188,33 @@ namespace AliensCombatSystemTest
         private void m_btnClearResults_Click(object sender, EventArgs e)
         {
             m_dgvResultTable.Rows.Clear();
+        }
+
+        private void m_btnCalculateResult_Click(object sender, EventArgs e)
+        {
+            if (m_dgvWeapons.SelectedRows.Count!=0 && m_dgvTargets.SelectedRows.Count!=0)
+            {
+                string weaponName = m_dgvWeapons.SelectedRows[0].Cells[0].Value.ToString(),
+                    targetName = m_dgvTargets.SelectedRows[0].Cells[0].Value.ToString();
+                ICombatEntity weapon, target;
+                bool weaponGet = m_lWeapons.TryGetValue(weaponName, out weapon),
+                    targetGet = m_lTargets.TryGetValue(targetName, out target);
+                if (weaponGet && targetGet)
+                {                    
+                    m_pAlienCalculator.SetTarget = target;
+                    m_pAlienCalculator.SetWeapon = weapon;
+                    m_pAlienCalculator.Calculate();
+                }
+                else
+                {
+                    MessageBox.Show("Цели или Оружия с таким именем не существует");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Выделите оружие и цель.");
+            }
         }
     }
 }

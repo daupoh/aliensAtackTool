@@ -12,9 +12,9 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
 {
     class CAlienAtackCalculator : ACCombatCalculator
     {
-       
 
-        public CAlienAtackCalculator(string accuracity) : base(accuracity)
+        double m_dbTimeKnockdown = 0;
+        public CAlienAtackCalculator() : base()
         {
             
         }
@@ -33,12 +33,22 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
 
         protected override void AddParametersPool(string typeCode)
         {
-            
+            AddParameterPool_ttk();
         }
         private void AddParameterPool_ttk()
         {
-          
+            double ttkMax = getTTK("max"),
+                ttkMin = getTTK("min"),
+                ttkAvg=(ttkMax+ttkMin)/2;
+            IParameter pTtkMax = new CIntNumbParameter(ttkMax, SCXmlHelper.RowFromXml("ttkMax", "ARP", "P")),
+                        pTtkMin = new CIntNumbParameter(ttkMin, SCXmlHelper.RowFromXml("ttkMin", "ARP", "P")),
+                        pTtkAvg = new CIntNumbParameter(ttkAvg, SCXmlHelper.RowFromXml("ttkAvg", "ARP", "P"));
+            IParametersPool pTTk = new CParametersPool(SCXmlHelper.RowFromXml("ttk","ARP","PP"));
 
+            pTTk.AddParameter(pTtkMax);
+            pTTk.AddParameter(pTtkMin);
+            pTTk.AddParameter(pTtkAvg);
+            m_pCurrentCombatEntity.AddParameterPool(pTTk);
         }
         private double getTTK(string type)
         {
@@ -52,50 +62,50 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
                 baseNockdownHealthPointsRow = SCXmlHelper.RowFromXml("baseNockdownHealthPoints", "HTP", "PP"),
                 weightOfWeaponModRow = SCXmlHelper.RowFromXml("weightOfWeaponMod", "HTP", "PP"),
                 underEffectRow = SCXmlHelper.RowFromXml("underEffect", "HTP", "PP");
-            double countOfVectors = m_pCurrentCombatEntity.getParameterValueByName(
+            double countOfVectors = m_pWeapon.getParameterValueByName(
                     atackRow, SCXmlHelper.RowFromXml("hitVectorsCount", "AWP", "P")),
-                countOfStrikes = m_pCurrentCombatEntity.getParameterValueByName(
+                countOfStrikes = m_pWeapon.getParameterValueByName(
                     atackRow, SCXmlHelper.RowFromXml("strikesCount", "AWP", "P")),
-                preparation = m_pCurrentCombatEntity.getParameterValueByName(
+                preparation = m_pWeapon.getParameterValueByName(
                     atackRow, SCXmlHelper.RowFromXml("preparationAtackTime", "AWP", "P")),
-                timeToStrike = m_pCurrentCombatEntity.getParameterValueByName(
+                timeToStrike = m_pWeapon.getParameterValueByName(
                     SCXmlHelper.RowFromXml("timeOfStrikes", "AWP", "PP"), SCXmlHelper.RowFromXml("timeToStrike", "AWP", "P")),
-                cooldownStrike = m_pCurrentCombatEntity.getParameterValueByName(
+                cooldownStrike = m_pWeapon.getParameterValueByName(
                     SCXmlHelper.RowFromXml("strikesCooldowns", "AWP", "PP"), SCXmlHelper.RowFromXml("timeBetweenStrikes", "AWP", "P")),
-                dmgOnVector = m_pCurrentCombatEntity.getParameterValueByName(
+                dmgOnVector = m_pWeapon.getParameterValueByName(
                     damageRow, SCXmlHelper.RowFromXml("damageOnVector", "AWP", "P")),
-                autoDamageMod = m_pCurrentCombatEntity.getParameterValueByName(
+                autoDamageMod = m_pWeapon.getParameterValueByName(
                     damageRow, SCXmlHelper.RowFromXml("autoDamageMod", "AWP", "P")),
-                defenceZonesDamageMod = m_pCurrentCombatEntity.getParameterValueByName(
+                defenceZonesDamageMod = m_pWeapon.getParameterValueByName(
                     damageRow, SCXmlHelper.RowFromXml("defenceZonesDamageMod", "AWP", "P")),
-                periodDamage = m_pCurrentCombatEntity.getParameterValueByName(
+                periodDamage = m_pWeapon.getParameterValueByName(
                     periodDmgRow, SCXmlHelper.RowFromXml("periodDamage", "AWP", "P")),
-                periodDamageTime = m_pCurrentCombatEntity.getParameterValueByName(
+                periodDamageTime = m_pWeapon.getParameterValueByName(
                     periodDmgRow, SCXmlHelper.RowFromXml("periodDamageTime", "AWP", "P")),
-                armorDamageMod = m_pCurrentCombatEntity.getParameterValueByName(
+                armorDamageMod = m_pWeapon.getParameterValueByName(
                     SCXmlHelper.RowFromXml("armorResist", "AWP", "PP"), SCXmlHelper.RowFromXml("armorDamageMod", "AWP", "P")),
-                humanResist = m_pCurrentCombatEntity.getParameterValueByName(
+                humanResist = m_pWeapon.getParameterValueByName(
                     humansResistsRow, SCXmlHelper.RowFromXml("humanResist", "AWP", "P")),
-                synthResist = m_pCurrentCombatEntity.getParameterValueByName(
+                synthResist = m_pWeapon.getParameterValueByName(
                     humansResistsRow, SCXmlHelper.RowFromXml("synthResist", "AWP", "P")),
-                nockdownHealthMod = m_pCurrentCombatEntity.getParameterValueByName(
+                nockdownHealthMod = m_pWeapon.getParameterValueByName(
                     SCXmlHelper.RowFromXml("nockdownHealthMod", "AWP", "PP"), SCXmlHelper.RowFromXml("nockdownHealthMod", "AWP", "P")),
-                makeBleedEffect = m_pCurrentCombatEntity.getParameterValueByName(
+                makeBleedEffect = m_pWeapon.getParameterValueByName(
                     makeEffectsRow, SCXmlHelper.RowFromXml("makeBleedEffect", "AWP", "P")),
-                makeStunEffect = m_pCurrentCombatEntity.getParameterValueByName(
+                makeStunEffect = m_pWeapon.getParameterValueByName(
                     makeEffectsRow, SCXmlHelper.RowFromXml("makeStunEffect", "AWP", "P")),
 
-                baseNockdownHealthPoints = m_pCurrentCombatEntity.getParameterValueByName(
+                baseNockdownHealthPoints = m_pTarget.getParameterValueByName(
                     baseNockdownHealthPointsRow, SCXmlHelper.RowFromXml("baseNockdownHealthPoints", "HTP", "P")),
-                weightOfWeaponMod = m_pCurrentCombatEntity.getParameterValueByName(
+                weightOfWeaponMod = m_pTarget.getParameterValueByName(
                     weightOfWeaponModRow, SCXmlHelper.RowFromXml("weightOfWeaponMod", "HTP", "P")),
-                underEffectTrap = m_pCurrentCombatEntity.getParameterValueByName(
+                underEffectTrap = m_pTarget.getParameterValueByName(
                     underEffectRow, SCXmlHelper.RowFromXml("underEffectTrap", "HTP", "P")),
-                underEffectBarricade = m_pCurrentCombatEntity.getParameterValueByName(
+                underEffectBarricade = m_pTarget.getParameterValueByName(
                     underEffectRow, SCXmlHelper.RowFromXml("underEffectBarricade", "HTP", "P")),
-                underEffectDefZone = m_pCurrentCombatEntity.getParameterValueByName(
+                underEffectDefZone = m_pTarget.getParameterValueByName(
                     underEffectRow, SCXmlHelper.RowFromXml("underEffectDefZone", "HTP", "P")),
-                isHuman = m_pCurrentCombatEntity.getParameterValueByName(
+                isHuman = m_pTarget.getParameterValueByName(
                     SCXmlHelper.RowFromXml("isHuman", "HTP", "PP"), SCXmlHelper.RowFromXml("isHuman", "HTP", "P"));
 
             double maxDmgonVector = dmgOnVector * 1.7,
@@ -128,17 +138,17 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
                 for (int i = 0; i < countOfStrikes; i++)
                 {
                     timer += timeToStrike;
-                    double resist = 0;
+                    double dmgThrough = 0;
                     if (isHuman==1)
                     {
-                        resist = humanResist;
+                        dmgThrough = 1 - humanResist;
                     }
                     else
                     {
-                        resist = synthResist;
+                        dmgThrough = 1 - synthResist;
                     }
-                    double dmgAfterResist = curDmgOnVector *countOfVectors* resist
-                            + autoDmgOnVector*countOfAutoVectors*resist,
+                    double dmgAfterResist = curDmgOnVector *countOfVectors* dmgThrough
+                            + autoDmgOnVector*countOfAutoVectors*dmgThrough,
                         dmgOnArmor = dmgAfterResist*armorDamageMod,
                         dmgOnHealth = dmgAfterResist-dmgOnArmor,
                         periodDmgOnHealth=0,
@@ -176,13 +186,33 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
                             }
                         }
                         dmgOnHealth += periodDmgOnHealth;
+                        
                     }
                     hp -= dmgOnHealth;
+
+                    if (nockdownHealthMod > 0)
+                    {
+                        double baseKnockdownMod = 1;
+                        if (underEffectBarricade == 1)
+                        {
+                            baseKnockdownMod /= 2;
+                        }
+                        if (underEffectTrap == 1)
+                        {
+                            baseKnockdownMod *= 2;
+                        }
+                        double knockdownHealthBorder = (baseKnockdownMod * baseNockdownHealthPoints + weightOfWeaponMod)
+                            * nockdownHealthMod;
+                        if (100 * knockdownHealthBorder >= hp)
+                        {
+                            m_dbTimeKnockdown = timer;
+                        }
+                    }
                     timer += cooldownStrike;
                 }
              
             }
-
+            result = timer;
             return result;
         } 
 

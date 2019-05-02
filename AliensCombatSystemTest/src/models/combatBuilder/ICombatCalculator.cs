@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AliensCombatSystemTest.src.models.combatBuilder
 {
-    interface ICombatCalculator
+    interface ICombatCalculator:ICombatBuilder
     {
         ICombatEntity SetWeapon { set; }
         ICombatEntity SetTarget { set; }

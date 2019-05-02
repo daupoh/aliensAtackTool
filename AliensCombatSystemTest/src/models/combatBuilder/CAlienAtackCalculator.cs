@@ -45,9 +45,9 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
                         pTtkAvg = new CIntNumbParameter(ttkAvg, SCXmlHelper.RowFromXml("ttkAvg", "ARP", "P"));
             IParametersPool pTTk = new CParametersPool(SCXmlHelper.RowFromXml("ttk","ARP","PP"));
 
-            pTTk.AddParameter(pTtkMax);
-            pTTk.AddParameter(pTtkMin);
+            pTTk.AddParameter(pTtkMax);            
             pTTk.AddParameter(pTtkAvg);
+            pTTk.AddParameter(pTtkMin);
             m_pCurrentCombatEntity.AddParameterPool(pTTk);
         }
         private double getTTK(string type)
@@ -207,6 +207,10 @@ namespace AliensCombatSystemTest.src.models.combatBuilder
                         {
                             m_dbTimeKnockdown = timer;
                         }
+                    }
+                    if (hp<0)
+                    {
+                        break;
                     }
                     timer += cooldownStrike;
                 }

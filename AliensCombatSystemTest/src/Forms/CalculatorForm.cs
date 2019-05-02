@@ -19,22 +19,28 @@ namespace AliensCombatSystemTest
         //CalculatorMode m_eMode;
         IDictionary<string, ICombatEntity> m_lWeapons;
         IDictionary<string, ICombatEntity> m_lTargets;
+        IDictionary<string, ICombatEntity> m_lResults;
         ICombatCalculator m_pAlienCalculator = new CAlienAtackCalculator();
         public CalculatorForm()
         {
             InitializeComponent();
             m_lWeapons = new Dictionary<string, ICombatEntity>();
             m_lTargets = new Dictionary<string, ICombatEntity>();
+            m_lResults = new Dictionary<string, ICombatEntity>();
             SetElementsInAlienMode();
         }
         private void SetResultTableByAliens()
         {
+            m_lResults.Clear();
             m_dgvResultTable.Columns.Clear();
-            m_dgvResultTable.ColumnCount = SCXmlHelper.CountRowsFromXml("ARP","PP");
+            int parametersCount= SCXmlHelper.CountRowsFromXml("ARP","PP");
+            m_dgvResultTable.ColumnCount = parametersCount + 1;
+            
+            m_dgvResultTable.Columns[0].HeaderText = "Название оружия и имя цели";
 
-            for (int i = 0; i < m_dgvResultTable.Columns.Count; i++)
+            for (int i = 0; i < parametersCount; i++)
             {
-                m_dgvResultTable.Columns[i].HeaderText = SCXmlHelper.RowFromXml(i, "ARP", "PP");
+                m_dgvResultTable.Columns[i+1].HeaderText = SCXmlHelper.RowFromXml(i, "ARP", "PP");
             }
 
         }
@@ -194,6 +200,8 @@ namespace AliensCombatSystemTest
         {
             if (m_dgvWeapons.SelectedRows.Count!=0 && m_dgvTargets.SelectedRows.Count!=0)
             {
+                m_lResults.Clear();
+                m_dgvResultTable.RowCount = 0;
                 string weaponName = m_dgvWeapons.SelectedRows[0].Cells[0].Value.ToString(),
                     targetName = m_dgvTargets.SelectedRows[0].Cells[0].Value.ToString();
                 ICombatEntity weapon, target;
@@ -204,6 +212,29 @@ namespace AliensCombatSystemTest
                     m_pAlienCalculator.SetTarget = target;
                     m_pAlienCalculator.SetWeapon = weapon;
                     m_pAlienCalculator.Calculate();
+                    IList<ICombatEntity> results = m_pAlienCalculator.CombatEntities;
+                    if (results.Count == 1)
+                    {
+                        m_dgvResultTable.RowCount += results.Count;
+                        int parametersCount = SCXmlHelper.CountRowsFromXml("ARP", "PP"),
+                            indexRows = 0;
+
+                        foreach (ICombatEntity combat in results)
+                        {
+                            m_lResults.Add(combat.Name, combat);
+                            m_dgvResultTable.Rows[indexRows].Cells[0].Value = combat.Name;
+                            for (int i = 0; i < parametersCount; i++)
+                            {
+                                m_dgvResultTable.Rows[indexRows].Cells[i + 1].Value = combat.getParameterPoolViewByName(SCXmlHelper.RowFromXml(i, "ARP", "PP"));
+                            }
+                            indexRows++;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ошибка определения результатов");
+                    }
+
                 }
                 else
                 {

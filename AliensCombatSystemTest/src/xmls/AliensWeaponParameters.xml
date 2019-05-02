@@ -41,8 +41,8 @@
     <periodDamage>0</periodDamage>
     <periodDamageTime>0,0</periodDamageTime>
     <armorDamageMod>0,4</armorDamageMod>
-    <humanResist>0,6</humanResist>
-    <synthResist>0,4</synthResist>
+    <humanResist>0,4</humanResist>
+    <synthResist>0,6</synthResist>
     <nockdownHealthMod>0</nockdownHealthMod>
     <makeBleedEffect>0</makeBleedEffect>
     <makeStunEffect>0</makeStunEffect>

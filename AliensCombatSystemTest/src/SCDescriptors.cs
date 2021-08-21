@@ -12,7 +12,7 @@ namespace AliensCombatSystemTest.src
         public  enum aliensMetaClasses:byte {Slave, Hunter, Soldier,Royal};
         public enum marinesArmorTypes:byte { Titan,Composit,Suit};
         //aliens weapons
-        public static string bite = "Bite",
+        public static string bite = "Bites",
               holdBite = "HoldBite",
               strike = "Strike",
               holdStrike = "HoldStrike",
